@@ -52,7 +52,7 @@ Ask me about the choices that matter before you build it.
 
 For a local checkout, clone this repository, open it as a trusted project, and use its marketplace at `.agents/plugins/marketplace.json`. You can also add the local checkout with `codex plugin marketplace add /absolute/path/to/deeperas` and install `deeperas@deeperas`. Follow your host's plugin installation prompts.
 
-The command syntax was checked against the installed Codex CLI. A clean installation from this public repository should be checked after publication. See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins).
+A fresh installation from this public repository was checked in an isolated Codex home, and the installed skill matches the release source. See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins).
 
 ### Cursor
 

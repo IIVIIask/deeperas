@@ -29,6 +29,7 @@ test('both marketplaces resolve to the same original skill and consistent manife
     assert.equal(manifest.license, 'MIT');
   }
   assert.match(read('LICENSE'), /MIT License/);
+  assert.equal(read(`${base}/LICENSE`), read('LICENSE'), 'Installed plugin must retain the license notice');
   const skill = read(`${base}/skills/deeperas/SKILL.md`);
   assert.match(skill, /^---\r?\nname: deeperas\r?\ndescription: /);
   assert.match(skill, /DeepEras Precision - Plugin R22/);
