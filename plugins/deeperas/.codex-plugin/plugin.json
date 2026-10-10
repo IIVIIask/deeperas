@@ -1,0 +1,20 @@
+{
+  "name": "deeperas",
+  "version": "0.2.20+codex.20261010r22",
+  "description": "Clarify intent, verify facts, and refuse premature answers.",
+  "author": { "name": "IIVIIask" },
+  "homepage": "https://iiviiask.github.io/deeperas/",
+  "repository": "https://github.com/IIVIIask/deeperas",
+  "license": "MIT",
+  "skills": "./skills",
+  "interface": {
+    "displayName": "Deeperas",
+    "shortDescription": "One useful question at a time. Clearer answers.",
+    "longDescription": "Resolve material choices with one explained option menu at a time. Preserve context and check available evidence before answering. The X and List shorthand controls are available in ChatGPT only; natural-language requests work across hosts.",
+    "developerName": "IIVIIask",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use Deeperas to clarify the choices that matter before answering."
+  },
+  "keywords": ["clarification", "planning", "research", "productivity"]
+}

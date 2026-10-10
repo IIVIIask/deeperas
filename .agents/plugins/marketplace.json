@@ -1,0 +1,10 @@
+{
+  "name": "deeperas",
+  "interface": { "displayName": "Deeperas" },
+  "plugins": [{
+    "name": "deeperas",
+    "source": { "source": "local", "path": "./plugins/deeperas" },
+    "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+    "category": "Productivity"
+  }]
+}

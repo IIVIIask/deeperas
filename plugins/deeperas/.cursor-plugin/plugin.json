@@ -1,0 +1,11 @@
+{
+  "name": "deeperas",
+  "version": "0.2.20+codex.20261010r22",
+  "description": "One useful question at a time. Clarify intent and check available evidence before acting.",
+  "author": { "name": "IIVIIask" },
+  "homepage": "https://iiviiask.github.io/deeperas/",
+  "repository": "https://github.com/IIVIIask/deeperas",
+  "license": "MIT",
+  "skills": "./skills",
+  "keywords": ["clarification", "planning", "research", "productivity"]
+}

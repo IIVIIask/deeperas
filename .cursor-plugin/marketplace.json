@@ -1,0 +1,6 @@
+{
+  "name": "deeperas",
+  "owner": { "name": "IIVIIask" },
+  "metadata": { "description": "Deeperas: clarify intent, check evidence, and deliver." },
+  "plugins": [{ "name": "deeperas", "source": "plugins/deeperas" }]
+}
