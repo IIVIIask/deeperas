@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+  <title id="title">Deeperas — one useful question at a time</title>
+  <desc id="desc">A green Deeperas banner with the workflow Clarify, Verify, Deliver and an illustration of a question leading to a clearer direction.</desc>
+  <rect width="1280" height="320" rx="20" fill="#101916"/>
+  <circle cx="1110" cy="90" r="270" fill="#172820"/>
+  <circle cx="1130" cy="330" r="190" fill="#20372a"/>
+  <rect x="56" y="47" width="48" height="48" rx="13" fill="#236b4d"/>
+  <path d="M69 59h11c10 0 16 5 16 12s-6 12-16 12H69V59Zm7 6v12h4c5 0 8-2 8-6s-3-6-8-6h-4Z" fill="#d4ec9c"/>
+  <text x="120" y="80" fill="#d4ec9c" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="2">ONE USEFUL QUESTION AT A TIME</text>
+  <text x="56" y="182" fill="#f8faf5" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" letter-spacing="-3">Deeperas<tspan fill="#d4ec9c">.</tspan></text>
+  <text x="60" y="230" fill="#b6c5bb" font-family="Arial, Helvetica, sans-serif" font-size="22">Clarify intent. Check evidence. Deliver.</text>
+  <text x="60" y="278" fill="#91aa98" font-family="Arial, Helvetica, sans-serif" font-size="14">A portable AI skill for Codex and Cursor</text>
+  <rect x="774" y="64" width="384" height="88" rx="14" fill="#f4f8eb"/>
+  <text x="798" y="96" fill="#53655c" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" letter-spacing="1.8">START WITH THE QUESTION</text>
+  <text x="798" y="126" fill="#172a22" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">What are we actually building?</text>
+  <path d="M806 162v22h22" fill="none" stroke="#94b781" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m823 178 6 6-6 6" fill="none" stroke="#94b781" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="850" y="178" width="344" height="81" rx="14" fill="#d4ec9c"/>
+  <circle cx="876" cy="207" r="9" fill="#236b4d"/>
+  <path d="m872 207 3 3 5-6" fill="none" stroke="#f4f8eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="896" y="212" fill="#172a22" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700">A choice made. A clearer direction.</text>
+  <text x="873" y="239" fill="#425846" font-family="Arial, Helvetica, sans-serif" font-size="13">Then get to work.</text>
+</svg>

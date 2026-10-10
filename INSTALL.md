@@ -1,0 +1,91 @@
+# Install Deeperas
+
+Use a recent AI host with plugin or Agent Skills support. Deeperas adds one shared `SKILL.md`; your host provides the model and any tools.
+
+Choose the plugin or local skill method for a given host. Installing both can duplicate the instructions.
+
+## Codex
+
+### From GitHub
+
+```sh
+codex plugin marketplace add IIVIIask/deeperas
+codex plugin add deeperas@deeperas
+```
+
+Start a new conversation and say “Use Deeperas to help me plan this project.”
+
+A fresh installation from this public repository has been checked in an isolated Codex home. The installed skill matches the release source.
+
+### From a local checkout
+
+```sh
+git clone https://github.com/IIVIIask/deeperas.git
+cd deeperas
+codex plugin marketplace add .
+codex plugin add deeperas@deeperas
+```
+
+The repository marketplace lives at `.agents/plugins/marketplace.json`. You can also open the checkout as a trusted project and follow the host's plugin installation prompts.
+
+See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins) for marketplace behavior and host-specific installation details.
+
+## Cursor
+
+### As a plugin
+
+1. Open **Customize** in a current Cursor version.
+2. Choose **From GitHub Repository** and enter `https://github.com/IIVIIask/deeperas`.
+3. Install **Deeperas**.
+4. Start a new Agent conversation. Invoke `/deeperas` or explicitly ask to use Deeperas.
+
+Some versions show repository import under plugin settings. The repository supplies `.cursor-plugin/marketplace.json` and a per-plugin Cursor manifest. The same original skill is shared with Codex.
+
+### As a local skill
+
+1. [Download this repository as a ZIP](https://github.com/IIVIIask/deeperas/archive/refs/heads/main.zip) and extract it.
+2. Find `plugins/deeperas/skills/deeperas/`.
+3. Copy that whole `deeperas` folder into one of the locations below.
+
+| Scope | The resulting file |
+| --- | --- |
+| This project | `.cursor/skills/deeperas/SKILL.md` |
+| Your local user | `~/.cursor/skills/deeperas/SKILL.md` |
+
+`~` means your home directory. Create the destination folders if they do not exist. Keep the package's [MIT license notice](plugins/deeperas/LICENSE) with your copy.
+
+Start an Agent conversation and type `/deeperas` to invoke the skill.
+
+The package follows [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [Agent Skills guide](https://cursor.com/docs/skills). **An actual Cursor installation and conversation test is still pending.**
+
+## Your first conversation
+
+```text
+Use Deeperas to help me plan a page for my plugin.
+Ask me about the choices that matter before you build it.
+```
+
+You can choose an option, answer in your own words, or delegate a specific choice. For example:
+
+```text
+Choose the visual style for me, but ask before deciding the user flow.
+```
+
+To end questions for this request, say:
+
+```text
+Answer now with what you can support from the information available.
+```
+
+That does not select missing targets or authorize external actions. To stop using the workflow, say “Stop using Deeperas for this task.”
+
+## Troubleshooting
+
+| Symptom | Check |
+| --- | --- |
+| The skill does not appear | Confirm the plugin is installed/enabled, or that the local skill ends at `deeperas/SKILL.md`. Start a new conversation. |
+| Cursor has no repository import option | Use the local skill method and check your version's official documentation. |
+| The assistant does not follow the workflow | Invoke it explicitly, confirm the loaded version, and share a minimal example in an issue. |
+| You see duplicated instructions | Keep one installation method per host. |
+
+[Back to the README](README.md) · [Power-user guide](docs/POWER-USERS.md)

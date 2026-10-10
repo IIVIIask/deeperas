@@ -1,156 +1,143 @@
-<p align="center"><img src="docs/assets/mark.svg" width="68" alt="Deeperas logo"></p>
-<h1 align="center">Deeperas</h1>
-<p align="center"><strong>Better answers begin with clarity.</strong></p>
-<p align="center">A portable AI skill that guides your assistant to clarify intent,<br>check available evidence, and deliver work that fits your request.</p>
-<p align="center"><a href="https://iiviiask.github.io/deeperas/">Explore the website</a> · <a href="#installation">Install</a> · <a href="#for-power-users">For power users</a> · <a href="https://github.com/IIVIIask/deeperas/issues">Feedback</a></p>
+![Deeperas — one useful question at a time](assets/deeperas.svg)
+
+# Deeperas
+
+**Ask what matters. Check the evidence. Then do the work.**
+
+A skill that guides your AI assistant to understand what you want before it commits to an answer or starts building.
+
+You describe the idea. Deeperas helps the assistant uncover the choices that actually change the result, one focused question at a time. It explains the options, investigates facts with the tools it has, and proceeds when the direction is clear.
+
+Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks should get done.
+
+[Install](#installation) · [See an example](#before-and-after) · [How it works](#how-it-works) · [Power users](#for-power-users) · [MIT license](LICENSE)
 
 ---
 
-## What is Deeperas?
-
-You ask your AI to build a website. It starts writing code. But did you want a product page, a booking site, or a portfolio?
-
-Deeperas gives your assistant a clarification workflow: ask **one useful question at a time**, explain the meaningful options, and settle choices before work depends on them. Facts the assistant can investigate should come from its available tools and sources.
-
-When your request is already clear, or you explicitly delegate a decision, the assistant should proceed. You do not need to prepare a perfect prompt first.
-
-### A quick example
-
-> **You:** Help me build a website.
->
-> **Deeperas:** What should visitors be able to do?
->
-> **A.** Understand your product and try it — a product page with a clear next step.
->
-> **B.** Find and book your services — a service page built around enquiries.
->
-> **C.** Explore your work — a portfolio that puts your projects first.
->
-> **You:** A. A product page, for people new to the tool.
-
-This is an illustrative conversation, not a captured test result. Deeperas can ask further questions if important decisions remain.
-
 ## Installation
-
-Use a recent version of your host with plugin or Agent Skills support. Deeperas adds one instruction-based skill; it does not require a separate Deeperas service, API key, or MCP server.
 
 ### Codex
 
-Run with the Codex CLI:
+Run these two commands:
 
 ```sh
 codex plugin marketplace add IIVIIask/deeperas
 codex plugin add deeperas@deeperas
 ```
 
-Start a new conversation and say:
+Start a new conversation, then ask:
 
 ```text
-Use Deeperas to help me plan a website for my project.
-Ask me about the choices that matter before you build it.
+Use Deeperas to help me plan my project.
+Ask me about the choices that matter before you start building.
 ```
-
-For a local checkout, clone this repository, open it as a trusted project, and use its marketplace at `.agents/plugins/marketplace.json`. You can also add the local checkout with `codex plugin marketplace add /absolute/path/to/deeperas` and install `deeperas@deeperas`. Follow your host's plugin installation prompts.
-
-A fresh installation from this public repository was checked in an isolated Codex home, and the installed skill matches the release source. See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/build/plugins).
 
 ### Cursor
 
-**Repository installation:** open **Customize**, choose **From GitHub Repository**, add `https://github.com/IIVIIask/deeperas`, then install **Deeperas**. Start a new Agent conversation and invoke `/deeperas` or ask the assistant to use Deeperas.
+Open **Customize → From GitHub Repository**, add the URL below, and install **Deeperas**:
 
-**Local skill alternative:** [download the repository ZIP](https://github.com/IIVIIask/deeperas/archive/refs/heads/main.zip), extract it, and copy the folder `plugins/deeperas/skills/deeperas/` to either:
+```text
+https://github.com/IIVIIask/deeperas
+```
 
-| Location | Availability |
+Start a new Agent conversation and invoke `/deeperas`, or ask the assistant to use Deeperas.
+
+Prefer to copy the skill into a project? See the [step-by-step installation guide](INSTALL.md), including a local Cursor option.
+
+**Compatibility:** Codex installation from this repository has been tested. The Cursor package follows Cursor's documented formats; an in-app installation test is still pending. Use a recent host version with plugin or Agent Skills support.
+
+## Before and after
+
+The prompt sounds simple:
+
+> Help me plan a page for my plugin.
+
+But “a page” can mean different things. A rushed assistant may pick one and start writing. Deeperas is designed to surface that choice first:
+
+> **Where should people read it?**
+>
+> **A. Inside the GitHub repository** — a README with installation, examples, and documentation.
+>
+> **B. On a standalone website** — a separate presentation page for visitors.
+>
+> **C. Both** — a website and repository documentation, with a shared explanation.
+
+Choose **A**, and the assistant has a concrete direction: a repository presentation. It can then clarify the audience and other decisions that matter before producing the work.
+
+*Illustrative example, not a benchmark or a captured model response. More questions may follow when important choices remain.*
+
+## When to use it
+
+| You want to… | Deeperas guides the assistant to… |
 | --- | --- |
-| `.cursor/skills/deeperas/SKILL.md` | This project |
-| `~/.cursor/skills/deeperas/SKILL.md` | Your local user |
+| Plan a project or a feature | Establish the goal, audience, constraints, and decisions the next step depends on. |
+| Compare approaches | Separate your preferences from facts it can investigate. |
+| Research a question | Check available evidence and make remaining gaps clear. |
+| Work through a complex request | Keep settled choices, track dependencies, and revisit only what new evidence changes. |
 
-`~` means your home directory. Create the folders if needed. In Agent chat, type `/deeperas` to invoke the skill. Your version may show repository import under plugin settings; use the local skill option when repository import is unavailable.
+It works through ordinary conversation. You can choose an option, explain your own answer, or delegate a decision. It is useful beyond coding: writing, research, planning, and everyday decisions all involve unclear intent.
 
-The repository includes `.cursor-plugin/marketplace.json` and a Cursor manifest beside the portable plugin. These follow [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [Agent Skills guide](https://cursor.com/docs/skills). An actual Cursor installation and conversation test is still pending.
+## How it works
 
-## Using it
+**1. Clarify.** Ask one focused question about the most consequential unresolved choice. Explain what each option means. Avoid deciding important preferences silently.
 
-Describe your goal in ordinary language. Answer a question by choosing an option or replying in your own words. You can also delegate a particular decision:
+**2. Verify.** Use available files, tools, and sources to investigate discoverable facts. Ask you about your intent, rather than things the assistant can look up itself.
 
-```text
-Use Deeperas. Help me plan this feature.
-Choose the visual style for me, but ask before deciding the user flow.
-```
+**3. Deliver.** Answer or act when the choices that work depends on are settled. Check results before claiming completion, and identify what the evidence does not establish.
 
-To end questions for the current request, say:
-
-```text
-Answer now with what you can support from the information available.
-```
-
-That does not select a missing target or authorize an external action. The assistant should provide supported results and identify the remaining limits.
-
-Good uses include planning projects, defining a feature, comparing approaches, researching a question, or working through connected requirements. For a vague creation idea, the instructions first check whether you want to begin planning.
+For projects, decisions can be staged. The assistant may continue independent work while a question is open, provided the answer cannot change that work's inputs or method.
 
 ## For power users
 
-### The workflow
+One portable skill. Readable instructions. Your existing AI host does the work.
 
-1. **Clarify:** resolve explicit alternatives and material uncertainty. Keep settled choices unless new evidence changes them.
-2. **Verify:** investigate discoverable facts with available files, tools, and sources. Separate evidence from assumptions.
-3. **Deliver:** answer or act only where the required choices and permissions are established. Verify artifacts and resulting state before claiming completion.
+| What you want | What to say |
+| --- | --- |
+| Start using it | “Use Deeperas to help me plan this change.” |
+| Delegate a particular choice | “Choose the visual style for me, but ask about the user flow.” |
+| End the questions for this request | “Answer now with what you can support.” |
+| Stop using the workflow | “Stop using Deeperas for this task.” |
 
-Project decisions can be staged: later choices remain pending until the work needs them. Independent work may continue while a question is open, provided every plausible answer leaves its inputs and method unaffected.
+“Answer now” does not fill in missing targets or grant permission for external actions. The assistant should return supported results and explain any remaining limits.
 
-### What is inside?
+The [power-user guide](docs/POWER-USERS.md) explains the clarification gate, project decision records, host-specific controls, package structure, and verification boundaries. You can also [read the complete skill](plugins/deeperas/skills/deeperas/SKILL.md).
 
-```text
-deeperas/
-├── .agents/plugins/marketplace.json   # Codex repository marketplace
-├── .cursor-plugin/marketplace.json   # Cursor repository marketplace
-├── plugins/deeperas/
-│   ├── plugin.json                   # Portable Agent Plugins manifest
-│   ├── .codex-plugin/plugin.json     # Codex display and discovery metadata
-│   ├── .cursor-plugin/plugin.json    # Cursor display and discovery metadata
-│   └── skills/deeperas/SKILL.md       # The shared, original skill
-├── docs/                             # Static GitHub Pages website
-└── tests/site.test.mjs                # Package, site, and copy-button checks
-```
+## FAQ
 
-The shared skill is **R22**, version `0.2.20+codex.20261010r22`. The website shows the shorter label `v0.2.20`. The skill's instructions are preserved from the existing plugin; this repository adds presentation and distribution metadata.
+<details>
+<summary><strong>Will it interview me about everything?</strong></summary>
 
-Read [the full skill](plugins/deeperas/skills/deeperas/SKILL.md) to inspect its actual rules.
+The instructions target meaningful uncertainty and explicit, unselected alternatives. A clear request or an explicitly delegated choice should proceed directly. For a vague creation idea, it first checks whether you want to begin planning.
 
-### Project decision records
+</details>
 
-In Codex projects, Deeperas calls for a small `Deeperas_Decisions.txt` that records confirmed decisions, constraints, and pending issues. In a Git project, the instructions require the file to be untracked and demonstrably ignored before writing it. If that cannot be established, decisions remain in the conversation. The record does not create a global memory service or guarantee confidentiality or backup.
+<details>
+<summary><strong>Do I need to know how to code?</strong></summary>
 
-### Host-specific controls
+No. After installation, describe your goal in normal language. Answer in your own words or select an option. The workflow is not limited to software projects.
 
-| Control | ChatGPT | Codex / Cursor |
-| --- | --- | --- |
-| Ordinary-language clarification and delegation | Defined by the skill | Defined by the skill |
-| “Answer now…” | Ends questions for the current cycle | Ends questions for the current cycle |
-| Bare `X` | Supported-results shortcut | No special meaning |
-| Bare `List` after a final answer | Reusable prompt from gathered requirements | No special meaning |
+</details>
 
-These are instruction-defined behaviors, not new buttons or platform commands. This GitHub repository is direct distribution; it is not a claim of approval or listing in the public OpenAI or Cursor directories.
+<details>
+<summary><strong>Does it need an API key or another service?</strong></summary>
 
-### Boundaries and privacy
+Deeperas itself does not. It contains instructions and plugin manifests, with no Deeperas server, custom MCP server, hooks, or telemetry code. Your AI platform still handles the model, conversation, files, and tools under its own settings and permissions.
 
-The package contains instructions and manifests, with no Deeperas backend, custom MCP server, hooks, or telemetry implementation. Your host still processes conversations and may access files, browse, or call tools under its existing settings and permissions.
+</details>
 
-Deeperas does not provide browsing or verification capabilities by itself. Its results depend on the host, model, available evidence, and instruction following. It cannot guarantee accuracy or override platform rules.
+<details>
+<summary><strong>Does it guarantee correct answers?</strong></summary>
 
-## Website and checks
+No. Verification depends on your host's available tools and evidence. Model behavior can vary; the skill guides instruction following and does not override platform rules.
 
-The site is buildless HTML, CSS, and JavaScript. GitHub Pages serves `docs/` from the `main` branch. No dependency installation is required.
+</details>
 
-```sh
-node --test tests/site.test.mjs
-python -m http.server 4173 --directory docs
-```
+## Feedback and contributions
 
-Open `http://localhost:4173` to preview the site. The tests check distribution paths, consistent plugin versions, local links, and both clipboard success and failure behavior.
+[Open an issue](https://github.com/IIVIIask/deeperas/issues) with your host and version, a small example prompt, and what you expected versus what happened. Remove private information before posting.
 
-To report a problem, [open an issue](https://github.com/IIVIIask/deeperas/issues) with your host, version, prompt, expected behavior, and actual behavior. Remove private information before posting.
+Changes to the instructions should include an example that makes the intended behavior easy to judge. For local checks, see [development](docs/POWER-USERS.md#development).
 
 ## License
 
-[MIT](LICENSE) · Copyright © 2026 IIVIIask. You may use, modify, and redistribute the plugin, including commercially, while retaining the copyright notice and license.
+[MIT](LICENSE) · Copyright © 2026 IIVIIask.
