@@ -65,7 +65,6 @@ These are instruction-defined behaviors, not new platform buttons. This reposito
 deeperas/
 ├── README.md                         # Main presentation and quick start
 ├── INSTALL.md                        # Detailed host installation instructions
-├── assets/deeperas.svg               # README banner
 ├── docs/POWER-USERS.md               # Detailed behavior and boundaries
 ├── .agents/plugins/marketplace.json  # Codex repository marketplace
 ├── .cursor-plugin/marketplace.json   # Cursor repository marketplace
@@ -73,6 +72,7 @@ deeperas/
 │   ├── plugin.json                  # Portable Agent Plugins manifest
 │   ├── .codex-plugin/plugin.json    # Codex display and discovery metadata
 │   ├── .cursor-plugin/plugin.json   # Cursor display and discovery metadata
+│   ├── assets/                      # Blue icon and light/dark README logos
 │   ├── LICENSE                      # Notice retained in installed packages
 │   └── skills/deeperas/
 │       ├── SKILL.md                 # Shared core instructions
@@ -80,7 +80,7 @@ deeperas/
 └── tests/package.test.mjs            # Distribution checks
 ```
 
-The published skill is **R33**, version `0.2.31+codex.20261011r33`. The core and reference files are preserved from that release; the manifests provide host-specific discovery and display metadata.
+The package version is `0.2.32+codex.20261011r33`; the skill remains **R33**. The core and reference files are preserved from that release; the manifests provide host-specific discovery and display metadata.
 
 ## Boundaries and privacy
 
@@ -96,6 +96,6 @@ No dependency installation is required for the package checks:
 node --test tests/package.test.mjs
 ```
 
-The checks verify that both marketplaces resolve to the same skill, manifests share the R33 version, the five required references are present and linked by the core, and the installable package retains the MIT notice. Document instruction changes with a small, judgeable example. Report host-specific behavior with the host name, version, prompt, and expected versus actual result.
+The checks verify that both marketplaces resolve to the same skill, manifests share the R33 version, the five required references are present and linked by the core, the installable package retains the MIT notice, and both hosts reference the bundled square icon. The README selects a light or dark wordmark for the reader’s theme. Document instruction changes with a small, judgeable example. Report host-specific behavior with the host name, version, prompt, and expected versus actual result.
 
 [Back to the README](../README.md) · [Installation](../INSTALL.md)

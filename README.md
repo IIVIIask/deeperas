@@ -1,4 +1,9 @@
-![Deeperas — one useful question at a time](assets/deeperas.svg)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="plugins/deeperas/assets/logo-dark.png">
+    <img src="plugins/deeperas/assets/logo.png" alt="Deeperas — a blue D with inward depth" width="240">
+  </picture>
+</p>
 
 # Deeperas
 
@@ -10,7 +15,7 @@ You describe the idea. Deeperas helps the assistant uncover the choices that act
 
 Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks should get done.
 
-**Current release: R33** · `0.2.31+codex.20261011r33` · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+**Current package:** `0.2.32+codex.20261011r33` · **Skill: R33** · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [See an example](#before-and-after) · [How it works](#how-it-works) · [Power users](#for-power-users) · [MIT license](LICENSE)
 

@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Use a recent AI host with plugin or Agent Skills support. The current release is **R33**, version `0.2.31+codex.20261011r33`. It includes one core `SKILL.md` and five required files in `references/`; your host provides the model and any tools.
+Use a recent AI host with plugin or Agent Skills support. The current package is `0.2.32+codex.20261011r33`, using the unchanged **R33** skill. It includes one core `SKILL.md` and five required files in `references/`; your host provides the model and any tools.
 
 Choose the plugin or local skill method for a given host. Installing both can duplicate the instructions.
 

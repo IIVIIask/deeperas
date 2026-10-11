@@ -19,7 +19,7 @@ test('both marketplaces resolve to R33, matching manifests, and MIT notice', () 
     .map((file) => json(`${base}/${file}`));
   for (const manifest of manifests) {
     assert.equal(manifest.name, 'deeperas');
-    assert.equal(manifest.version, '0.2.31+codex.20261011r33');
+    assert.equal(manifest.version, '0.2.32+codex.20261011r33');
   }
   for (const manifest of manifests.slice(1)) {
     assert.ok(existsSync(join(root, base, manifest.skills, 'deeperas', 'SKILL.md')));
@@ -47,4 +47,24 @@ test('the core links to all five bundled, nonempty reference files', () => {
     .map((match) => match[1]).sort();
   assert.deepEqual(links, required);
   for (const file of required) assert.ok(read(`${skill}/${file}`).trim().length > 0);
+});
+
+test('both hosts receive the same square icon and the README includes both themes', () => {
+  const base = 'plugins/deeperas';
+  const codex = json(`${base}/.codex-plugin/plugin.json`).interface;
+  const cursor = json(`${base}/.cursor-plugin/plugin.json`);
+  assert.equal(codex.logo, './assets/icon.png');
+  assert.equal(codex.composerIcon, codex.logo);
+  assert.equal(cursor.logo, 'assets/icon.png');
+  for (const file of ['icon.png', 'logo.png', 'logo-dark.png']) {
+    const png = readFileSync(join(root, base, 'assets', file));
+    assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+    const width = png.readUInt32BE(16);
+    const height = png.readUInt32BE(20);
+    assert.ok(width >= 48 && height >= 48 && width <= 4096 && height <= 4096);
+    assert.ok(png.length <= 5 * 1024 * 1024);
+    assert.equal(png[25], 6, 'Transparent RGBA asset');
+    if (file === 'icon.png') assert.equal(width, height);
+    else assert.ok(read('README.md').includes(`${base}/assets/${file}`));
+  }
 });
