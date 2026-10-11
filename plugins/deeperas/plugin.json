@@ -1,6 +1,6 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "deeperas",
-  "version": "0.2.20+codex.20261010r22",
+  "version": "0.2.31+codex.20261011r33",
   "description": "Clarify intent, verify facts, and refuse premature answers."
 }

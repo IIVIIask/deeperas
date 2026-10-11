@@ -1,6 +1,6 @@
 {
   "name": "deeperas",
-  "version": "0.2.20+codex.20261010r22",
+  "version": "0.2.31+codex.20261011r33",
   "description": "Clarify intent, verify facts, and refuse premature answers.",
   "author": { "name": "IIVIIask" },
   "homepage": "https://github.com/IIVIIask/deeperas#readme",
@@ -9,8 +9,8 @@
   "skills": "./skills",
   "interface": {
     "displayName": "Deeperas",
-    "shortDescription": "One useful question at a time. Clearer answers.",
-    "longDescription": "Resolve material choices with one explained option menu at a time. Preserve context and check available evidence before answering. The X and List shorthand controls are available in ChatGPT only; natural-language requests work across hosts.",
+    "shortDescription": "One useful question at a time",
+    "longDescription": "Resolve explicit alternatives and material choices with one explained question at a time. Check available evidence before answering or acting. R33 includes a core skill and five required topic references. X and List shorthand controls are ChatGPT-only; natural-language requests work across hosts.",
     "developerName": "IIVIIask",
     "category": "Productivity",
     "capabilities": [],

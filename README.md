@@ -10,6 +10,8 @@ You describe the idea. Deeperas helps the assistant uncover the choices that act
 
 Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks should get done.
 
+**Current release: R33** · `0.2.31+codex.20261011r33` · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+
 [Install](#installation) · [See an example](#before-and-after) · [How it works](#how-it-works) · [Power users](#for-power-users) · [MIT license](LICENSE)
 
 ---
@@ -89,7 +91,7 @@ For projects, decisions can be staged. The assistant may continue independent wo
 
 ## For power users
 
-One portable skill. Readable instructions. Your existing AI host does the work.
+One portable skill bundle. Readable instructions. Your existing AI host does the work.
 
 | What you want | What to say |
 | --- | --- |
@@ -100,9 +102,18 @@ One portable skill. Readable instructions. Your existing AI host does the work.
 
 “Answer now” does not fill in missing targets or grant permission for external actions. The assistant should return supported results and explain any remaining limits.
 
-The [power-user guide](docs/POWER-USERS.md) explains the clarification gate, project decision records, host-specific controls, package structure, and verification boundaries. You can also [read the complete skill](plugins/deeperas/skills/deeperas/SKILL.md).
+R33 separates the [core workflow](plugins/deeperas/skills/deeperas/SKILL.md) from five required topic references. The plugin includes all six files; when installing manually, copy the whole skill folder.
+
+The [power-user guide](docs/POWER-USERS.md) explains the clarification gate, project decision records, host-specific controls, [required references](docs/POWER-USERS.md#the-r33-skill-bundle), and verification boundaries.
 
 ## FAQ
+
+<details>
+<summary><strong>Can I copy just SKILL.md?</strong></summary>
+
+R33 needs the matching `references/` folder as well. Plugin installation includes it automatically. For a manual installation, copy the entire `deeperas` skill folder using the [installation guide](INSTALL.md).
+
+</details>
 
 <details>
 <summary><strong>Will it interview me about everything?</strong></summary>
