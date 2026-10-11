@@ -19,7 +19,7 @@ test('both marketplaces resolve to R33, matching manifests, and MIT notice', () 
     .map((file) => json(`${base}/${file}`));
   for (const manifest of manifests) {
     assert.equal(manifest.name, 'deeperas');
-    assert.equal(manifest.version, '0.2.32+codex.20261011r33');
+    assert.equal(manifest.version, '0.2.34+codex.20261011r33');
   }
   for (const manifest of manifests.slice(1)) {
     assert.ok(existsSync(join(root, base, manifest.skills, 'deeperas', 'SKILL.md')));
@@ -31,6 +31,8 @@ test('both marketplaces resolve to R33, matching manifests, and MIT notice', () 
   assert.match(read(`${base}/skills/deeperas/SKILL.md`), /^---\r?\nname: deeperas\r?\ndescription: /);
   assert.match(read(`${base}/skills/deeperas/SKILL.md`), /DeepEras Precision - Plugin R33/);
   assert.ok(manifests[1].interface.shortDescription.length <= 30);
+  assert.deepEqual(manifests[0].extensions['com.openai'].interface, manifests[1].interface,
+    'Portable OpenAI presentation must preserve the complete compatibility interface');
   assert.equal(codex.plugins[0].policy.installation, 'AVAILABLE');
 });
 

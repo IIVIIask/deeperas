@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Use a recent AI host with plugin or Agent Skills support. The current package is `0.2.32+codex.20261011r33`, using the unchanged **R33** skill. It includes one core `SKILL.md` and five required files in `references/`; your host provides the model and any tools.
+Use a recent AI host with plugin or Agent Skills support. The current package is `0.2.34+codex.20261011r33`, using the unchanged **R33** skill. It includes one core `SKILL.md` and five required files in `references/`; your host provides the model and any tools.
 
 Choose the plugin or local skill method for a given host. Installing both can duplicate the instructions.
 
@@ -35,8 +35,8 @@ See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/buil
 ### As a plugin
 
 1. Open **Customize** in a current Cursor version.
-2. Choose **From GitHub Repository** and enter `https://github.com/IIVIIask/deeperas`.
-3. Install **Deeperas**.
+2. Choose **+ Add → From GitHub Repository**, enter `https://github.com/IIVIIask/deeperas`, and import the marketplace.
+3. Find **Deeperas** and click **Add** to install it.
 4. Start a new Agent conversation. Invoke `/deeperas` or explicitly ask to use Deeperas.
 
 Some versions show repository import under plugin settings. The repository supplies `.cursor-plugin/marketplace.json` and a per-plugin Cursor manifest. Cursor and Codex receive the same R33 skill bundle.
@@ -58,7 +58,13 @@ The installed skill folder must contain `SKILL.md` and all five reference files.
 
 Start an Agent conversation and type `/deeperas` to invoke the skill.
 
-The package follows [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [Agent Skills guide](https://cursor.com/docs/skills). **An actual Cursor installation and conversation test is still pending.**
+The package follows [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [Agent Skills guide](https://cursor.com/docs/skills).
+
+## Tested behavior and limits
+
+On October 11, 2026, the GitHub package `0.2.32+codex.20261011r33` was imported and installed in Cursor 3.24.12. The blue D appeared in the plugin list and details in both light and dark themes. “Try in Chat” loaded the skill and returned a clarification question. This was one smoke test, not a full behavioral evaluation; `/deeperas` invocation and Cursor's update flow were not separately tested. The current package keeps the same R33 skill and image bytes.
+
+Codex repository installation checks verify the skill files, MIT notice, icon paths, and image bytes. In the separate private account-plugin release `0.2.34+codex.20261011r33`, Codex desktop and ChatGPT still displayed a generic icon despite the correct bundled PNG. Its rendered logo remains unresolved; package validation alone does not prove the account UI uses the image.
 
 ## Updating an existing installation
 

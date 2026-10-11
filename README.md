@@ -15,7 +15,7 @@ You describe the idea. Deeperas helps the assistant uncover the choices that act
 
 Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks should get done.
 
-**Current package:** `0.2.32+codex.20261011r33` · **Skill: R33** · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+**Current package:** `0.2.34+codex.20261011r33` · **Skill: R33** · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [See an example](#before-and-after) · [How it works](#how-it-works) · [Power users](#for-power-users) · [MIT license](LICENSE)
 
@@ -41,7 +41,7 @@ Ask me about the choices that matter before you start building.
 
 ### Cursor
 
-Open **Customize → From GitHub Repository**, add the URL below, and install **Deeperas**:
+Open **Customize → + Add → From GitHub Repository**, import the URL below, then add **Deeperas**:
 
 ```text
 https://github.com/IIVIIask/deeperas
@@ -51,7 +51,7 @@ Start a new Agent conversation and invoke `/deeperas`, or ask the assistant to u
 
 Prefer to copy the skill into a project? See the [step-by-step installation guide](INSTALL.md), including a local Cursor option.
 
-**Compatibility:** Codex installation from this repository has been tested. The Cursor package follows Cursor's documented formats; an in-app installation test is still pending. Use a recent host version with plugin or Agent Skills support.
+**Compatibility:** Codex repository installation has been tested. In Cursor 3.24.12, GitHub import, installation, the blue logo in light and dark themes, and a “Try in Chat” skill invocation were checked. See [tested behavior and limits](INSTALL.md#tested-behavior-and-limits). Use a recent host version with plugin or Agent Skills support.
 
 ## Before and after
 

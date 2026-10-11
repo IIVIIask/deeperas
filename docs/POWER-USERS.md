@@ -69,8 +69,8 @@ deeperas/
 ├── .agents/plugins/marketplace.json  # Codex repository marketplace
 ├── .cursor-plugin/marketplace.json   # Cursor repository marketplace
 ├── plugins/deeperas/
-│   ├── plugin.json                  # Portable Agent Plugins manifest
-│   ├── .codex-plugin/plugin.json    # Codex display and discovery metadata
+│   ├── plugin.json                  # Portable manifest and OpenAI presentation
+│   ├── .codex-plugin/plugin.json    # Matching Codex compatibility metadata
 │   ├── .cursor-plugin/plugin.json   # Cursor display and discovery metadata
 │   ├── assets/                      # Blue icon and light/dark README logos
 │   ├── LICENSE                      # Notice retained in installed packages
@@ -80,7 +80,7 @@ deeperas/
 └── tests/package.test.mjs            # Distribution checks
 ```
 
-The package version is `0.2.32+codex.20261011r33`; the skill remains **R33**. The core and reference files are preserved from that release; the manifests provide host-specific discovery and display metadata.
+The package version is `0.2.34+codex.20261011r33`; the skill remains **R33**. The core and reference files are preserved from that release. The root manifest supplies OpenAI presentation through `extensions.com.openai.interface`; its complete interface matches the Codex compatibility overlay. Cursor has its own manifest and receives the same skill and icon.
 
 ## Boundaries and privacy
 

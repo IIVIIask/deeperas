@@ -1,6 +1,6 @@
 {
   "name": "deeperas",
-  "version": "0.2.32+codex.20261011r33",
+  "version": "0.2.34+codex.20261011r33",
   "description": "Clarify intent, verify facts, and refuse premature answers.",
   "author": { "name": "IIVIIask" },
   "homepage": "https://github.com/IIVIIask/deeperas#readme",
