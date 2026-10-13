@@ -15,7 +15,7 @@ You describe the idea. The assistant finds the choices that actually change the 
 
 Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks get done without an interview.
 
-**Version** `0.2.46+20261013r42` (skill revision R42) · [Changelog](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.47+20261014r42` (skill revision R42) · [Changelog](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Example](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq) · [MIT license](LICENSE)
 

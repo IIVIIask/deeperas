@@ -4,7 +4,7 @@ description: >-
   Use when the user requests Deeperas anywhere in their message, with or without a selected mention, including @deeperas, "use Deeperas", "with the help of Deeperas", "χρησιμοποιησε το @deeperas", "με την βοηθεια του deeperas", and ordinary misspellings such as "Χρησιμοποιείσε το deeperas" or "Χρησιμοποιείσαι το @Deeperas". Resolve unselected explicit alternatives and material choices before answering or acting. Also use for clarification-first requests, factual queries with material gaps, project planning, recommendations, don't-know replies, and ordinary continuations. Ask one contextual question with explained options; answer settled or explicitly delegated requests directly.
 ---
 
-DeepEras Precision - Plugin R42
+Deeperas Precision - Plugin R42
 
 Packaged core, not standalone: use with the five required files below, relative to skills/deeperas/SKILL.md in the same release. A core-only .txt mirror is for comparison, not runnable instructions alone.
 

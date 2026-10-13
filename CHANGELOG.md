@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.47+20261014r42 — October 14, 2026
+
+Packaging and documentation only. The skill instructions (revision R42) are unchanged.
+
+- **One icon file.** Both hosts now use `assets/icon.png`; the identical copy `deeperas-icon.png` is removed.
+- **Cleaner dark logo.** The white wordmark in `logo-dark.png` is regenerated from the light logo, which removes the jagged edge around the text. The blue D is unchanged.
+- **Consistent name.** The heading inside `SKILL.md` now spells “Deeperas” like everywhere else.
+- **Documentation rewritten for readers.** Shorter README and installation guide; internal release notes removed.
+- **First tagged release.** `v0.2.47` on GitHub. The Wiki and Projects tabs are disabled.
+
 ## 0.2.46+20261013r42 — October 13, 2026
 
 Skill revision R42. Compared with the previous package, `0.2.34+codex.20261011r33` (revision R33):

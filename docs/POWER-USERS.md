@@ -1,6 +1,6 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow. The host interprets the skill and supplies the model, tools, and permissions. The skill consists of a [core file](../plugins/deeperas/skills/deeperas/SKILL.md) and [five topic references](#the-skill-bundle). The current version is `0.2.46+20261013r42`, skill revision R42.
+Deeperas is an instruction-based workflow. The host interprets the skill and supplies the model, tools, and permissions. The skill consists of a [core file](../plugins/deeperas/skills/deeperas/SKILL.md) and [five topic references](#the-skill-bundle). The current version is `0.2.47+20261014r42`, skill revision R42.
 
 ## Activation and the first response
 
@@ -95,7 +95,7 @@ The root manifest supplies the OpenAI presentation through `extensions.com.opena
 
 ### Release version naming
 
-Versions follow `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.46+20261013r42`, where the revision is the skill revision. Version strings must not include host names. The root manifest, both host manifests, and the version in the documentation must stay synchronized; the package checks enforce both rules.
+Versions follow `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.47+20261014r42`, where the revision is the skill revision. Version strings must not include host names. The root manifest, both host manifests, and the version in the documentation must stay synchronized; the package checks enforce both rules.
 
 ## Boundaries and privacy
 

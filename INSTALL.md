@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.46+20261013r42` (skill revision R42). The skill is one `SKILL.md` plus five files in `references/`; all six must be installed together. See [what changed](CHANGELOG.md).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.47+20261014r42` (skill revision R42). The skill is one `SKILL.md` plus five files in `references/`; all six must be installed together. See [what changed](CHANGELOG.md).
 
 Use one method per host. Installing the plugin and a copied skill side by side duplicates the instructions.
 

@@ -32,7 +32,7 @@ test('both marketplaces resolve to matching manifests, host-neutral versions, an
   assert.equal(read(`${base}/LICENSE`), read('LICENSE'), 'Installed plugin must retain the license notice');
   assert.match(read(`${base}/skills/deeperas/SKILL.md`), /^---\r?\nname: deeperas\r?\ndescription: /);
   const revision = manifests[0].version.match(/r(\d+)$/)[1];
-  assert.equal(read(`${base}/skills/deeperas/SKILL.md`).match(/^DeepEras Precision - Plugin R(\d+)$/m)?.[1], revision);
+  assert.equal(read(`${base}/skills/deeperas/SKILL.md`).match(/^Deeperas Precision - Plugin R(\d+)$/m)?.[1], revision);
   for (const document of ['README.md', 'INSTALL.md', 'docs/POWER-USERS.md']) {
     assert.ok(read(document).includes(`\`${manifests[0].version}\``), `Current version missing in ${document}`);
   }
@@ -61,12 +61,12 @@ test('both hosts receive the same square icon and the README includes both theme
   const base = 'plugins/deeperas';
   const codex = json(`${base}/.codex-plugin/plugin.json`).interface;
   const cursor = json(`${base}/.cursor-plugin/plugin.json`);
-  assert.equal(codex.logo, './assets/deeperas-icon.png');
+  assert.equal(codex.logo, './assets/icon.png');
   assert.equal(codex.composerIcon, codex.logo);
   assert.equal(cursor.logo, 'assets/icon.png');
   assert.ok(readFileSync(join(root, base, codex.logo)).equals(readFileSync(join(root, base, cursor.logo))),
     'Both hosts must receive identical square icon artwork');
-  for (const file of ['icon.png', 'deeperas-icon.png', 'logo.png', 'logo-dark.png']) {
+  for (const file of ['icon.png', 'logo.png', 'logo-dark.png']) {
     const png = readFileSync(join(root, base, 'assets', file));
     assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
     const width = png.readUInt32BE(16);
@@ -74,7 +74,7 @@ test('both hosts receive the same square icon and the README includes both theme
     assert.ok(width >= 48 && height >= 48 && width <= 4096 && height <= 4096);
     assert.ok(png.length <= 5 * 1024 * 1024);
     assert.equal(png[25], 6, 'Transparent RGBA asset');
-    if (file === 'icon.png' || file === 'deeperas-icon.png') assert.equal(width, height);
+    if (file === 'icon.png') assert.equal(width, height);
     else assert.ok(read('README.md').includes(`${base}/assets/${file}`));
   }
 });
