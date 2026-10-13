@@ -1,30 +1,30 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow. The host interprets its skill and supplies the model, tools, and permissions. R42 consists of a [core skill](../plugins/deeperas/skills/deeperas/SKILL.md) and [five required topic references](#the-r42-skill-bundle).
+Deeperas is an instruction-based workflow. The host interprets the skill and supplies the model, tools, and permissions. The skill consists of a [core file](../plugins/deeperas/skills/deeperas/SKILL.md) and [five topic references](#the-skill-bundle). The current version is `0.2.46+20261013r42`, skill revision R42.
 
 ## Activation and the first response
 
-R42 recognizes a user request to use Deeperas through a selected mention, literal `@deeperas`, or natural language such as “use Deeperas” or “with the help of Deeperas.” Its description includes ordinary spelling variations. Quoted material, discussion of the name, and a request to disable it do not activate the workflow. Related continuations retain it until disabling or unrelated work.
+The skill recognizes a request to use Deeperas through a selected mention, a literal `@deeperas`, or natural language such as “use Deeperas” or “with the help of Deeperas,” including ordinary spelling variations in English and Greek. Quoted material, discussion of the name, and a request to disable it do not activate the workflow. Related follow-ups keep it active until you disable it or move to unrelated work.
 
-These instructions apply when the host makes the skill available and loads it. They do not install a global router or guarantee that a host will select the skill from a plain-text name. Use the host's actual plugin or skill selection when activation is uncertain. The package is the workflow itself, not a separate Deeperas service requiring a connection.
+These instructions apply when the host makes the skill available and loads it. They do not install a global router or guarantee that a host selects the skill from a plain-text name. When activation is uncertain, select the skill explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor. The package is the workflow itself, not a separate service requiring a connection.
 
-When material context is missing, the clarification gate applies before research or the first answer. The assistant should ask its question first with explained choices, rather than present a recommendation and append a question. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations should remain general, and host-required immediate safety guidance still takes precedence.
+When material context is missing, the clarification gate applies before research or the first answer. The assistant asks its question first with explained choices, rather than presenting a recommendation and appending a question. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
 
 ## The clarification gate
 
 The assistant resolves explicit, unselected alternatives before dependent output or action. Otherwise, it asks when plausible answers would materially change the result, such as the target, scope, constraints, method, or intended audience.
 
-Clear tasks and explicitly delegated choices should proceed directly. Minor cosmetic polish alone does not need a question.
+Clear tasks and explicitly delegated choices proceed directly. Minor cosmetic polish alone does not need a question.
 
-A reply resolves the gap it answers. Before recommending a method or giving steps, R42 rechecks the remaining user-owned conditions that determine suitability. An unknown condition should not become an assumed fact, a conditional instruction to change it, or a check appended after the recommendation.
+A reply resolves the gap it answers. Before recommending a method or giving steps, the skill rechecks the remaining user-owned conditions that determine suitability. An unknown condition does not become an assumed fact, a conditional instruction to change it, or a check appended after the recommendation.
 
-Each clarification focuses on one decision. Options explain their consequences, and a recommendation should depend on established priorities and evidence. You can answer with an option or in ordinary language.
+Each clarification focuses on one decision. Options explain their consequences, and a recommendation depends on established priorities and evidence. You can answer with an option or in ordinary language.
 
 ## Project work and dependencies
 
-Settle the goal and critical constraints first. Later decisions can remain pending until a step needs them. Deferring a choice does not allow the assistant to silently make it.
+Settle the goal and critical constraints first. Later decisions can remain pending until a step needs them. Deferring a choice does not allow the assistant to make it silently.
 
-Work may continue independently while a question is open only when every plausible answer leaves that work's inputs and method unaffected. New evidence should reopen the affected decisions, while settled, unaffected choices remain intact.
+Work may continue independently while a question is open only when every plausible answer leaves that work's inputs and method unaffected. New evidence reopens the affected decisions; settled, unaffected choices remain intact.
 
 ## Delegation and ending questions
 
@@ -34,17 +34,17 @@ Explicit delegation applies to the choice you name:
 Choose the visual style for me, but ask before deciding the user flow.
 ```
 
-“Answer now with what you can support” ends questions for the current cycle. It does not select an unspecified target, waive verification, or grant permission. The assistant should return supported results and clearly describe unresolved limits.
+“Answer now with what you can support” ends the questions for the current cycle. It does not select an unspecified target, waive verification, or grant permission. The assistant returns supported results and describes the unresolved limits.
 
 ## Project decision records
 
-In Codex projects, the instructions call for a small `Deeperas_Decisions.txt` containing confirmed decisions, constraints, and pending issues. It should not contain secrets, hidden reasoning, raw logs, or unaccepted proposals presented as decisions.
+In Codex projects, the instructions call for a small `Deeperas_Decisions.txt` containing confirmed decisions, constraints, and pending issues. It must not contain secrets, hidden reasoning, raw logs, or unaccepted proposals presented as decisions.
 
-For Git projects, R42 requires the record to be untracked and ignored by the repository's private `info/exclude` file before writing it. The host resolves that file with `git rev-parse --git-path info/exclude` and verifies the matching rule with `git check-ignore -v`. A shared `.gitignore` or global ignore rule does not satisfy this requirement.
+For Git projects, the skill requires the record to be untracked and ignored through the repository's private `info/exclude` file before writing it. The host resolves that file with `git rev-parse --git-path info/exclude` and verifies the matching rule with `git check-ignore -v`. A shared `.gitignore` or a global ignore rule does not satisfy this requirement.
 
-If the record is already tracked, or the private exclusion cannot be verified, the assistant stops file persistence and keeps decisions in the conversation. It should not remove or untrack an existing record by implication. The record is project context, not a global memory service or authorization for future actions. Local storage does not guarantee confidentiality or backup.
+If the record is already tracked, or the private exclusion cannot be verified, the assistant stops file persistence and keeps decisions in the conversation. It does not remove or untrack an existing record by implication. The record is project context, not a global memory service or authorization for future actions. Local storage guarantees neither confidentiality nor backup.
 
-## The R42 skill bundle
+## The skill bundle
 
 The core defines the shared clarification gate. It requires the host to read the matching references in full before work in those areas:
 
@@ -56,7 +56,7 @@ The core defines the shared clarification gate. It requires the host to read the
 | [Artifact enforcement and recovery](../plugins/deeperas/skills/deeperas/references/artifact-enforcement-recovery.txt) | Constructing, converting, checking, or repairing layouts and procedural artifacts. |
 | [Project decisions in Codex](../plugins/deeperas/skills/deeperas/references/project-decisions-codex.txt) | Codex project entry, record recovery, or decision persistence. |
 
-Keep these files beside the core under `references/` and use files from the same release. If a required file is missing or unreadable, its dependent work should stop with a clear explanation; already authorized work that is demonstrably unaffected can continue. The core alone is not the complete runnable skill.
+Keep these files beside the core under `references/` and use files from the same release. If a required file is missing or unreadable, the dependent work stops with a clear explanation; already authorized work that is demonstrably unaffected can continue. The core alone is not the complete skill.
 
 ## Host-specific controls
 
@@ -75,13 +75,13 @@ These are instruction-defined behaviors, not new platform buttons. This reposito
 deeperas/
 ├── README.md                         # Main presentation and quick start
 ├── INSTALL.md                        # Detailed host installation instructions
-├── CHANGELOG.md                      # Changes since the preceding GitHub release
+├── CHANGELOG.md                      # Changes since the previous release
 ├── docs/POWER-USERS.md               # Detailed behavior and boundaries
 ├── .agents/plugins/marketplace.json  # Codex repository marketplace
 ├── .cursor-plugin/marketplace.json   # Cursor repository marketplace
 ├── plugins/deeperas/
 │   ├── plugin.json                  # Portable manifest and OpenAI presentation
-│   ├── .codex-plugin/plugin.json    # Matching Codex compatibility metadata
+│   ├── .codex-plugin/plugin.json    # Same interface for older Codex versions
 │   ├── .cursor-plugin/plugin.json   # Cursor display and discovery metadata
 │   ├── assets/                      # Blue icon and light/dark README logos
 │   ├── LICENSE                      # Notice retained in installed packages
@@ -91,17 +91,17 @@ deeperas/
 └── tests/package.test.mjs            # Distribution checks
 ```
 
-The package version is `0.2.46+20261013r42`; the skill is **R42**. The core matches the current owned release, and all five reference files are unchanged from R33. The root manifest supplies OpenAI presentation through `extensions.com.openai.interface`; its complete interface matches the Codex compatibility overlay. Cursor has its own manifest and receives the same skill and icon artwork.
+The root manifest supplies the OpenAI presentation through `extensions.com.openai.interface`; `.codex-plugin/plugin.json` carries the same interface for older Codex versions. Cursor has its own manifest and receives the same skill and icon artwork.
 
 ### Release version naming
 
-Use `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.46+20261013r42`. Package version strings must not include host names. Keep the root, Codex compatibility, Cursor manifest, and current-version documentation synchronized. Increment the semantic version for a new account release; changing build metadata alone does not count as a higher semantic version. The package checks reject host names in version metadata so the removed suffix is not reintroduced in later releases.
+Versions follow `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.46+20261013r42`, where the revision is the skill revision. Version strings must not include host names. The root manifest, both host manifests, and the version in the documentation must stay synchronized; the package checks enforce both rules.
 
 ## Boundaries and privacy
 
-The package contains instructions and manifests, with no Deeperas backend, custom MCP server, hooks, or telemetry implementation. Your host still processes conversations and may use local files or external tools according to its settings and permissions.
+The package contains instructions and manifests only, with no Deeperas backend, custom MCP server, hooks, or telemetry. Your host still processes conversations and may use local files or external tools according to its settings and permissions.
 
-Deeperas does not add browsing or verification tools by itself. Results depend on the host, model, available evidence, and instruction following. It cannot guarantee accuracy or override platform rules.
+Deeperas does not add browsing or verification tools by itself. Results depend on the host, the model, the available evidence, and instruction following. It cannot guarantee accuracy or override platform rules.
 
 ## Development
 
@@ -111,6 +111,6 @@ No dependency installation is required for the package checks:
 node --test tests/package.test.mjs
 ```
 
-The checks verify that both marketplaces resolve to the same skill, manifests share a host-neutral version matching the skill revision, the five required references are present and linked by the core, the installable package retains the MIT notice, and both hosts reference identical bundled square icon artwork. The README selects a light or dark wordmark for the reader’s theme. Document instruction changes with a small, judgeable example. Report host-specific behavior with the host name, version, prompt, and expected versus actual result.
+The checks verify that both marketplaces resolve to the same skill, that the manifests share a host-neutral version matching the skill revision, that the five required references are present and linked by the core, that the installable package retains the MIT notice, and that both hosts reference identical square icon artwork. Document instruction changes with a small, judgeable example. Report host-specific behavior with the host name, version, prompt, and expected versus actual result.
 
 [Back to the README](../README.md) · [Installation](../INSTALL.md)
