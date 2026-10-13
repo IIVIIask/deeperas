@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Use a recent AI host with plugin or Agent Skills support. The current package is `0.2.34+codex.20261011r33`, using the unchanged **R33** skill. It includes one core `SKILL.md` and five required files in `references/`; your host provides the model and any tools.
+Use a recent AI host with plugin or Agent Skills support. The current package is `0.2.46+20261013r42`, using the **R42** skill. It includes one core `SKILL.md` and five required files in `references/`; your host provides the model and any tools. See the [changes since the previous GitHub release](CHANGELOG.md).
 
 Choose the plugin or local skill method for a given host. Installing both can duplicate the instructions.
 
@@ -15,7 +15,7 @@ codex plugin add deeperas@deeperas
 
 Start a new conversation and say “Use Deeperas to help me plan this project.”
 
-The R33 package has been checked in an isolated Codex home. Its installed core and all five references match the release source, and the package retains the MIT notice.
+Select the installed Deeperas plugin or skill explicitly if a plain-text request does not load it. R42 defines activation from natural-language requests, but your host controls skill discovery and loading.
 
 ### From a local checkout
 
@@ -39,7 +39,7 @@ See [OpenAI's plugin packaging guide](https://developers.openai.com/plugins/buil
 3. Find **Deeperas** and click **Add** to install it.
 4. Start a new Agent conversation. Invoke `/deeperas` or explicitly ask to use Deeperas.
 
-Some versions show repository import under plugin settings. The repository supplies `.cursor-plugin/marketplace.json` and a per-plugin Cursor manifest. Cursor and Codex receive the same R33 skill bundle.
+Some versions show repository import under plugin settings. The repository supplies `.cursor-plugin/marketplace.json` and a per-plugin Cursor manifest. Cursor and Codex receive the same R42 skill bundle.
 
 ### As a local skill
 
@@ -62,9 +62,15 @@ The package follows [Cursor's plugin reference](https://cursor.com/docs/referenc
 
 ## Tested behavior and limits
 
-On October 11, 2026, the GitHub package `0.2.32+codex.20261011r33` was imported and installed in Cursor 3.24.12. The blue D appeared in the plugin list and details in both light and dark themes. “Try in Chat” loaded the skill and returned a clarification question. This was one smoke test, not a full behavioral evaluation; `/deeperas` invocation and Cursor's update flow were not separately tested. The current package keeps the same R33 skill and image bytes.
+On October 11, 2026, an earlier R33 package was imported and installed in Cursor 3.24.12. The blue D appeared in the plugin list and details in light and dark themes. “Try in Chat” loaded the skill and returned a clarification question. On October 12, reopening Cursor loaded GitHub package 0.2.34; its skill texts and PNG bytes matched the release. A `/deeperas` conversation attempt was blocked by Cursor's Agent usage limit and has no behavioral verdict. R42 keeps the approved image artwork but changes the core instructions; earlier behavior checks do not certify R42 in Cursor.
 
-Codex repository installation checks verify the skill files, MIT notice, icon paths, and image bytes. In the separate private account-plugin release `0.2.34+codex.20261011r33`, Codex desktop and ChatGPT still displayed a generic icon despite the correct bundled PNG. Its rendered logo remains unresolved; package validation alone does not prove the account UI uses the image.
+Distribution checks verify matching host manifests, the six skill files, MIT notice, contained icon paths, image bytes, and host-neutral version naming. The broader conversation and logo test suite remains paused.
+
+On October 13, 2026, package `0.2.46+20261013r42` installed successfully from the local release checkout into an isolated Codex home. The installed core, five references, MIT notice, icon references, and all four PNG files matched the release.
+
+Separate ChatGPT checks of R42 used an explicitly configured account routing instruction. They establish behavior for those tested requests on that account; that account setting is not included in this package and the results are not a universal activation guarantee. If Deeperas does not load, select the installed plugin or skill rather than assuming a name alone activates it.
+
+The private account-plugin icon still appeared generic in actual Codex desktop and ChatGPT checks on October 12, despite correct packaged PNGs. Renaming the image did not fix that display. The rendered account-plugin logo remains unresolved; package validation alone does not prove the account UI uses the image.
 
 ## Updating an existing installation
 
@@ -83,7 +89,7 @@ Start a new conversation so it loads the updated instructions. The [official Ope
 
 For a cloned repository, run `git pull --ff-only` in your checkout, then repeat the installation steps for your host. For a copied Cursor skill, download the latest repository ZIP and replace the whole `deeperas` skill folder, including `references/`, in the same location. Keep one installation method per host and start a new conversation.
 
-For a Cursor repository plugin, refresh or reinstall Deeperas from the same repository through Customize. The in-app update flow has not been tested here.
+For a Cursor repository plugin, refresh or reinstall Deeperas from the same repository through Customize. Reopening Cursor loaded the earlier 0.2.34 update; updating to R42 in the actual Cursor UI has not been tested here.
 
 ## Your first conversation
 
@@ -112,8 +118,8 @@ That does not select missing targets or authorize external actions. To stop usin
 | --- | --- |
 | The skill does not appear | Confirm the plugin is installed/enabled, or that the local skill ends at `deeperas/SKILL.md`. Start a new conversation. |
 | Cursor has no repository import option | Use the local skill method and check your version's official documentation. |
-| The assistant does not follow the workflow | Invoke it explicitly, confirm the loaded version, and share a minimal example in an issue. |
-| The assistant reports a missing reference | Copy or reinstall the complete skill folder. R33 requires all five files in `references/`. |
+| The assistant does not follow the workflow | Select the installed Deeperas plugin or skill explicitly, start a new conversation, confirm the loaded version, and share a minimal example in an issue. A typed name alone does not prove the instructions loaded. |
+| The assistant reports a missing reference | Copy or reinstall the complete skill folder. R42 requires all five files in `references/`. |
 | You see duplicated instructions | Keep one installation method per host. |
 
 [Back to the README](README.md) · [Power-user guide](docs/POWER-USERS.md)

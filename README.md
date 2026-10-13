@@ -15,7 +15,7 @@ You describe the idea. Deeperas helps the assistant uncover the choices that act
 
 Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks should get done.
 
-**Current package:** `0.2.34+codex.20261011r33` · **Skill: R33** · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+**Current package:** `0.2.46+20261013r42` · **Skill: R42** · [What changed](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [See an example](#before-and-after) · [How it works](#how-it-works) · [Power users](#for-power-users) · [MIT license](LICENSE)
 
@@ -51,7 +51,13 @@ Start a new Agent conversation and invoke `/deeperas`, or ask the assistant to u
 
 Prefer to copy the skill into a project? See the [step-by-step installation guide](INSTALL.md), including a local Cursor option.
 
-**Compatibility:** Codex repository installation has been tested. In Cursor 3.24.12, GitHub import, installation, the blue logo in light and dark themes, and a “Try in Chat” skill invocation were checked. See [tested behavior and limits](INSTALL.md#tested-behavior-and-limits). Use a recent host version with plugin or Agent Skills support.
+**Compatibility:** Both hosts receive the same R42 skill bundle. Installation checks and earlier Cursor checks cover different versions; see [tested behavior and limits](INSTALL.md#tested-behavior-and-limits). Use a recent host version with plugin or Agent Skills support.
+
+### Calling Deeperas
+
+Request it by name, for example “Use Deeperas to help me plan this,” or select the installed plugin or skill using your host's mention menu. R42 explicitly recognizes selected mentions, plain-text requests, and ordinary spelling variations. It keeps the workflow active for related follow-ups until you stop it or move to unrelated work.
+
+Your host must make the skill available and load its instructions. A name written in a message is not proof that this happened. If the workflow does not activate, select the installed Deeperas explicitly and start a new conversation. Deeperas is the packaged skill; it does not require a separate Deeperas service connection.
 
 ## Before and after
 
@@ -94,6 +100,8 @@ It works through ordinary conversation. You can choose an option, explain your o
 
 For projects, decisions can be staged. The assistant may continue independent work while a question is open, provided the answer cannot change that work's inputs or method.
 
+Answering one question settles that gap. If another missing condition changes which method is suitable, the assistant should clarify it before recommending the method or giving steps.
+
 ## For power users
 
 One portable skill bundle. Readable instructions. Your existing AI host does the work.
@@ -107,16 +115,16 @@ One portable skill bundle. Readable instructions. Your existing AI host does the
 
 “Answer now” does not fill in missing targets or grant permission for external actions. The assistant should return supported results and explain any remaining limits.
 
-R33 separates the [core workflow](plugins/deeperas/skills/deeperas/SKILL.md) from five required topic references. The plugin includes all six files; when installing manually, copy the whole skill folder.
+R42 includes the [core workflow](plugins/deeperas/skills/deeperas/SKILL.md) and five required topic references. The plugin includes all six files; when installing manually, copy the whole skill folder.
 
-The [power-user guide](docs/POWER-USERS.md) explains the clarification gate, project decision records, host-specific controls, [required references](docs/POWER-USERS.md#the-r33-skill-bundle), and verification boundaries.
+The [power-user guide](docs/POWER-USERS.md) explains activation, the clarification gate, project decision records, host-specific controls, [required references](docs/POWER-USERS.md#the-r42-skill-bundle), and verification boundaries.
 
 ## FAQ
 
 <details>
 <summary><strong>Can I copy just SKILL.md?</strong></summary>
 
-R33 needs the matching `references/` folder as well. Plugin installation includes it automatically. For a manual installation, copy the entire `deeperas` skill folder using the [installation guide](INSTALL.md).
+R42 needs the matching `references/` folder as well. Plugin installation includes it automatically. For a manual installation, copy the entire `deeperas` skill folder using the [installation guide](INSTALL.md).
 
 </details>
 
