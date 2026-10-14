@@ -4,7 +4,7 @@
 
 # Deeperas
 
-**Ask what matters. Check the evidence. Then do the work.**
+**Make your AI clarify what matters before it acts.**
 
 Deeperas is a skill for the AI assistant in Codex and Cursor. It makes the assistant understand what you want before it commits to an answer or starts building.
 
