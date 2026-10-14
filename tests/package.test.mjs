@@ -58,7 +58,7 @@ test('the core links to all five bundled, nonempty reference files', () => {
   for (const file of required) assert.ok(read(`${skill}/${file}`).trim().length > 0);
 });
 
-test('both hosts receive the same square icon and the README includes both themes', () => {
+test('both hosts receive the square icon used by the README header', () => {
   const base = 'plugins/deeperas';
   const codex = json(`${base}/.codex-plugin/plugin.json`).interface;
   const cursor = json(`${base}/.cursor-plugin/plugin.json`);
@@ -67,6 +67,7 @@ test('both hosts receive the same square icon and the README includes both theme
   assert.equal(cursor.logo, 'assets/icon.png');
   assert.ok(readFileSync(join(root, base, codex.logo)).equals(readFileSync(join(root, base, cursor.logo))),
     'Both hosts must receive identical square icon artwork');
+  assert.ok(read('README.md').includes(`${base}/assets/icon.png`));
   for (const file of ['icon.png', 'logo.png', 'logo-dark.png']) {
     const png = readFileSync(join(root, base, 'assets', file));
     assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
@@ -76,6 +77,5 @@ test('both hosts receive the same square icon and the README includes both theme
     assert.ok(png.length <= 5 * 1024 * 1024);
     assert.equal(png[25], 6, 'Transparent RGBA asset');
     if (file === 'icon.png') assert.equal(width, height);
-    else assert.ok(read('README.md').includes(`${base}/assets/${file}`));
   }
 });

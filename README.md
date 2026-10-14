@@ -1,8 +1,5 @@
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="plugins/deeperas/assets/logo-dark.png">
-    <img src="plugins/deeperas/assets/logo.png" alt="Deeperas — a blue D with inward depth" width="240">
-  </picture>
+  <img src="plugins/deeperas/assets/icon.png" alt="Deeperas — a blue D with inward depth" width="96" height="96">
 </p>
 
 # Deeperas
