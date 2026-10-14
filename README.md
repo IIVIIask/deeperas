@@ -177,7 +177,7 @@ No. Verification depends on the tools and evidence your host makes available. Mo
 
 ## Feedback and contributions
 
-[Open an issue](https://github.com/IIVIIask/deeperas/issues) with your host and version, a small example prompt, and what you expected versus what happened. Remove private information before posting.
+[Report a problem](https://github.com/IIVIIask/deeperas/issues/new?template=bug_report.yml) using the **Bug report** form: include your application and versions, a small example, and the expected versus actual result. Remove private information before posting.
 
 Changes to the instructions should come with an example that makes the intended behavior easy to judge. For the local checks, see [development](docs/POWER-USERS.md#development).
 

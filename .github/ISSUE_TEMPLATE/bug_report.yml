@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a problem with Deeperas in Codex, Cursor, or another app.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Include a small example and remove private information before posting.
+  - type: dropdown
+    id: application
+    attributes:
+      label: Application
+      description: Where did you use Deeperas? If you choose Other, name the app in your example.
+      options:
+        - Codex app
+        - Codex CLI
+        - Cursor
+        - ChatGPT
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: application-version
+    attributes:
+      label: Application version
+      description: Enter the app or CLI version if you know it.
+  - type: input
+    id: deeperas-version
+    attributes:
+      label: Deeperas version
+      description: Enter your installed version if you know it.
+  - type: textarea
+    id: example
+    attributes:
+      label: Small example
+      description: Paste a short prompt or describe the steps that reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: What happened, including any error message?
+    validations:
+      required: true
