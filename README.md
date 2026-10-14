@@ -21,6 +21,39 @@ Describe what you want to build, change, or investigate. If an important choice 
 
 ---
 
+## Example
+
+![Illustrative Codex workflow: request an export button, clarify the format, then choose CSV for filtered orders.](assets/codex-workflow.svg)
+
+*Illustrative example, not a captured Codex conversation.*
+
+<details>
+<summary><strong>Read the example as text</strong></summary>
+
+Example project: an app with an orders table, with Deeperas loaded in Codex.
+
+**Your request**
+
+> Use Deeperas. Add an export button to the orders table.
+
+**Deeperas clarifies**
+
+> **What should the button export?**
+>
+> **A. CSV file** — For spreadsheets and further analysis.
+>
+> **B. PDF report** — For sharing a report with a fixed layout.
+>
+> **C. Another format** — Describe where you will use it.
+
+**Your choice**
+
+> CSV, only the currently filtered orders.
+
+The export format is settled. If another detail matters for implementation, Deeperas guides the agent to clarify it next.
+
+</details>
+
 ## Installation
 
 Both hosts receive the same skill. Use a recent host version with plugin support. See [what was tested](INSTALL.md#tested-with).
@@ -56,26 +89,6 @@ Prefer to copy the skill into a project? See the [installation guide](INSTALL.md
 Ask for it by name, for example “Use Deeperas to help me plan this,” or select it explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor. Once active, it stays active for related follow-ups until you stop it or move to unrelated work.
 
 If the workflow does not start, select the installed skill explicitly and begin a new conversation. Your host decides which skills it loads; a name typed in a message is not a guarantee. Deeperas is only the packaged instructions. It needs no separate service, account, or API key.
-
-## Example
-
-The prompt sounds simple:
-
-> Help me plan a page for my plugin.
-
-But “a page” can mean different things, and a rushed assistant picks one and starts writing. Deeperas surfaces that choice first:
-
-> **Where should people read it?**
->
-> **A. Inside the GitHub repository** — a README with installation, examples, and documentation.
->
-> **B. On a standalone website** — a separate presentation page for visitors.
->
-> **C. Both** — a website and repository documentation, with a shared explanation.
-
-Choose **A**, and the assistant has a concrete direction. It may ask about the audience or another decision that matters, then it produces the work.
-
-*Illustrative example, not a captured model response.*
 
 ## When to use it
 
