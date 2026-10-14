@@ -95,12 +95,13 @@ The export format is settled. If another detail matters for implementation, Deep
 
 In Codex and Cursor, use Deeperas when an unresolved choice could change the work:
 
-| You want to… | Deeperas guides the agent to… |
-| --- | --- |
-| **Plan a feature** | Clarify the goal, intended users, and scope before planning implementation. |
-| **Investigate a bug** | Inspect available code and error evidence, and clarify expected behavior when it is unclear. |
-| **Refactor code** | Agree on the scope and behavior to preserve before changing the structure. |
-| **Choose an implementation approach** | Investigate the project constraints and clarify your priorities before recommending an approach. |
+- **Plan a feature** — Clarify the goal, intended users, and scope before planning implementation.
+
+- **Investigate a bug** — Inspect available code and error evidence, and clarify expected behavior when it is unclear.
+
+- **Refactor code** — Agree on the scope and behavior to preserve before changing the structure.
+
+- **Choose an implementation approach** — Investigate the project constraints and clarify your priorities before recommending an approach.
 
 Answer in your own words, choose an option, or delegate a decision. Clear tasks can proceed directly. The same workflow also applies to writing, research, and planning outside software projects.
 
