@@ -119,12 +119,21 @@ Answering one question settles only that gap. If another missing condition chang
 
 ## For power users
 
-| What you want | What to say |
-| --- | --- |
-| Start using it | “Use Deeperas to help me plan this change.” |
-| Delegate a particular choice | “Choose the visual style for me, but ask about the user flow.” |
-| End the questions for this request | “Answer now with what you can support.” |
-| Stop using the workflow | “Stop using Deeperas for this task.” |
+**Start using it**
+
+> “Use Deeperas to help me plan this change.”
+
+**Delegate a particular choice**
+
+> “Choose the visual style for me, but ask about the user flow.”
+
+**End the questions for this request**
+
+> “Answer now with what you can support.”
+
+**Stop using the workflow**
+
+> “Stop using Deeperas for this task.”
 
 “Answer now” ends the questions. It does not fill in missing targets, waive verification, or grant permission for external actions. The assistant returns what it can support and explains the remaining limits.
 
