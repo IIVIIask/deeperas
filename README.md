@@ -60,13 +60,6 @@ If the workflow does not start, select the installed skill explicitly and begin 
 
 ## Example
 
-![Illustrative Codex workflow: request an export button, clarify the format, then choose CSV for filtered orders.](assets/codex-workflow.svg)
-
-*Illustrative example, not a captured Codex conversation.*
-
-<details>
-<summary><strong>Read the example as text</strong></summary>
-
 Example project: an app with an orders table, with Deeperas loaded in Codex.
 
 **Your request**
@@ -88,6 +81,13 @@ Example project: an app with an orders table, with Deeperas loaded in Codex.
 > CSV, only the currently filtered orders.
 
 The export format is settled. If another detail matters for implementation, Deeperas guides the agent to clarify it next.
+
+*Illustrative example, not a captured Codex conversation.*
+
+<details>
+<summary><strong>View the illustrated example</strong></summary>
+
+![Illustrative Codex workflow: request an export button, clarify the format, then choose CSV for filtered orders.](assets/codex-workflow.svg)
 
 </details>
 
