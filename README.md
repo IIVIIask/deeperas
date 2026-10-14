@@ -8,9 +8,7 @@
 
 Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor.
 
-You describe the idea. The assistant finds the choices that actually change the result and asks about them one focused question at a time, with each option explained. It looks up facts it can check itself instead of asking you, and it proceeds as soon as the direction is clear.
-
-Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks get done without an interview.
+Describe what you want to build, change, or investigate. If an important choice is still open, Deeperas guides the agent to ask one focused question with explained options. Clear tasks and explicitly delegated choices can proceed directly.
 
 **Version** `0.2.48+20261014r42` (skill revision R42) · [Changelog](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
 
