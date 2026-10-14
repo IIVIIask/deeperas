@@ -111,6 +111,8 @@ No dependency installation is required for the package checks:
 node --test tests/package.test.mjs
 ```
 
+The [Package checks workflow](../.github/workflows/package-checks.yml) runs this command on every push and pull request. The README badge shows the latest push result for `main` and covers the package checks described below.
+
 The checks verify that both marketplaces resolve to the same skill, that the manifests share a host-neutral version matching the skill revision, that the five required references are present and linked by the core, that the installable package retains the MIT notice, and that both hosts reference identical square icon artwork. Document instruction changes with a small, judgeable example. Report host-specific behavior with the host name, version, prompt, and expected versus actual result.
 
 [Back to the README](../README.md) · [Installation](../INSTALL.md)

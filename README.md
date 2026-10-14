@@ -10,6 +10,7 @@
 [![Cursor](https://img.shields.io/badge/Cursor-2563eb?style=flat-square)](INSTALL.md#cursor)
 [![Latest release](https://img.shields.io/github/v/release/IIVIIask/deeperas?style=flat-square&color=2563eb)](https://github.com/IIVIIask/deeperas/releases/latest)
 [![MIT license](https://img.shields.io/github/license/IIVIIask/deeperas?style=flat-square&color=2563eb)](LICENSE)
+[![Package checks](https://github.com/IIVIIask/deeperas/actions/workflows/package-checks.yml/badge.svg?branch=main&event=push)](https://github.com/IIVIIask/deeperas/actions/workflows/package-checks.yml)
 
 Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor.
 
