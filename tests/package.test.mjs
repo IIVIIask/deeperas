@@ -39,6 +39,7 @@ test('both marketplaces resolve to matching manifests, host-neutral versions, an
   assert.ok(manifests[1].interface.shortDescription.length <= 30);
   assert.deepEqual(manifests[0].extensions['com.openai'].interface, manifests[1].interface,
     'Portable OpenAI presentation must preserve the complete compatibility interface');
+  assert.equal(manifests[1].interface.websiteURL, manifests[0].homepage);
   assert.equal(codex.plugins[0].policy.installation, 'AVAILABLE');
 });
 

@@ -15,7 +15,7 @@ You describe the idea. The assistant finds the choices that actually change the 
 
 Already know exactly what you want? Say it. Want the assistant to choose for you? Delegate that decision. Clear tasks get done without an interview.
 
-**Version** `0.2.47+20261014r42` (skill revision R42) · [Changelog](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.48+20261014r42` (skill revision R42) · [Changelog](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Example](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq) · [MIT license](LICENSE)
 
@@ -28,7 +28,7 @@ Both hosts receive the same skill. Use a recent host version with plugin support
 ### Codex
 
 ```sh
-codex plugin marketplace add IIVIIask/deeperas
+codex plugin marketplace add IIVIIask/deeperas --ref main
 codex plugin add deeperas@deeperas
 ```
 
@@ -142,6 +142,13 @@ No. After installation, describe your goal in normal language. Answer in your ow
 <summary><strong>Does it need an API key or another service?</strong></summary>
 
 No. Deeperas is instructions and plugin manifests only: no server, no MCP server, no hooks, no telemetry. Your AI host still runs the model, conversation, files, and tools under its own settings and permissions.
+
+</details>
+
+<details>
+<summary><strong>Does it update automatically?</strong></summary>
+
+Supported team/workspace marketplaces can sync from GitHub automatically. Personal installations may need a marketplace refresh or a manual folder replacement. See [updates and automatic sync](INSTALL.md#updating-an-existing-installation) for your host.
 
 </details>
 

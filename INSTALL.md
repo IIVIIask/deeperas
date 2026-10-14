@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.47+20261014r42` (skill revision R42). The skill is one `SKILL.md` plus five files in `references/`; all six must be installed together. See [what changed](CHANGELOG.md).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.48+20261014r42` (skill revision R42). The skill is one `SKILL.md` plus five files in `references/`; all six must be installed together. See [what changed](CHANGELOG.md).
 
 Use one method per host. Installing the plugin and a copied skill side by side duplicates the instructions.
 
@@ -9,7 +9,7 @@ Use one method per host. Installing the plugin and a copied skill side by side d
 ### From GitHub
 
 ```sh
-codex plugin marketplace add IIVIIask/deeperas
+codex plugin marketplace add IIVIIask/deeperas --ref main
 codex plugin add deeperas@deeperas
 ```
 
@@ -55,12 +55,14 @@ See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [
 
 ## Tested with
 
-- **Codex.** Version `0.2.46+20261013r42` installed from a local checkout on October 13, 2026. All six skill files, the license notice, and the icons matched the repository.
-- **Cursor 3.24.12.** The previous revision (R33) was imported from GitHub on October 11, 2026. The blue D icon appeared in light and dark themes, and “Try in Chat” loaded the skill and returned a clarification question. The current revision changes the instructions only, not the packaging, and has not been re-tested in Cursor.
+- **Codex.** Version `0.2.48+20261014r42` installed from a local checkout on October 14, 2026. All six skill files, the license notice, three PNGs, icon references, and the Website link matched the repository.
+- **Cursor 3.24.12.** R33 was imported from GitHub on October 11, 2026. The blue D icon appeared in light and dark themes, and “Try in Chat” loaded the skill and returned a clarification question. The current package includes R42 instructions and later packaging changes; it has not been re-tested in Cursor.
 
 The automated checks (`node --test tests/package.test.mjs`) verify that the host manifests match, all six skill files are present and linked, the license notice is included, and the icons are valid images.
 
 ## Updating an existing installation
+
+GitHub is the distribution source. Updates reach installed users through their host's marketplace refresh or sync. Deeperas cannot force an update on every personal installation, and a GitHub release alone does not update copied files. Use a branch such as `main` to follow new versions; a fixed tag or commit stays pinned.
 
 ### Codex
 
@@ -69,15 +71,25 @@ codex plugin marketplace upgrade deeperas
 codex plugin add deeperas@deeperas
 ```
 
-Start a new conversation so it loads the updated instructions. If you pinned a Git ref, update the pin.
+The GitHub installation above tracks `main`; the upgrade command fetches the new package. Start a new conversation so it loads the updated instructions. If you pinned a Git ref, update the pin. See [OpenAI's marketplace guide](https://developers.openai.com/plugins/build/plugins).
 
 ### Cursor plugin
 
-Import the repository again from **Customize**, or remove Deeperas and add it again, then start a new conversation. This update path has not been tested.
+For a **Teams or Enterprise marketplace**, an admin imports this repository in **Dashboard → Plugins & MCPs → Team Marketplaces**, then turns on **Enable Auto Refresh** in Marketplace Settings. Track `main`. This requires the Cursor GitHub App on the repository; pushes trigger re-indexing, batched at most once every ten minutes. **Refresh** requests a manual update. See [Cursor's update guide](https://prod.cursor.com/docs/plugins#keep-plugins-up-to-date).
+
+For a personal import, use its marketplace refresh/update control if your version provides one. If it does not, use the complete copied-skill method above and replace that folder when updating. Personal imports are not promised automatic updates; the current Cursor update flow has not been tested.
+
+### Managed ChatGPT workspaces
+
+A workspace admin can choose **Admin → Plugins → Add → Import marketplace** with source `https://github.com/IIVIIask/deeperas`, an empty **Path**, and branch `main`. New imports have daily automatic sync; **Admin → Plugins → Marketplaces → Sync now** requests an earlier update. Review the import result and installation policy. See [OpenAI's workspace sync guide](https://learn.chatgpt.com/docs/enterprise/plugin-management).
+
+This applies to GitHub-managed workspace plugins. An existing personal plugin uploaded as an archive is a separate installation: pushing to GitHub does not update it. Its owner must update it separately, or use the GitHub marketplace installation in a supported host. Do not install both copies in the same host.
 
 ### Local checkout or copied skill
 
 Run `git pull --ff-only` in your checkout and repeat the installation steps, or download the latest ZIP and replace the whole `deeperas` skill folder, including `references/`. Start a new conversation.
+
+After any update, check the displayed package version against the version at the top of this guide. The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
 
 ## Your first conversation
 

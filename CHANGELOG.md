@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.48+20261014r42 — October 14, 2026
+
+Metadata and documentation only. Skill revision R42 and the artwork from 0.2.47 are unchanged.
+
+- **Website points to GitHub.** The OpenAI presentation now links to this repository's README, matching the existing plugin homepage.
+- **Clear update paths.** The installation guide explains native automatic sync for supported workspaces/teams and explicit updates for personal or copied installations. Codex's GitHub quick start tracks `main`.
+- **Accurate verification limits.** The guide distinguishes earlier Cursor checks from the current package and keeps the generic Codex/ChatGPT icon issue unresolved.
+
 ## 0.2.47+20261014r42 — October 14, 2026
 
 Packaging and documentation only. The skill instructions (revision R42) are unchanged.
@@ -25,6 +33,6 @@ The five topic references are unchanged from R33. Installation paths, the MIT li
 
 ### Known limits
 
-Earlier Cursor checks covered R33; R42 has not been re-tested in Cursor. In the ChatGPT and Codex desktop apps the plugin icon can still appear generic. The packaged images are correct; how the app displays them is outside this package.
+Earlier Cursor checks covered R33; R42 has not been re-tested in Cursor. In the ChatGPT and Codex desktop apps the plugin icon can still appear generic. Packaged images passed validation; the cause of the generic icon remains unresolved.
 
 [README](README.md) · [Installation](INSTALL.md) · [Power-user guide](docs/POWER-USERS.md)
