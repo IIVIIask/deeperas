@@ -92,14 +92,16 @@ If the workflow does not start, select the installed skill explicitly and begin 
 
 ## When to use it
 
-| You want to… | Deeperas guides the assistant to… |
-| --- | --- |
-| Plan a project or a feature | Establish the goal, audience, constraints, and the decisions the next step depends on. |
-| Compare approaches | Separate your preferences from facts it can investigate. |
-| Research a question | Check the available evidence and make the remaining gaps clear. |
-| Work through a complex request | Keep settled choices, track dependencies, and revisit only what new evidence changes. |
+In Codex and Cursor, use Deeperas when an unresolved choice could change the work:
 
-It works through ordinary conversation: choose an option, answer in your own words, or delegate the decision. It is useful beyond coding. Writing, research, planning, and everyday decisions all involve unclear intent.
+| You want to… | Deeperas guides the agent to… |
+| --- | --- |
+| **Plan a feature** | Clarify the goal, intended users, and scope before planning implementation. |
+| **Investigate a bug** | Inspect available code and error evidence, and clarify expected behavior when it is unclear. |
+| **Refactor code** | Agree on the scope and behavior to preserve before changing the structure. |
+| **Choose an implementation approach** | Investigate the project constraints and clarify your priorities before recommending an approach. |
+
+Answer in your own words, choose an option, or delegate a decision. Clear tasks can proceed directly. The same workflow also applies to writing, research, and planning outside software projects.
 
 ## How it works
 
