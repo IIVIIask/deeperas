@@ -6,7 +6,7 @@
 
 **Make your AI clarify what matters before it acts.**
 
-Deeperas is a skill for the AI assistant in Codex and Cursor. It makes the assistant understand what you want before it commits to an answer or starts building.
+Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor.
 
 You describe the idea. The assistant finds the choices that actually change the result and asks about them one focused question at a time, with each option explained. It looks up facts it can check itself instead of asking you, and it proceeds as soon as the direction is clear.
 
