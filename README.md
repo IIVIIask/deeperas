@@ -6,6 +6,11 @@
 
 **Make your AI clarify what matters before it acts.**
 
+[![Codex](https://img.shields.io/badge/Codex-2563eb?style=flat-square)](INSTALL.md#codex)
+[![Cursor](https://img.shields.io/badge/Cursor-2563eb?style=flat-square)](INSTALL.md#cursor)
+[![Latest release](https://img.shields.io/github/v/release/IIVIIask/deeperas?style=flat-square&color=2563eb)](https://github.com/IIVIIask/deeperas/releases/latest)
+[![MIT license](https://img.shields.io/github/license/IIVIIask/deeperas?style=flat-square&color=2563eb)](LICENSE)
+
 Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor.
 
 Describe what you want to build, change, or investigate. If an important choice is still open, Deeperas guides the agent to ask one focused question with explained options. Clear tasks and explicitly delegated choices can proceed directly.
