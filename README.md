@@ -135,11 +135,9 @@ See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-de
 
 > “Stop using Deeperas for this task.”
 
-“Answer now” ends the questions. It does not fill in missing targets, waive verification, or grant permission for external actions. The assistant returns what it can support and explains the remaining limits.
+“Answer now” ends questions without filling in missing choices, waiving verification, or authorizing external actions. See [delegation and ending questions](docs/POWER-USERS.md#delegation-and-ending-questions).
 
-The skill is one [core file](plugins/deeperas/skills/deeperas/SKILL.md) plus five topic references in `references/`. The plugin installs all six; when copying manually, copy the whole skill folder.
-
-The [power-user guide](docs/POWER-USERS.md) explains activation, the clarification gate, project decision records, host-specific controls, the [reference files](docs/POWER-USERS.md#the-skill-bundle), and verification boundaries.
+Explore the [power-user guide](docs/POWER-USERS.md), including [the skill bundle](docs/POWER-USERS.md#the-skill-bundle). For manual installation, [copy the complete skill folder](INSTALL.md#as-a-local-skill).
 
 ## FAQ
 
