@@ -55,6 +55,13 @@ Start an Agent conversation and type `/deeperas`.
 
 See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [Agent Skills guide](https://cursor.com/docs/skills).
 
+#### Check the copied skill revision
+
+1. Open the copied `.cursor/skills/deeperas/SKILL.md` in your project, or `~/.cursor/skills/deeperas/SKILL.md` for a user-wide installation.
+2. Find the `Deeperas Precision - Plugin R...` line near the top. Compare its `R` number with the **skill revision** at the top of this guide.
+
+This identifies the core instruction revision, **not the plugin package version**. A matching marker does not prove that the other skill files match or that Cursor has loaded the skill. When updating, replace the entire skill folder with files from the same release.
+
 ## Tested with
 
 - **Codex.** Version `0.2.48+20261014r42` installed from a local checkout on October 14, 2026. All six skill files, the license notice, three PNGs, icon references, and the Website link matched the repository.
@@ -103,7 +110,7 @@ Run `git pull --ff-only` in your checkout and repeat the installation steps, or 
 
 If you use a local Codex plugin in the desktop app, restart the app after updating its files, then start a new conversation.
 
-After any update, check the displayed package version against the version at the top of this guide. For Codex CLI, use [the installed-version check](#check-the-installed-version). The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
+After a plugin update, check the displayed package version against the version at the top of this guide. For Codex CLI, use [the installed-version check](#check-the-installed-version). For a manually copied Cursor skill, use [the copied-skill revision check](#check-the-copied-skill-revision) instead. The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
 
 ## Your first conversation
 
