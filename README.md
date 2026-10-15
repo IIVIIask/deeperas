@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="plugins/deeperas/assets/icon.png" alt="Deeperas — a blue D with inward depth" width="96" height="96">
+  <img src="plugins/deeperas/assets/icon.png" alt="Deeperas: a blue D with inward depth" width="96" height="96">
 </p>
 
 # Deeperas
@@ -27,6 +27,8 @@ Describe what you want to build, change, or investigate. If an important choice 
 Both hosts receive the same skill. Use a recent host version with plugin support. See [what was tested](INSTALL.md#tested-with).
 
 ### Codex
+
+Requires the [Codex CLI](https://learn.chatgpt.com/docs/cli). Run the commands below in your terminal.
 
 ```sh
 codex plugin marketplace add IIVIIask/deeperas --ref main
@@ -70,11 +72,11 @@ Example project: an app with an orders table, with Deeperas loaded in Codex.
 
 > **What should the button export?**
 >
-> **A. CSV file** — For spreadsheets and further analysis.
+> **A. CSV file**: For spreadsheets and further analysis.
 >
-> **B. PDF report** — For sharing a report with a fixed layout.
+> **B. PDF report**: For sharing a report with a fixed layout.
 >
-> **C. Another format** — Describe where you will use it.
+> **C. Another format**: Describe where you will use it.
 
 **Your choice**
 
@@ -95,13 +97,13 @@ The export format is settled. If another detail matters for implementation, Deep
 
 In Codex and Cursor, use Deeperas when an unresolved choice could change the work:
 
-- **Plan a feature** — Clarify the goal, intended users, and scope before planning implementation.
+- **Plan a feature**: Clarify the goal, intended users, and scope before planning implementation.
 
-- **Investigate a bug** — Inspect available code and error evidence, and clarify expected behavior when it is unclear.
+- **Investigate a bug**: Inspect available code and error evidence, and clarify expected behavior when it is unclear.
 
-- **Refactor code** — Agree on the scope and behavior to preserve before changing the structure.
+- **Refactor code**: Agree on the scope and behavior to preserve before changing the structure.
 
-- **Choose an implementation approach** — Investigate the project constraints and clarify your priorities before recommending an approach.
+- **Choose an implementation approach**: Investigate the project constraints and clarify your priorities before recommending an approach.
 
 Answer in your own words, choose an option, or delegate a decision. Clear tasks can proceed directly. The same workflow also applies to writing, research, and planning outside software projects.
 

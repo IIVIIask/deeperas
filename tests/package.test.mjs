@@ -79,3 +79,14 @@ test('both hosts receive the square icon used by the README header', () => {
     if (file === 'icon.png') assert.equal(width, height);
   }
 });
+
+test('public documentation avoids unnecessary em dashes', () => {
+  for (const file of ['AGENTS.md', 'README.md', 'INSTALL.md', 'CHANGELOG.md', 'docs/POWER-USERS.md']) {
+    read(file).split(/\r?\n/).forEach((line, index) => {
+      const reason = line.match(/<!-- em-dash-required: (.*?) -->/)?.[1];
+      if (reason?.trim()) return;
+      assert.doesNotMatch(line, /\u2014|&mdash;|&#(?:0*8212|x0*2014);/iu,
+        `Unnecessary em dash in ${file}:${index + 1}; use ordinary punctuation or explain an exact-text requirement`);
+    });
+  }
+});

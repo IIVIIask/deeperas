@@ -6,6 +6,8 @@ Use one method per host. Installing the plugin and a copied skill side by side d
 
 ## Codex
 
+Requires the [Codex CLI](https://learn.chatgpt.com/docs/cli). Run the commands below in your terminal.
+
 ### From GitHub
 
 ```sh
@@ -65,6 +67,8 @@ The automated checks (`node --test tests/package.test.mjs`) verify that the host
 GitHub is the distribution source. Updates reach installed users through their host's marketplace refresh or sync. Deeperas cannot force an update on every personal installation, and a GitHub release alone does not update copied files. Use a branch such as `main` to follow new versions; a fixed tag or commit stays pinned.
 
 ### Codex
+
+Requires the [Codex CLI](https://learn.chatgpt.com/docs/cli). Run the commands below in your terminal.
 
 ```sh
 codex plugin marketplace upgrade deeperas

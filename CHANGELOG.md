@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.48+20261014r42 — October 14, 2026
+## 0.2.48+20261014r42: October 14, 2026
 
 Metadata and documentation only. Skill revision R42 and the artwork from 0.2.47 are unchanged.
 
@@ -8,7 +8,7 @@ Metadata and documentation only. Skill revision R42 and the artwork from 0.2.47 
 - **Clear update paths.** The installation guide explains native automatic sync for supported workspaces/teams and explicit updates for personal or copied installations. Codex's GitHub quick start tracks `main`.
 - **Accurate verification limits.** The guide distinguishes earlier Cursor checks from the current package and keeps the generic Codex/ChatGPT icon issue unresolved.
 
-## 0.2.47+20261014r42 — October 14, 2026
+## 0.2.47+20261014r42: October 14, 2026
 
 Packaging and documentation only. The skill instructions (revision R42) are unchanged.
 
@@ -18,7 +18,7 @@ Packaging and documentation only. The skill instructions (revision R42) are unch
 - **Documentation rewritten for readers.** Shorter README and installation guide; internal release notes removed.
 - **First tagged release.** `v0.2.47` on GitHub. The Wiki and Projects tabs are disabled.
 
-## 0.2.46+20261013r42 — October 13, 2026
+## 0.2.46+20261013r42: October 13, 2026
 
 Skill revision R42. Compared with the previous package, `0.2.34+codex.20261011r33` (revision R33):
 
