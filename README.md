@@ -56,11 +56,9 @@ Prefer to copy the skill into a project? See the [installation guide](INSTALL.md
 
 ### Calling Deeperas
 
-Ask for it by name, for example “Use Deeperas to help me plan this,” or select it explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor. Deeperas is designed to continue through related follow-ups until you stop it or move to unrelated work. Your host controls whether its instructions stay available.
+Ask for Deeperas by name, or select it explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, or `/deeperas` in Cursor.
 
-If the workflow does not start, select the installed skill explicitly and begin a new conversation. Your host decides which skills it loads; a name typed in a message is not a guarantee. Deeperas is only the packaged instructions. It needs no separate service, account, or API key.
-
-In Cursor, selecting `/deeperas` with **Enter** attaches it to one message. For ongoing use in the **Agents Window or Cursor CLI**, choose **Use as Mode** from the skill's `/` menu entry to start a **Custom Mode**. Its instructions then stay available until you exit the mode. See [Cursor activation](INSTALL.md#using-deeperas-in-cursor).
+Your app controls when the skill is loaded. See [Cursor message and session use](INSTALL.md#using-deeperas-in-cursor) and [activation troubleshooting](INSTALL.md#troubleshooting).
 
 ## Example
 
