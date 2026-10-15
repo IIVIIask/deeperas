@@ -98,6 +98,13 @@ For a **Teams or Enterprise marketplace**, an admin imports this repository in *
 
 For a personal import, use its marketplace refresh/update control if your version provides one. If it does not, use the complete copied-skill method above and replace that folder when updating. Personal imports are not promised automatic updates; the current Cursor update flow has not been tested.
 
+#### Check the Cursor plugin version
+
+1. Open **Customize**, then open **Deeperas** from your installed plugins.
+2. Read the plugin version in its details and compare it with the package version at the top of this guide.
+
+This is the plugin's declared package version, not the Cursor application version or a copied skill's `Plugin R...` revision. It does not confirm that a conversation has loaded the updated instructions. The version display is documented in [Cursor's release notes](https://prod.cursor.com/docs/release-notes).
+
 ### Managed ChatGPT workspaces
 
 A workspace admin can choose **Admin → Plugins → Add → Import marketplace** with source `https://github.com/IIVIIask/deeperas`, an empty **Path**, and branch `main`. New imports have daily automatic sync; **Admin → Plugins → Marketplaces → Sync now** requests an earlier update. Review the import result and installation policy. See [OpenAI's workspace sync guide](https://learn.chatgpt.com/docs/enterprise/plugin-management).
@@ -110,7 +117,7 @@ Run `git pull --ff-only` in your checkout and repeat the installation steps, or 
 
 If you use a local Codex plugin in the desktop app, restart the app after updating its files, then start a new conversation.
 
-After a plugin update, check the displayed package version against the version at the top of this guide. For Codex CLI, use [the installed-version check](#check-the-installed-version). For a manually copied Cursor skill, use [the copied-skill revision check](#check-the-copied-skill-revision) instead. The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
+After a plugin update, check the displayed package version against the version at the top of this guide. For Codex CLI, use [the installed-version check](#check-the-installed-version). For a Cursor plugin, use [the Cursor version check](#check-the-cursor-plugin-version). For a manually copied Cursor skill, use [the copied-skill revision check](#check-the-copied-skill-revision) instead. The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
 
 ## Your first conversation
 
