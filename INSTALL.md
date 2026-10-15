@@ -77,6 +77,14 @@ codex plugin add deeperas@deeperas
 
 The GitHub installation above tracks `main`; the upgrade command fetches the new package. Start a new conversation so it loads the updated instructions. If you pinned a Git ref, update the pin. See [OpenAI's marketplace guide](https://developers.openai.com/plugins/build/plugins).
 
+#### Check the installed version
+
+```sh
+codex plugin list --json
+```
+
+In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with the version at the top of this guide.
+
 ### Cursor plugin
 
 For a **Teams or Enterprise marketplace**, an admin imports this repository in **Dashboard → Plugins & MCPs → Team Marketplaces**, then turns on **Enable Auto Refresh** in Marketplace Settings. Track `main`. This requires the Cursor GitHub App on the repository; pushes trigger re-indexing, batched at most once every ten minutes. **Refresh** requests a manual update. See [Cursor's update guide](https://prod.cursor.com/docs/plugins#keep-plugins-up-to-date).
@@ -95,7 +103,7 @@ Run `git pull --ff-only` in your checkout and repeat the installation steps, or 
 
 If you use a local Codex plugin in the desktop app, restart the app after updating its files, then start a new conversation.
 
-After any update, check the displayed package version against the version at the top of this guide. The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
+After any update, check the displayed package version against the version at the top of this guide. For Codex CLI, use [the installed-version check](#check-the-installed-version). The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
 
 ## Your first conversation
 
