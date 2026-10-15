@@ -93,6 +93,8 @@ This applies to GitHub-managed workspace plugins. An existing personal plugin up
 
 Run `git pull --ff-only` in your checkout and repeat the installation steps, or download the latest ZIP and replace the whole `deeperas` skill folder, including `references/`. Start a new conversation.
 
+If you use a local Codex plugin in the desktop app, restart the app after updating its files, then start a new conversation.
+
 After any update, check the displayed package version against the version at the top of this guide. The native sync schedules above come from the host documentation; they have not been verified in a managed team workspace for this release.
 
 ## Your first conversation
