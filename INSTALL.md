@@ -62,6 +62,13 @@ See [Cursor's plugin reference](https://cursor.com/docs/reference/plugins) and [
 
 This identifies the core instruction revision, **not the plugin package version**. A matching marker does not prove that the other skill files match or that Cursor has loaded the skill. When updating, replace the entire skill folder with files from the same release.
 
+### Using Deeperas in Cursor
+
+- **One message:** Type `/`, find `deeperas`, then press **Enter** to attach it to that message.
+- **Ongoing use:** In the **Agents Window or Cursor CLI**, choose **Use as Mode** from the skill's `/` menu entry to start a **Custom Mode**. The instructions stay available on each turn until you exit the mode.
+
+To stop the workflow, say “Stop using Deeperas for this task.” Exit the mode as well to stop keeping the skill attached. See [Cursor's Custom Modes guide](https://cursor.com/docs/agent/prompting#custom-modes).
+
 ## Tested with
 
 - **Codex.** Version `0.2.48+20261014r42` installed from a local checkout on October 14, 2026. All six skill files, the license notice, three PNGs, icon references, and the Website link matched the repository.

@@ -4,9 +4,11 @@ Deeperas is an instruction-based workflow. The host interprets the skill and sup
 
 ## Activation and the first response
 
-The skill recognizes a request to use Deeperas through a selected mention, a literal `@deeperas`, or natural language such as “use Deeperas” or “with the help of Deeperas,” including ordinary spelling variations in English and Greek. Quoted material, discussion of the name, and a request to disable it do not activate the workflow. Related follow-ups keep it active until you disable it or move to unrelated work.
+The skill recognizes a request to use Deeperas through a selected mention, a literal `@deeperas`, or natural language such as “use Deeperas” or “with the help of Deeperas,” including ordinary spelling variations in English and Greek. Quoted material, discussion of the name, and a request to disable it do not activate the workflow. The workflow is designed to continue through related follow-ups until you disable it or move to unrelated work. The host controls whether its instructions stay available.
 
 These instructions apply when the host makes the skill available and loads it. They do not install a global router or guarantee that a host selects the skill from a plain-text name. When activation is uncertain, select the skill explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor. The package is the workflow itself, not a separate service requiring a connection.
+
+In Cursor, selecting `/deeperas` with **Enter** attaches it to one message. For session use, choose **Use as Mode** from the skill's `/` menu entry in the **Agents Window or Cursor CLI** to start a **Custom Mode**. The instructions then stay in context on every turn until you exit the mode. This controls context availability; it does not guarantee model adherence. See [Cursor activation](../INSTALL.md#using-deeperas-in-cursor) and [Cursor's Custom Modes guide](https://cursor.com/docs/agent/prompting#custom-modes).
 
 When material context is missing, the clarification gate applies before research or the first answer. The assistant asks its question first with explained choices, rather than presenting a recommendation and appending a question. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
 
