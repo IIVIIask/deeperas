@@ -115,9 +115,7 @@ Answer in your own words, choose an option, or delegate a decision. Clear tasks 
 
 **3. Deliver.** Answer or act once the choices the work depends on are settled. Check the result before claiming completion, and say what the evidence does not establish.
 
-In a project, decisions are staged. The goal and critical constraints come first; later decisions are asked just before the work needs them. Independent work can continue while a question is open, as long as the answer cannot change that work's inputs or method.
-
-Answering one question settles only that gap. If another missing condition changes which method is suitable, the assistant clarifies it before recommending the method or giving steps.
+See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-dependencies) and [the clarification gate](docs/POWER-USERS.md#the-clarification-gate).
 
 ## For power users
 
