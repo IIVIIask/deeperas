@@ -142,13 +142,6 @@ Explore the [power-user guide](docs/POWER-USERS.md), including [the skill bundle
 ## FAQ
 
 <details>
-<summary><strong>Can I copy just SKILL.md?</strong></summary>
-
-No. The core needs the matching `references/` folder. Plugin installation includes it automatically. For a manual installation, copy the entire `deeperas` skill folder as described in the [installation guide](INSTALL.md).
-
-</details>
-
-<details>
 <summary><strong>Will it interview me about everything?</strong></summary>
 
 No. It asks only about meaningful uncertainty and about alternatives you named but did not choose. A clear request or an explicitly delegated choice proceeds directly. For a vague creation idea, it first checks whether you want to start planning at all.
