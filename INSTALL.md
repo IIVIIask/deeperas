@@ -1,6 +1,8 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.48+20261014r42` (skill revision R42). The skill is one `SKILL.md` plus five files in `references/`; all six must be installed together. See [what changed](CHANGELOG.md).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.71+20261015r63` (skill revision R63). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed since R42](CHANGELOG.md#changes-since-the-previous-public-release-r42).
+
+The plugin includes the complete `SKILL.md`, six topic references and `scripts/project-memory.mjs`. Manual copies should retain this whole folder. Node.js, Git verification and permitted file/process access are required only for optional local memory; the host still supplies its own model and tools.
 
 Use one method per host. Installing the plugin and a copied skill side by side duplicates the instructions.
 
@@ -42,14 +44,16 @@ The repository provides `.cursor-plugin/marketplace.json` and a Cursor plugin ma
 ### As a local skill
 
 1. [Download the repository as a ZIP](https://github.com/IIVIIask/deeperas/archive/refs/heads/main.zip) and extract it.
-2. Copy the whole folder `plugins/deeperas/skills/deeperas/`, including `references/`, to one of these locations:
+2. Copy the whole folder `plugins/deeperas/skills/deeperas/`, including `references/` and `scripts/`, to one of these locations:
 
 | Scope | Destination |
 | --- | --- |
 | One project | `.cursor/skills/deeperas/` |
 | All your projects | `~/.cursor/skills/deeperas/` |
 
-`~` is your home directory. Create the folders if they do not exist. The copied folder must contain `SKILL.md` and all five reference files; copying only `SKILL.md` leaves the skill incomplete. Keep the [MIT license notice](plugins/deeperas/LICENSE) with your copy.
+`~` is your home directory. Create the folders if they do not exist. Keep `SKILL.md`, all six topic references and the optional memory helper together. The complete core supports ordinary work on its own; unavailable topic guidance blocks steps whose necessary prerequisites or checks cannot be established. Keep the [MIT license notice](plugins/deeperas/LICENSE) with your copy.
+
+Persistent project memory is OFF by default. Explicit authorization for the specific project must precede memory-store access or helper invocation, followed by verification of complete applicable memory references, permitted durable project files, process execution, Node.js and Git privacy. While OFF, existing stores are preserved unread and unchanged and the clarification workflow still works without activation prompts. Copying the helper or approving a policy change does not activate memory or grant tool/file permissions. See [living project memory](docs/POWER-USERS.md#living-project-memory).
 
 Start an Agent conversation and type `/deeperas`.
 
@@ -71,10 +75,11 @@ To stop the workflow, say “Stop using Deeperas for this task.” Exit the mode
 
 ## Tested with
 
-- **Codex.** Version `0.2.48+20261014r42` installed from a local checkout on October 14, 2026. All six skill files, the license notice, three PNGs, icon references, and the Website link matched the repository.
-- **Cursor 3.24.12.** R33 was imported from GitHub on October 11, 2026. The blue D icon appeared in light and dark themes, and “Try in Chat” loaded the skill and returned a clarification question. The current package includes R42 instructions and later packaging changes; it has not been re-tested in Cursor.
+- **R63 distribution, October 17, 2026.** All 29 package and isolated memory tests passed on Windows. They validate the published bundle and helper behavior, not model adherence or current Cursor runtime.
+- **Earlier Codex install.** Version `0.2.48+20261014r42` installed from a local checkout on October 14, 2026. All six then-current skill files, the license notice, three PNGs, icon references, and the Website link matched the repository. This is historical R42 installation evidence, not a current R63 host test.
+- **Cursor 3.24.12.** R33 was imported from GitHub on October 11, 2026. The blue D icon appeared in light and dark themes, and “Try in Chat” loaded the skill and returned a clarification question. The current R63 source has not been re-tested in Cursor.
 
-The automated checks (`node --test tests/package.test.mjs`) verify that the host manifests match, all six skill files are present and linked, the license notice is included, and the icons are valid images.
+The automated checks (`node --test tests/*.test.mjs`) verify manifests/version, all seven instruction files, the helper, license and icons, plus memory behavior in isolated temporary projects. They pin the approved changes from R42 through R63 and the restored single core. Model adherence in each host requires separate observation.
 
 ## Updating an existing installation
 
@@ -120,7 +125,7 @@ This applies to GitHub-managed workspace plugins. An existing personal plugin up
 
 ### Local checkout or copied skill
 
-Run `git pull --ff-only` in your checkout and repeat the installation steps, or download the latest ZIP and replace the whole `deeperas` skill folder, including `references/`. Start a new conversation.
+Run `git pull --ff-only` in your checkout and repeat the installation steps, or download the latest ZIP and replace the whole `deeperas` skill folder, including `references/` and `scripts/`. Start a new conversation.
 
 If you use a local Codex plugin in the desktop app, restart the app after updating its files, then start a new conversation.
 
@@ -154,7 +159,8 @@ That does not select missing targets or authorize external actions. To stop the 
 | The skill does not appear | Confirm the plugin is installed and enabled, or that the copied folder ends in `deeperas/SKILL.md`. Start a new conversation. |
 | Cursor has no repository import option | Use the local skill method. |
 | The assistant does not follow the workflow | Select the skill explicitly (`$deeperas`, `@Deeperas`, or `/deeperas`) and start a new conversation. If it still fails, open an issue with a minimal example. |
-| The assistant reports a missing reference | Reinstall, or copy the complete skill folder. All five files in `references/` are required. |
+| The assistant reports a missing reference | Restore the full skill folder for its topic-specific procedures. Supported ordinary work can continue; a step stops if its necessary prerequisites or checks cannot be established. Missing applicable memory instructions keep persistence OFF. |
+| Persistent memory is disabled | OFF is the default. Only when project-specific memory use is explicitly requested/authorized, verify complete applicable memory references, permitted durable project files, Node.js/Git execution, and the helper. A storage/privacy failure disables memory; ordinary conversation still works. Do not substitute account memory or shared ignores. |
 | You see duplicated instructions | Keep one installation method per host. |
 
 [Back to the README](README.md) · [Power-user guide](docs/POWER-USERS.md)

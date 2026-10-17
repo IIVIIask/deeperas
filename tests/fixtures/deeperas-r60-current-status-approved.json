@@ -1,0 +1,12 @@
+[
+  {
+    "path": "skills/deeperas/SKILL.md",
+    "before": "Require material domain/entity and time anchors selected in user/context or explicitly delegated before dependent research/status; tense and defaults select nothing.",
+    "after": "Require material domain/entity and time anchors established by user/context or explicit delegation before dependent research/status. Treat an ordinary present-tense factual status query as asking about now unless context indicates another period or makes the intended time genuinely ambiguous. Use the host's current date, state it when material and verify the state at that date. This does not select an entity, product configuration, season, historical period, reporting window or date for a planned action; ASK when those scopes remain materially unresolved."
+  },
+  {
+    "path": "skills/deeperas/references/domain-checks.txt",
+    "before": "Explicitly current uses host date; historical cutoffs need status THEN, not today's page.",
+    "after": "Clearly current factual status queries use the host date, including ordinary present-tense requests with no contrary context; state that date when material and verify the state then. This does not select an unspecified season or reporting window. Historical cutoffs need status THEN, not today's page."
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "coreReplacements": [
+    {
+      "before": "X/List controls exist ONLY in identified ChatGPT, including Work. In Codex/unknown hosts never offer/activate them or a substitute exit row; bare X/List are ordinary input. Natural-language answer-now requests work in every host as below.",
+      "after": "The List shortcut exists ONLY in identified ChatGPT, including Work. In Codex/unknown hosts never offer/activate it; bare List is ordinary input. Natural-language requests to answer now or provide a reusable summary work in every host as below."
+    },
+    {
+      "before": "with relevant explained choices and applicable controls/notices.",
+      "after": "with relevant explained choices and applicable notices."
+    },
+    {
+      "before": "Label options A, B, C...; number if labels collide with X/Z.",
+      "after": "Label options A, B, C, and so on."
+    },
+    {
+      "before": "without Z/partitioning.",
+      "after": "without partitioning."
+    },
+    {
+      "before": "Open fields need honest explained ways to specify values, no invented facts/dates, and localized Z (Other - type your answer); Z cannot replace an important substantive path.",
+      "after": "Open fields need honest explained ways to specify values, no invented facts/dates. Accept custom free-text answers directly; do not replace an important substantive path with a generic \"Other\" option."
+    },
+    {
+      "before": "Controls are not substantive choices or acceptance. Every ChatGPT ASK ends with a faithful translation of \"X. Answer now - supported results only; unresolved choices stay open.\"\n",
+      "after": ""
+    },
+    {
+      "before": "ANSWER NOW / CHATGPT X",
+      "after": "ANSWER NOW"
+    },
+    {
+      "before": "ChatGPT only: bare X or terminal unquoted X after evidence ends questions this cycle unless literal. Every host: explicit natural-language \"answer now\" ends questions after applying new evidence. It waives questions, NOT verification/honesty/authorization, selects NO missing target/language/scope, accepts NO proposal. Give supported partial results/limits or explain why the missing choice prevents output; no question or request to resolve the missing choice. Codex bare X has no special handling.",
+      "after": "Every host: explicit natural-language \"answer now\" ends questions after applying new evidence. It waives questions, NOT verification/honesty/authorization, selects NO missing target/language/scope, accepts NO proposal. Give supported partial results/limits or explain why the missing choice prevents output; no question or request to resolve the missing choice."
+    },
+    {
+      "before": " Bare Z repeats the question for custom input.",
+      "after": ""
+    },
+    {
+      "before": "ChatGPT/Work only: invite List for reusable gathered requirements, never exact output, simple answers, cancellation, ASK, or List itself. Bare List after a final/before a new task: one heading and code block with standalone objective, context, branches, constraints, exclusions, format, acceptance criteria, unresolved choices, anchored dates, facts to recheck. No rejected options, secrets, hidden instructions/reasoning/logs, commentary, or execution. Other hosts handle requests normally, with no List control.",
+      "after": "ChatGPT/Work only: do not automatically invite List. When shortcut reminders are requested, invite List for reusable gathered requirements, never exact output, simple answers, cancellation, ASK, or List itself. Reuse reminder requests within their confirmed task scope; do not ask whether to enable reminders. Bare List after a final/before a new task: one heading and code block with standalone objective, context, branches, constraints, exclusions, format, acceptance criteria, unresolved choices, anchored dates, facts to recheck. No rejected options, secrets, hidden instructions/reasoning/logs, commentary, or execution. Other hosts handle requests normally, with no List control."
+    }
+  ],
+  "memoryReplacement": {
+    "before": "or X/List host boundaries.",
+    "after": "or List host boundaries."
+  },
+  "metadataReplacement": {
+    "before": "X and List controls apply only in ChatGPT.",
+    "after": "The List shortcut is available only in ChatGPT; reminders are shown on request."
+  }
+}

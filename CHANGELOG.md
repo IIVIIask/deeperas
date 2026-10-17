@@ -1,5 +1,201 @@
 # Changelog
 
+## 0.2.71+20261015r63 (published October 17, 2026)
+
+The previous public release was `0.2.48+20261014r42`. This release publishes the approved R63 source, including the intervening changes listed below. The source revision and its date remain unchanged.
+
+### Changes since the previous public release (R42)
+
+- **Questions suited to the gap.** Ask directly for a necessary fact or value. Use explained options when they help; keep one clarification question on one decision axis.
+- **Useful advice and decision support.** Clear tasks, delegated choices and supported advice can proceed directly. Help undecided users compare alternatives; accepting advice and authorizing implementation remain separate.
+- **Factual fidelity.** Preserve supplied meaning, status and uncertainty in drafting and translation. Informational questions may receive small, supported sets of labeled cases when no single interpretation is required.
+- **Optional local project memory.** Add a Node.js helper with provenance, dependencies, file hashes, expiry and readiness checks. Memory is off by default and requires explicit permission for the project, complete instructions, supported local tools and verified Git privacy.
+- **Focused verification.** Recheck affected work after corrections or new evidence. Reuse unchanged checks and load specialized references only when their checks are needed, without waiving verification or approval boundaries.
+- **One complete core.** Restore the full instructions in `SKILL.md` and retain six topic references. Remove the experimental R62 dispatcher split. No general speed improvement is claimed.
+- **Simpler controls.** Use ordinary-language answers, delegation, stopping and answer-now requests. Remove retired single-letter controls; the ChatGPT-only List shortcut has reminders only on request.
+- **Updated presentation.** Refresh the Codex/Cursor README, replace the illustrative export scenario with a traceable real README-cleanup case, and update installation, privacy and development guidance. Keep the blue icon, MIT license and host-neutral package name.
+
+Package and isolated memory checks accompany this release. Current Cursor runtime, managed-workspace sync and universal model adherence are not certified by these checks.
+
+### R63 source change (approved October 15, 2026)
+
+Approved single-core restoration after the R62 experiment. Comparative model and installation evidence is recorded separately in `output/verification/r63-single-core-20261015` in the development workspace.
+
+- Restore the complete R61 workflow to SKILL.md with only the R63 revision heading changed. Preserve discovery metadata, all previous approved behavior, six topic references and the optional memory helper.
+- Remove the R62 dispatcher and its redundant full-workflow reference only after exact reconstruction is verified. Retain historical R62 evidence and rejected proposal7's exclusion.
+- Align both source mirrors, five versions, current guides, reference discovery and historical regression. The experiment's loading benefit and latency tradeoff remain documented; restoration is not a universal speed claim.
+
+## 0.2.70+20261015r62 (October 15, 2026)
+
+Approved short-entrypoint dispatch. Comparative model and installation evidence is recorded separately in `output/verification/r62-fast-dispatch-20261015` in the development workspace.
+
+- Use the approved direct path only for closed supplied-input transformations and deterministic calculations. Retain fidelity, host permissions and material verification; escalate new gaps/dependencies before dependent use.
+- Move the complete R61 workflow body verbatim to `references/full-workflow.txt`. All other work, uncertain eligibility, explicit clarification-first and reserved approvals load it before applicable output/action. Resolve its original paths against SKILL.md.
+- Preserve all six topic references, the helper, discovery metadata and rejected proposal 7's exclusion. Align both skill mirrors, five versions, current guides, reference discovery and historical regression.
+
+## 0.2.69+20261015r61 (October 15, 2026)
+
+Approved bounded factual alternatives. Comparative model and installation evidence is recorded separately in `output/verification/r61-bounded-facts-20261015` in the development workspace.
+
+- Answer informational questions/calculations with a small supported set of clearly labeled cases when no single interpretation is required. Preserve each case's scope, status, uncertainty and material coverage.
+- Retain clarification for insufficient evidence, unbounded cases, explicit clarification-first requests, recommendations and actions/records requiring one confirmed interpretation.
+- Align both cores, five versions, current guides and the exact approved-delta regression. Rejected proposal 7 remains unapplied. References and the memory helper are unchanged.
+
+## 0.2.68+20261015r60 (October 15, 2026)
+
+Approved current-status time interpretation. Comparative model and installation evidence is recorded separately in `output/verification/r60-current-status-20261015` in the development workspace.
+
+- Treat ordinary present-tense factual status queries as current unless context indicates another period or genuine ambiguity. Use the host date, state it when material and verify the applicable state.
+- Preserve historical context and clarification of unresolved entities, configurations, seasons, reporting windows and planned-action dates. Align the domain reference without relaxing evidence requirements.
+- Align both source mirrors, five versions, current guides and the exact approved-delta regression. Rejected proposal 7 remains unapplied; other references and the memory helper are unchanged.
+
+## 0.2.67+20261015r59 (October 15, 2026)
+
+Approved clarification-format update. Comparative model and installation evidence is recorded separately in `output/verification/r59-question-format-20261015` in the development workspace.
+
+- Ask directly for a necessary fact or open-field value when that is clearer. Explained menus remain available when they help the current decision.
+- Apply labels and the usual 2-5 choices when using a menu. Retain explained substantive options, complete important alternatives, factual honesty and one question on one decision axis.
+- Preserve the pending-question reminder after an explanation, help for undecided users, approval boundaries and answer-now semantics.
+- Align both cores, five manifests, public guidance and the exact approved-delta regression fixture. References and the memory helper are unchanged.
+
+## 0.2.66+20261015r58 (October 15, 2026)
+
+Approved domain-reference routing update. Comparative model and installation evidence is recorded separately in `output/verification/r58-domain-routing-20261015` in the development workspace.
+
+- Load domain guidance for list universe/time/completeness, exact product identity/configuration/matches, existence/absence, causal claims and food safety/quality/storage judgments.
+- A domain mention in general advice, conceptual planning or ordinary drafting alone does not trigger the reference. Read it before any question, option or claim that requires its specialized checks.
+- Align both cores, five manifests, current guides and the exact approved-delta regression fixture. Preserve the entire domain reference, other approved rules and the memory helper.
+
+## 0.2.65+20261015r57 (October 15, 2026)
+
+Approved artifact-reference routing update. Comparative model and installation evidence is recorded separately in `output/verification/r57-artifact-routing-20261015` in the development workspace.
+
+- Load artifact enforcement/recovery guidance before work that requires its specialized construction, structure, count, boundary, fit or recovery checks. Conceptual/staged planning, business advice, decision support and ordinary chat drafting alone do not trigger it.
+- Preserve the complete guidance before dependent questions, options and plans. Align its opening sentence with artifact construction/conversion; retain all detailed controls and recovery checks.
+- Align both cores and artifact references, five manifests, current guides and the exact authorized-delta regression fixture. Preserve earlier approved rules and the memory helper.
+
+## 0.2.64+20261015r56 (October 15, 2026)
+
+Approved planning-reference routing and decision-support update. Comparative model and installation evidence is recorded separately in `output/verification/r56-decision-support-20261015` in the development workspace.
+
+- Load the planning reference before methods, detailed plans, resources, feasibility and cost/licensing evaluation, including questions/options requiring its specialized checks. A goal or requirement question fully supported by the core does not trigger it alone.
+- Help undecided users evaluate material alternatives using established goals and constraints. Avoid merely repeating their unresolved selection.
+- Propose staged work only when the initial work preserves material alternatives. Verify transition requirements, effort and costs before claiming easy expansion; retain selection/delegation before adoption.
+- Align with the existing independent-work rule after a behavioral regression: an unverified implementation path does not by itself block valid independent preparation. Keep preparation distinct from implementation.
+- Align both cores, five manifests, current guides and the exact approved regression fixture. Preserve factual fidelity, memory opt-in and other approved safeguards.
+
+## 0.2.62+20261015r55 (October 15, 2026)
+
+Approved factual-drafting fidelity update. Comparative model and installation evidence is recorded separately in `output/verification/r55-fidelity-20261015` in the development workspace.
+
+- Preserve supplied meaning, status and certainty in factual drafting, translation and rewriting. Template conventions and plausible implications do not establish additional facts or commitments.
+- Omit unsupported additions when the requested output remains complete. Ask only for a missing fact necessary for that output. Check introduced or strengthened claims within the existing final recheck.
+- Align both cores, all manifests, current guides and the exact approved regression fixture. Memory routing, reference contents and helper behavior remain unchanged.
+
+## 0.2.61+20261015r54 (October 15, 2026)
+
+Approved source update for conditional loading of project-memory instructions. Installation and behavioral evidence are recorded separately in `output/verification/r54-memory-routing-20261015` in the development workspace.
+
+- **Load memory instructions on authorized use.** Project work, conversation-only context, provenance tracking, corrections and resuming alone no longer trigger the two memory references. Explicitly authorized saving/recovery still requires complete applicable instructions before any store access or helper operation.
+- **Preserve scoped authorization and inspection.** Reuse established authorization within its confirmed project scope. Requests to inspect, explain or edit the instruction files may read them as task evidence without enabling persistence.
+- **Preserve safeguards.** Memory stays OFF until authorization, capability, privacy and verification requirements are satisfied. Other reference triggers, the helper implementation, question behavior and previously approved rules are unchanged.
+- **Align the bundle.** Both cores, all manifests, current guides and the approved regression fixture use R54.
+
+## 0.2.60+20261015r53 (October 15, 2026)
+
+Local source update for the approved shared-recheck rule. Publication and installed-host activation are not verified.
+
+- **One shared recheck.** The first-response, recommendation and core-priority entry points use the same rule. Reuse a completed check only while relevant inputs, evidence validity and scope are unchanged; another reference to the gate does not require a duplicate full review.
+- **Recheck affected work.** Replies, tool results/failures, corrections and other new information require identifying changes and rechecking affected facts, choices, branches and dependencies. Expiry, relevant elapsed time and changed files, sources or configuration invalidate affected checks. Uncertain impact requires checking potentially affected branches.
+- **Preserve mandatory verification.** Tool verification, memory read/check operations, artifact inspection and freshness checks remain required under their existing conditions. The final response must still be checked for wording, claims, local fact/source bindings, branch statuses and new or changed draft content.
+- **Align sources and regression.** Both cores contain the five exact approved replacements. Manifests, guides, changelog and the regression fixture use R53. All earlier approved changes and the one-question contract are preserved; the six references and helper implementation remain unchanged.
+
+## 0.2.59+20261015r52 (October 15, 2026)
+
+Local source update for complete removal of single-letter exit/custom-answer controls and optional List reminders. Publication and installed-host activation are not verified.
+
+- **Remove the retired controls entirely.** Remove their rows, reserved-label rules and special input handling from both cores, memory references, plugin descriptions and current guides. Natural-language answer-now requests, direct custom answers and their existing evidence/authorization limits remain available.
+- **Keep List reminders optional.** ChatGPT/Work retains the List shortcut and reusable prompt format. Invite it only when shortcut reminders are requested within the confirmed task scope and the existing response conditions allow it; do not ask whether to enable reminders.
+- **Align sources and verification.** Versions and public guides use R52. Package checks reject removed controls in active instructions, metadata and guides; the regression allows only the approved removals and List changes. Historical changelog entries and comparison fixtures are retained. Recheck frequency is unchanged.
+
+## 0.2.58+20261015r51 (October 15, 2026)
+
+Local source update for approved decision-relevant tool comparison research. Publication and installed-host activation are not verified.
+
+- **Verify what can change the decision.** Check official-source facts about each candidate's editions, licensing and deployment options under the confirmed goal and constraints. Investigate uncertain applicability before exclusions; unresolved material evidence still blocks dependent conclusions.
+- **Inventory when needed.** A complete inventory remains required when requested or when the conclusion depends on that coverage. Comparisons do not always require a preceding inventory table. Evidence, coverage limits, total operating cost and dated currency-conversion requirements remain explicit.
+- **Align sources and verification.** Both planning references contain the exact approved paragraph. Manifests, guides, changelog and a static assertion are aligned. The core's only change is its revision marker; earlier approved behavior and X/Z/List rules are preserved.
+
+## 0.2.57+20261015r50 (October 15, 2026)
+
+Local source update for the approved removal of two narrow sports examples. Publication and installed-host activation are not verified.
+
+- **Remove redundant examples.** Remove the UEFA/Cypriot-club context example and the example about leaving one European competition from the domain reference. Its general context, time, complete-set verification and selective invalidation rules remain intact.
+- **Preserve useful checks.** Product, causality and food checks and every other reference remain unchanged. The core's only change is its revision marker; earlier approved behavior and the one-question contract are preserved.
+- **Align versions and verification.** Both source copies, manifests, guides and changelog use R50. A static assertion pins the exact approved sports paragraph; source comparison verifies that the reference differs only by the two approved removals.
+
+## 0.2.56+20261015r49 (October 15, 2026)
+
+Local source update for approved operation with missing supplementary references. Publication and installed-host activation are not verified.
+
+- **Usable core.** The core defines an ordinary workflow on its own. Read available matching references in full; missing supplementary text does not by itself block work supported by actual instructions, permissions and verified evidence.
+- **Retain necessary checks.** Pause dependent steps when prerequisites, authorization, safety checks or acceptance criteria cannot be established. Essential preservation, evidence, construction and recovery safeguards remain in the core; disclose relevant limits without inventing missing instructions or claiming unsupported completion.
+- **Keep memory OFF without instructions.** Complete applicable memory references, explicit project authorization and the existing helper/capability/privacy requirements remain necessary for memory access. Conversation context continues independently. The six references and helper implementation are preserved.
+- **Align guides and regression.** Bundle guidance, troubleshooting, versions and the core regression recognize the exact approved reference block and alignments. Earlier approved changes and the one-question contract are preserved.
+
+## 0.2.55+20261015r48 (October 15, 2026)
+
+Local source update for approved project-memory opt-in. Publication and installed-host activation are not verified.
+
+- **Explicit authorization per project.** Persistent memory is OFF by default. Saving or recovering durable context requires established project-specific user authorization; existing files, tools, planning consent and saved entries do not activate it. Reuse valid authorization within its confirmed scope.
+- **No memory access while OFF.** Neither structured nor legacy memory is read or updated and the helper is not invoked. Existing files are preserved. Ordinary conversation, provenance, correction handling and verification continue without unsolicited activation prompts.
+- **Aligned instructions and guides.** The core, memory and legacy references, guides, versions and static regression recognize opt-in. Storage/privacy/read-back safeguards and the helper implementation are preserved. Approving this policy change does not enable project memory.
+
+## 0.2.54+20261015r47 (October 15, 2026)
+
+Local source update for the approved explanation change with a pending-question reminder. Publication and installed-host activation are not verified.
+
+- **Explain at the needed depth.** Clarifications can include relevant explanations, examples or small diagrams. Requested explanations have no two-sentence limit; full menus repeat when requested, changed or needed for selection.
+- **Keep the pending question visible.** After an explanation, briefly restate the pending selection question as the response's only clarification question. Explanations do not imply selection, acceptance or authorization. Answer-now and replies with no pending selection do not add a question.
+- **Preserve one question.** Each ASK turn still contains one clarification question on one decision axis. The first-response, ASK, presentation and explanation rules and guides are aligned; the exact approved wording is covered by the core regression. Persistent-memory behavior is unchanged.
+
+## 0.2.53+20261015r46: October 15, 2026
+
+Local source update for the approved planning-discussion consent change; publication and installed-host activation are not verified.
+
+- **Begin from clear requests.** A clear request for help with creation, organization or planning starts the requested discussion without a separate planning-consent question. Missing material prerequisites trigger the most consequential substantive question; merely mentioning an idea with unclear desired help still triggers intent clarification.
+- **Preserve authority.** Discussion does not select governing choices, amend constraints, fill missing prerequisites or grant additional implementation/external-action authority. Cancellation and alternative deliverables are honored.
+- **Reference, guides and regression.** The idea-to-plan reference and public-source guides recognize this consent. The exact approved core text and reference alignment are covered by the core regression; approved changes 1 and 2 and the one-question ASK contract are preserved.
+
+## 0.2.52+20261015r45: October 15, 2026
+
+Local source update for the approved recommendation change; publication and installed-host activation are not verified.
+
+- **Supported advice without acceptance.** Advice-only requests can receive a complete recommendation when material facts, constraints and priorities are established, without first selecting or accepting a proposed method. Advice includes rationale, trade-offs and evidence limits; missing prerequisites still require clarification or validation.
+- **Separate execution.** Recommendations and "don't know" replies do not imply selection, delegation, acceptance or permission. Existing valid authorization is preserved and explicit approval-before-application requests are honored.
+- **Gate and documentation.** The central gate, ANSWER condition, first-response summary and skill description recognize this exception. The exact approved recommendation text and alignments are covered by the core regression; the rule 1 exception, planning-consent rule, memory helper and references are preserved.
+
+## 0.2.51+20261015r44: October 15, 2026
+
+Local source update for the approved rule 1 change; publication and installed-host activation are not verified.
+
+- **Immaterial alternatives.** The assistant may choose within the user's permitted alternatives only when the detail is immaterial to the confirmed task, low-risk and easily reversible. Material differences, uncertain materiality and choices the user reserves still require clarification.
+- **Consistent gate and adoption.** The description, ASK/ANSWER gate and adoption rule recognize this narrow exception without treating assistant choices as user acceptance or authorizing new actions. Recommendation acceptance remains unchanged.
+- **Documentation and regression.** The public-source guides describe the exception. The core regression allows only the exact approved rule text and necessary alignments; the R42 fixture, memory helper and six references are preserved.
+
+## 0.2.50+20261014r43: October 14, 2026
+
+Skill revision R43 adds optional living project memory while preserving the existing clarification, verification, acceptance, recovery and host-control rules.
+
+- **Provenance and dependencies.** A dependency-free Node.js helper stores task-relevant facts, accepted decisions and verified results in private project-local `.deeperas/memory.json`. Entries retain their origin, verification state and input revisions. Project-file evidence can bind to inspected bytes with SHA256; source edits or loss invalidate dependent conclusions.
+- **Correction propagation.** Changed or expired inputs invalidate dependent conclusions transitively. Unrelated decisions stay intact; affected calculations and artifacts require recomputation and verification before reuse.
+- **Complete repair worklists.** Reads and readiness checks return the full affected chain after source changes or expiry, alongside explicit corrections. This completes the initial private 0.2.49 R43 update.
+- **Fail closed on storage.** Persistent memory is disabled without permitted durable project files, executable helper or verifiable privacy. No account-memory, shared-ignore or alternate-store workaround. The existing conversation workflow remains available.
+- **Safe persistence.** Project identity, schema, provenance, dependency cycles, concurrent revisions, symlink protection, atomic replacement and private Git exclusions are checked. Existing `Deeperas_Decisions.txt` records are preserved rather than overwritten or automatically imported.
+- **Behavior tests.** Tests exercise correction chains, provenance/acceptance boundaries, unknown/conflicting inputs, expiry, restart recovery, write failures and Git privacy. A baseline check preserves the R42 core instructions apart from explicit memory integration. CI runs package and memory tests.
+
+Provenance refers to evidence the host must inspect; it is not an automatic truth guarantee. Hosted model adherence and cross-host behavior remain separate from the helper's deterministic tests.
+
 ## 0.2.48+20261014r42: October 14, 2026
 
 Metadata and documentation only. Skill revision R42 and the artwork from 0.2.47 are unchanged.

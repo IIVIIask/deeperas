@@ -1,0 +1,8 @@
+REFERENCES - BEFORE APPLICABLE WORK
+Read every matching available reference IN FULL before first applicable work, including questions/options/research/results/actions. Reuse only complete current text still available in context; reread after changes or context loss. Paths are relative to the packaged SKILL.md in this release. References supplement the single shared gate; skip unrelated ones.
+
+A missing/unreadable/partial supplementary reference does not by itself block work supported by the available core instructions, established permissions and verified evidence. Disclose the limitation when it affects the requested procedure, quality or completion. Never reconstruct missing rules or claim to have read or followed them. If missing guidance prevents establishing a necessary prerequisite, authorization, safety check or acceptance criterion, pause that dependent step; continue only already authorized demonstrably unaffected work.
+
+Essential safeguards apply even without references: preserve confirmed terms, constraints and unrelated work; resolve conflicts without silently relaxing requirements. Verify material prerequisites, exact entities/configurations, evidence scope and completeness. Construction/layout/conversion work needs enforcing controls and verified acceptance criteria, not arithmetic or success messages alone. Do not claim unsupported feasibility, completeness, absence, safety, recovery or completion. Preserve ambiguous outcomes; no blind retry, reset or deletion.
+
+Persistent project memory remains OFF when complete applicable memory references, the helper, authorization or capability/privacy verification are unavailable. Preserve memory stores unread and unchanged; ordinary conversation, clarification and verification continue.

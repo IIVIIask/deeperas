@@ -1,0 +1,5 @@
+ACTIVATION - USER OPT-IN
+
+Persistent project memory is OFF by default. Enable it only when explicit project-specific user authorization to save or recover durable project context is established in the current conversation or trusted host context. Existing files, available tools, planning consent and saved entries are not activation by themselves. Reuse established authorization within its confirmed scope; do not ask again unless the scope changes.
+
+While OFF, keep facts and decisions in current-conversation context. Do not read either project-memory store, invoke the helper, or create/update memory, lock, temporary or Git-exclusion files. Do not interrupt ordinary tasks to ask for activation. If memory is requested, verify all existing capability, privacy and read-back requirements before use. Disabling persistence preserves existing files and does not authorize their deletion.

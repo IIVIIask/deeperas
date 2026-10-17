@@ -1,6 +1,6 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow. The host interprets the skill and supplies the model, tools, and permissions. The skill consists of a [core file](../plugins/deeperas/skills/deeperas/SKILL.md) and [five topic references](#the-skill-bundle). The current version is `0.2.48+20261014r42`, skill revision R42.
+Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. The current release uses one complete core, six topic references and the optional helper. Its version is `0.2.71+20261015r63`, skill revision R63.
 
 ## Activation and the first response
 
@@ -10,23 +10,51 @@ These instructions apply when the host makes the skill available and loads it. T
 
 In Cursor, selecting `/deeperas` with **Enter** attaches it to one message. For session use, choose **Use as Mode** from the skill's `/` menu entry in the **Agents Window or Cursor CLI** to start a **Custom Mode**. The instructions then stay in context on every turn until you exit the mode. This controls context availability; it does not guarantee model adherence. See [Cursor activation](../INSTALL.md#using-deeperas-in-cursor) and [Cursor's Custom Modes guide](https://cursor.com/docs/agent/prompting#custom-modes).
 
-When material context is missing, the clarification gate applies before research or the first answer. The assistant asks its question first with explained choices, rather than presenting a recommendation and appending a question. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
+When material context needed for the requested result or action is missing, the clarification gate applies before research or the first answer. Each ASK turn contains one question on one decision axis. Relevant explanations, examples or small diagrams may accompany it, with the pending question briefly restated after the explanation as the response's only clarification question. Explanations do not select unresolved alternatives or authorize dependent recommendations or steps. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
+
+## Single core
+
+R63 keeps the complete shared workflow in `SKILL.md`. Applicable topic references add specialized checks only when the task needs them. The experimental R62 dispatcher and duplicate full-workflow file are removed; the restored core preserves the R61 rules and discovery metadata.
+
+This is an instruction structure change, not a speed guarantee. Reuse a complete current reading while its text, relevant inputs and evidence remain available and unchanged. See the [changes since R42](../CHANGELOG.md#changes-since-the-previous-public-release-r42).
 
 ## The clarification gate
 
-The assistant resolves explicit, unselected alternatives before dependent output or action. Otherwise, it asks when plausible answers would materially change the result, such as the target, scope, constraints, method, or intended audience.
+The assistant asks about material, unselected alternatives before dependent output or action. Only immaterial, low-risk, easily reversible details may be selected within the user's allowed alternatives; it still asks when materiality is uncertain or the user reserves the choice. Such selections are assistant choices, not user acceptance or preferences. Otherwise, it asks when plausible answers would materially change the result, such as the target, scope, constraints, method, or intended audience.
 
 Clear tasks and explicitly delegated choices proceed directly. Minor cosmetic polish alone does not need a question.
 
-A reply resolves the gap it answers. Before recommending a method or giving steps, the skill rechecks the remaining user-owned conditions that determine suitability. An unknown condition does not become an assumed fact, a conditional instruction to change it, or a check appended after the recommendation.
+For an informational factual question or calculation, a small set of relevant, supported cases can answer directly without selecting an interpretation. Label each case's scope, status and uncertainty; retain material alternatives and evidence limits. Ask when evidence or coverage is insufficient, useful cases cannot be bounded, an explicit clarification-first request applies, or the result/action needs one confirmed interpretation. This exception does not authorize recommendations, actions or a document/record filled with one unconfirmed value.
 
-Each clarification focuses on one decision. Options explain their consequences, and a recommendation depends on established priorities and evidence. You can answer with an option or in ordinary language.
+Requested advice can be delivered without accepting a proposed method when material facts, constraints and priorities are established. The recommendation includes its rationale, trade-offs and evidence limits. Missing prerequisites still require clarification; recommendations and "don't know" replies do not grant permission to apply a method.
+
+For tool cost/fit comparisons, verify official-source facts about editions, licensing and deployment options that can materially change the conclusion under the confirmed goal and constraints. Investigate uncertain applicability before excluding a plausible option; unresolved material evidence still blocks dependent conclusions. A complete inventory is required when requested or when the conclusion needs that coverage, rather than as a table before every comparison. Cite decision-relevant evidence when the format permits, report coverage limits and verify total operating cost. Missing evidence alone does not establish that an option is absent.
+
+A reply resolves the gap it answers. Under the shared recheck rule, unresolved user-owned conditions that can change the method or procedure still require clarification before dependent recommendations or steps. An unknown condition does not become an assumed fact, a conditional instruction to change it, or a check appended after the recommendation.
+
+Each clarification focuses on one decision. Ask directly for a simple necessary fact or value when that is clearer; use explained options when they help the user understand or make the decision. Labels and the usual 2-5 choices apply when a menu is used. Every substantive option still explains its consequences, all important alternatives remain available, and a recommendation depends on established priorities and evidence. You can answer with an option or in ordinary language. The pending-question reminder after an explanation remains in force.
+
+Requests to explain an option or clarification receive the depth needed for understanding, without a two-sentence limit. After the explanation the assistant briefly restates the pending selection question. It repeats the full menu when requested, changed or needed for selection. The decision and prerequisites remain open; explanation is not acceptance or authorization. When answer-now has ended questions or no selection remains pending, the explanation adds no question.
+
+Ordinary present-tense factual status queries use the host date when the context does not indicate another period or genuine time ambiguity. State that date when material and verify the state at that date. Existing historical context takes priority. This does not select an entity, product configuration, sports season, reporting window or date for a planned action; material gaps still require clarification.
 
 ## Project work and dependencies
+
+A clear request for help with creation, organization or planning is consent to begin the requested discussion. The assistant asks the most consequential substantive question when a material prerequisite is missing; it does not first ask whether to start planning. If the user merely mentions an idea and the desired help is unclear, it asks what assistance is wanted. Beginning discussion does not select governing choices, amend constraints or grant additional implementation or external-action authority.
 
 Settle the goal and critical constraints first. Later decisions can remain pending until a step needs them. Deferring a choice does not allow the assistant to make it silently.
 
 Work may continue independently while a question is open only when every plausible answer leaves that work's inputs and method unaffected. New evidence reopens the affected decisions; settled, unaffected choices remain intact.
+
+Factual drafting, translation and rewriting preserve supplied meaning, status and certainty. A template convention or plausible implication does not establish another fact or commitment. Omit unsupported additions when the requested text remains complete; ask only for facts necessary to complete it. The existing final recheck compares introduced or strengthened material claims with their evidence without a separate full review.
+
+When the user is undecided, help evaluate material alternatives using established goals and constraints instead of simply repeating the unresolved selection. Load the planning reference before decision support that needs its specialized checks. A staged proposal must preserve material alternatives; verify transition requirements, effort and costs before calling later expansion easy. Adoption still requires actual user selection or delegation. Independent preparation may proceed under the existing independent-work rule; do not block it solely because no implementation path is yet verified. Distinguish preparation from implementing an unverified path.
+
+One shared recheck covers the material choices and their origins, permissions, constraints, prerequisites, assumptions, contradictions and evidence needed by the next question, answer, plan, recommendation or dependent action. Reuse a completed check only while its relevant inputs, evidence validity and scope are unchanged. A reply, attachment, tool result/failure, correction, conflict or draft insight triggers identification of changes and rechecking of affected facts, choices, branches and dependencies. Expiry, relevant elapsed time and changed files, sources or configuration also invalidate affected checks. Preserve other branches only when they are demonstrably unaffected; uncertain impact requires checking all potentially affected branches.
+
+Required tool verification, memory read/check operations, artifact inspection and freshness checks remain mandatory within their existing authorization and capability conditions. Before sending, confirm that the shared check covers the final wording, claims, local fact/source bindings and branch statuses; check new or changed draft content and reopen the gate if a material gap appears.
+
+Domain guidance is loaded for list universe/time/completeness checks, exact product identity/configuration/matches, existence/absence judgments, causal claims and food safety/quality/storage judgments. A domain mention in general advice, conceptual planning or ordinary drafting alone does not trigger it. Questions, options or claims that depend on specialized checks still require the complete applicable guidance first.
 
 ## Delegation and ending questions
 
@@ -40,25 +68,50 @@ Choose the visual style for me, but ask before deciding the user flow.
 
 ## Project decision records
 
-In Codex projects, the instructions call for a small `Deeperas_Decisions.txt` containing confirmed decisions, constraints, and pending issues. It must not contain secrets, hidden reasoning, raw logs, or unaccepted proposals presented as decisions.
+Existing Codex `Deeperas_Decisions.txt` records are retained as legacy context containing confirmed decisions, constraints, and pending issues. Reading or updating them requires explicit project-specific authorization covering that memory use/recovery. While memory is OFF, the record is left unread and unchanged. New structured memory uses the helper below; the old prose record is neither overwritten nor automatically imported. Neither record may contain secrets, hidden reasoning, raw logs, or unaccepted proposals presented as decisions.
 
 For Git projects, the skill requires the record to be untracked and ignored through the repository's private `info/exclude` file before writing it. The host resolves that file with `git rev-parse --git-path info/exclude` and verifies the matching rule with `git check-ignore -v`. A shared `.gitignore` or a global ignore rule does not satisfy this requirement.
 
 If the record is already tracked, or the private exclusion cannot be verified, the assistant stops file persistence and keeps decisions in the conversation. It does not remove or untrack an existing record by implication. The record is project context, not a global memory service or authorization for future actions. Local storage guarantees neither confidentiality nor backup.
 
+## Living project memory
+
+Persistent project memory is **OFF by default**. Enable it only after explicit project-specific user authorization to save or recover durable context is established in the current conversation or trusted host context. Reuse established authorization within its confirmed scope; existing files, tools, planning consent, saved entries and approval of a policy change do not activate memory by themselves. For example, “Remember confirmed decisions for this project across chats” authorizes project-specific saving. Do not interrupt ordinary tasks to request activation.
+
+After authorization, verify complete applicable memory references, an identified project directory, permitted durable file access and process execution, Node.js, the bundled [helper](../plugins/deeperas/skills/deeperas/scripts/project-memory.mjs), and Git privacy. If the instructions or a capability are unavailable or cannot be verified, persistent memory is **disabled**. While OFF, do not read either memory store, invoke the helper, or create/update memory, lock, temporary or Git-exclusion files. Disabling memory preserves existing files and does not authorize deletion. Ordinary clarification, verification and current-conversation context still work; no cross-conversation recovery is claimed. Disclose a limitation when requested memory use/recovery cannot proceed.
+
+The helper creates `.deeperas/memory.json` inside the actual project. In Git it first verifies that the whole `.deeperas` directory is untracked and excluded through the repository's private `info/exclude`. This covers the ledger, lock and temporary files. It preserves existing exclusion rules and does not change shared `.gitignore` or global settings.
+
+Each entry has a stable ID, kind (`fact`, `decision`, `constraint`, `result`), literal value, state (`confirmed`, `unknown`, `conflicted`, `stale`), provenance and dependencies. Provenance contains its kind, an actual evidence reference and an observation time. Confirmed decisions require a user selection/delegation reference; calculations require input dependencies. The host must inspect the evidence: schema validation does not establish its truth. Optional `validUntil` deadlines invalidate expiring evidence on the next access, without background monitoring.
+
+For project-local file evidence, provenance can also include `file: {path, sha256}` using the actual hash of the inspected bytes. The helper rejects a mismatched hash before confirmation and invalidates dependent entries when the file changes, disappears or becomes unreadable. Paths cannot escape the identified project. A matching hash proves byte identity; it does not prove that a claim correctly describes those bytes.
+
+Correcting an input marks dependent conclusions stale, transitively. Old values remain visibly stale and unrelated entries stay unchanged. The assistant must recompute calculations, re-evaluate decisions and repair authorized artifacts before confirming those results again. Unverified or stale inputs cannot pass a readiness check. Repeating an unchanged entry does not invalidate its dependents.
+
+The helper accepts one JSON request on stdin:
+
+```text
+node <installed-skill-directory>/scripts/project-memory.mjs --project <absolute-project-directory>
+```
+
+Only within established project-memory authorization and after capability/privacy verification, use host process tools with separate argument/input fields, or an input file, rather than shell-interpolating user data. Start with `{"action":"read"}`. A `put` uses the returned `expectedRevision` and an entry with `dependsOn` as entry IDs; the helper captures their revisions. While memory is ON, use `{"action":"check","ids":["input","result"]}` for all material dependencies before dependent output/action; while OFF, verify dependencies with current conversation and actual task evidence without helper calls. Returned `enabled` verifies storage capability, not user authorization; `blocked` means requested entries are not ready; `disabled`/`error` means persistent use must stop until an authorized successful read/reconciliation. A revision conflict is never permission to blindly replay a stale write. The host must enforce the authorization gate before invoking the unchanged helper.
+
+No authorization or file tools means no helper invocation or substitute storage. The helper also provides an adapter operation, `{"action":"disable"}`, that returns disabled without accessing a project; this does not waive the host's authorization gate or require a call while OFF. Corrupt, wrong-project or tracked stores are preserved. A leftover lock prevents writes and requires inspection rather than automatic deletion. See the [full memory workflow](../plugins/deeperas/skills/deeperas/references/project-memory.txt).
+
 ## The skill bundle
 
-The core defines the shared clarification gate. It requires the host to read the matching references in full before work in those areas:
+The complete core defines the shared clarification gate and essential safeguards, and requires available matching topic references in full before work in those areas. Project work, conversation-only context, provenance tracking, corrections and resuming alone do not trigger the two memory references. Existing project-specific memory authorization remains valid within its confirmed scope. Requests to inspect, explain or edit the instructions may load them as task evidence without activating memory:
 
 | Reference | When it is needed |
 | --- | --- |
 | [Constraint conflicts](../plugins/deeperas/skills/deeperas/references/constraint-conflicts.txt) | Accepted requirements conflict, or a change needs the responsible person's authority. |
-| [Idea to plan](../plugins/deeperas/skills/deeperas/references/idea-to-plan.txt) | Planning a creation or comparing methods, resources, editions, or licensing. |
+| [Idea to plan](../plugins/deeperas/skills/deeperas/references/idea-to-plan.txt) | Before proposing or evaluating methods, detailed plans, resource allocations, feasibility, cost/fit, editions or licensing, including questions/options that need its specialized checks. A goal or requirement question fully supported by the core alone does not trigger it. |
 | [Domain checks](../plugins/deeperas/skills/deeperas/references/domain-checks.txt) | Relevant product, sports/list, causal, and food questions. |
-| [Artifact enforcement and recovery](../plugins/deeperas/skills/deeperas/references/artifact-enforcement-recovery.txt) | Constructing, converting, checking, or repairing layouts and procedural artifacts. |
-| [Project decisions in Codex](../plugins/deeperas/skills/deeperas/references/project-decisions-codex.txt) | Codex project entry, record recovery, or decision persistence. |
+| [Artifact enforcement and recovery](../plugins/deeperas/skills/deeperas/references/artifact-enforcement-recovery.txt) | Before artifact construction, layout, conversion or repair needing specialized structural, count, boundary, fit or recovery checks, including dependent questions/options/plans. General business advice, decision support, ordinary chat drafting and conceptual/staged planning do not trigger it by themselves. |
+| [Project decisions in Codex](../plugins/deeperas/skills/deeperas/references/project-decisions-codex.txt) | Explicitly authorized persistent-memory use in Codex, before any store access or helper operation. |
+| [Living project memory](../plugins/deeperas/skills/deeperas/references/project-memory.txt) | Explicitly authorized project-specific persistent-memory saving or recovery in any host, before any store access or helper operation. |
 
-Keep these files beside the core under `references/` and use files from the same release. If a required file is missing or unreadable, the dependent work stops with a clear explanation; already authorized work that is demonstrably unaffected can continue. The core alone is not the complete skill.
+Keep all six topic files under `references/` beside the complete `SKILL.md`, using files from the same release. Missing, unreadable or partial topic guidance does not by itself stop work supported by the core. Disclose the limitation when it affects the requested procedure, quality or completion, and never reconstruct missing rules or claim to have followed them. Stop a dependent step if necessary prerequisites, authorization, safety checks or acceptance criteria cannot be established; only already authorized demonstrably unaffected work may continue. Preserve confirmed constraints and unrelated work, enforce and verify construction/layout criteria, and never claim unsupported feasibility, completeness, absence, safety, recovery or completion. Persistent memory remains OFF without complete applicable memory references and the other authorization/capability/privacy requirements.
 
 ## Host-specific controls
 
@@ -66,8 +119,9 @@ Keep these files beside the core under `references/` and use files from the same
 | --- | --- | --- |
 | Ordinary-language clarification and delegation | Defined by the skill | Defined by the skill |
 | “Answer now…” | Ends questions for the current cycle | Ends questions for the current cycle |
-| Bare `X` | Supported-results shortcut | No special meaning |
 | Bare `List` after a final answer | Reusable prompt from gathered requirements | No special meaning |
+
+Custom answers can be written directly, and ordinary-language requests can end questions or request a reusable summary in every host. There are no single-letter exit or custom-answer controls. In ChatGPT/Work, List remains available, but invitations appear only when shortcut reminders are requested and the response is suitable for one. The request applies within its confirmed task scope; the assistant does not ask whether to enable reminders.
 
 These are instruction-defined behaviors, not new platform buttons. This repository provides direct distribution; it does not claim approval or listing in the public OpenAI or Cursor directories.
 
@@ -88,33 +142,47 @@ deeperas/
 │   ├── assets/                      # Blue icon and light/dark README logos
 │   ├── LICENSE                      # Notice retained in installed packages
 │   └── skills/deeperas/
-│       ├── SKILL.md                 # Shared core instructions
-│       └── references/              # Five required topic files
-└── tests/package.test.mjs            # Distribution checks
+│       ├── SKILL.md                 # Complete shared core instructions
+│       ├── references/              # Six topic files
+│       └── scripts/project-memory.mjs # Optional local persistence helper
+└── tests/                           # Distribution and memory behavior checks
 ```
 
 The root manifest supplies the OpenAI presentation through `extensions.com.openai.interface`; `.codex-plugin/plugin.json` carries the same interface for older Codex versions. Cursor has its own manifest and receives the same skill and icon artwork.
 
 ### Release version naming
 
-Versions follow `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.48+20261014r42`, where the revision is the skill revision. Version strings must not include host names. The root manifest, both host manifests, and the version in the documentation must stay synchronized; the package checks enforce both rules.
+Versions follow `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.71+20261015r63`, where the revision is the skill revision. Version strings must not include host names. The root manifest, both host manifests, and the version in the documentation must stay synchronized; the package checks enforce both rules.
 
 ## Boundaries and privacy
 
-The package contains instructions and manifests only, with no Deeperas backend, custom MCP server, hooks, or telemetry. Your host still processes conversations and may use local files or external tools according to its settings and permissions.
+The package contains instructions, manifests and the optional local Node.js helper, with no Deeperas backend, custom MCP server, hooks or telemetry. Your host still processes conversations and may use local files or external tools according to its settings and permissions. The helper does not contact a network service.
 
 Deeperas does not add browsing or verification tools by itself. Results depend on the host, the model, the available evidence, and instruction following. It cannot guarantee accuracy or override platform rules.
 
 ## Development
 
-No dependency installation is required for the package checks:
+Node.js and Git must be available. No dependency installation is needed:
 
 ```sh
-node --test tests/package.test.mjs
+node --test tests/*.test.mjs
 ```
 
-The [Package checks workflow](../.github/workflows/package-checks.yml) runs this command on every push and pull request. The README badge shows the latest push result for `main` and covers the package checks described below.
+The [Package checks workflow](../.github/workflows/package-checks.yml) runs this command on every push and pull request. The README badge reports the latest push result for `main`.
 
-The checks verify that both marketplaces resolve to the same skill, that the manifests share a host-neutral version matching the skill revision, that the five required references are present and linked by the core, that the installable package retains the MIT notice, and that both hosts reference identical square icon artwork. Document instruction changes with a small, judgeable example. Report host-specific behavior with the host name, version, prompt, and expected versus actual result.
+The checks cover:
+
+- Matching marketplaces, manifest versions, skill revision and documented version.
+- All six topic references, the optional helper, MIT notice and shared square icon.
+- The repository writing rule and removal of retired controls from active instructions and guides.
+- Memory persistence, provenance, file hashes, corrections, dependency invalidation, expiry and readiness in isolated temporary projects.
+- Git privacy, corrupt or tracked stores, concurrent revisions, write failure and restart recovery.
+- Exact approved instruction changes against the [historical fixtures](../tests/fixtures), including R63's single-core restoration and removal of the redundant dispatcher reference.
+
+The full instruction-change history is in the [changelog](../CHANGELOG.md). Historical fixtures are comparison evidence, not additional active instructions. Static opt-in assertions do not make the helper enforce user consent internally; the host must enforce authorization before calling it.
+
+On Windows, sandbox restrictions may require permission for temporary Git repositories and atomic file replacement. A denied privacy or storage check must disable memory, never weaken its persistence rules.
+
+These tests validate the distribution and helper. They do not establish universal model adherence, current Cursor behavior, automatic managed-workspace sync, or a speed or quality advantage. Report host behavior with the application/version, exact prompt, and expected versus actual result. Keep generated tests and replayed inputs clearly identified; public real-use cases need traceable work and disclosed edits.
 
 [Back to the README](../README.md) · [Installation](../INSTALL.md)

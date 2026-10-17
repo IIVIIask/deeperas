@@ -16,5 +16,5 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version: '22'
-      - name: Validate plugin package
-        run: node --test tests/package.test.mjs
+      - name: Validate plugin package and project memory
+        run: node --test tests/*.test.mjs

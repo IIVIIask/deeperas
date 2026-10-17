@@ -14,11 +14,11 @@
 
 Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor.
 
-Describe what you want to build, change, or investigate. If an important choice is still open, Deeperas guides the agent to ask one focused question with explained options. Clear tasks and explicitly delegated choices can proceed directly.
+Describe what you want to build, change, or investigate. Deeperas asks one focused question when an important choice is missing, using explained options when helpful. Clear requests, delegated choices, and advice with enough context can proceed directly.
 
-**Version** `0.2.48+20261014r42` (skill revision R42) · [Changelog](CHANGELOG.md) · [Update an existing installation](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.71+20261015r63` (skill revision R63) · [What changed since R42](CHANGELOG.md#changes-since-the-previous-public-release-r42) · [Update](INSTALL.md#updating-an-existing-installation)
 
-[Install](#installation) · [Example](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq) · [MIT license](LICENSE)
+[Install](#installation) · [Real case](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq)
 
 ---
 
@@ -50,7 +50,7 @@ Open **Customize → + Add → From GitHub Repository**, enter the URL below, th
 https://github.com/IIVIIask/deeperas
 ```
 
-Start a new Agent conversation and type `/deeperas`, or ask the assistant to use Deeperas.
+Start a new Agent conversation and select `/deeperas`. For ongoing use, choose **Use as Mode** where supported.
 
 Prefer to copy the skill into a project? See the [installation guide](INSTALL.md), which also covers updating.
 
@@ -62,36 +62,19 @@ Your app controls when the skill is loaded. See [Cursor message and session use]
 
 ## Example
 
-Example project: an app with an orders table, with Deeperas loaded in Codex.
+### A real case: simplifying this README in Codex
 
-**Your request**
+The owner asked whether the documentation had become excessive, then requested a cleanup with approval before each change. The work was broken into small, reviewable edits.
 
-> Use Deeperas. Add an export button to the orders table.
+**One approved instruction**, translated from the original Greek:
 
-**Deeperas clarifies**
+> Shorten “How it works”, keep Clarify, Verify, Deliver unchanged, and link to the advanced guide instead of the two detailed paragraphs. Then ask me about the next change.
 
-> **What should the button export?**
->
-> **A. CSV file**: For spreadsheets and further analysis.
->
-> **B. PDF report**: For sharing a report with a fixed layout.
->
-> **C. Another format**: Describe where you will use it.
+**The published result:** the three steps stayed intact, and two explanatory paragraphs became links to the detailed guide. [Inspect the actual diff.](https://github.com/IIVIIask/deeperas/commit/22e7c7d47a85da525e610bd904ff8e30f17241aa)
 
-**Your choice**
+The same cleanup also shortened [Calling Deeperas](https://github.com/IIVIIask/deeperas/commit/9e60136), simplified [For power users](https://github.com/IIVIIask/deeperas/commit/0e32641), and removed [a technical FAQ already covered by the install guide](https://github.com/IIVIIask/deeperas/commit/db23e862581e85886b5918e0e5ff425208d5fcaf).
 
-> CSV, only the currently filtered orders.
-
-The export format is settled. If another detail matters for implementation, Deeperas guides the agent to clarify it next.
-
-*Illustrative example, not a captured Codex conversation.*
-
-<details>
-<summary><strong>View the illustrated example</strong></summary>
-
-![Illustrative Codex workflow: request an export button, clarify the format, then choose CSV for filtered orders.](assets/codex-workflow.svg)
-
-</details>
+This is a real task from October 15, 2026, summarized from the owner's conversation and linked commits. It shows scoped changes and approval boundaries, not a controlled comparison or a measured time saving.
 
 ## When to use it
 
@@ -117,6 +100,15 @@ Answer in your own words, choose an option, or delegate a decision. Clear tasks 
 
 See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-dependencies) and [the clarification gate](docs/POWER-USERS.md#the-clarification-gate).
 
+### What's new since R42
+
+- **More natural questions.** A simple missing fact can be requested directly. Explained menus are used when they help the decision.
+- **Help when you are undecided.** Evaluate alternatives against your goals, with supported advice when enough context is available.
+- **Factual fidelity.** Preserve supplied meaning and uncertainty when drafting or translating, and recheck affected conclusions after corrections.
+- **Optional project memory.** With explicit permission and supported local tools, retain project facts and decisions across chats. It is off by default.
+
+R63 uses one complete core with six topic references and an optional local memory helper. [Read the release history.](CHANGELOG.md)
+
 ## For power users
 
 **Start using it**
@@ -137,6 +129,8 @@ See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-de
 
 “Answer now” ends questions without filling in missing choices, waiving verification, or authorizing external actions. See [delegation and ending questions](docs/POWER-USERS.md#delegation-and-ending-questions).
 
+Project memory is optional and **off by default**. It needs explicit permission for the specific project and verified local file/tool access. Normal use needs no memory setup. See [how project memory works](docs/POWER-USERS.md#living-project-memory).
+
 Explore the [power-user guide](docs/POWER-USERS.md), including [the skill bundle](docs/POWER-USERS.md#the-skill-bundle). For manual installation, [copy the complete skill folder](INSTALL.md#as-a-local-skill).
 
 ## FAQ
@@ -144,7 +138,7 @@ Explore the [power-user guide](docs/POWER-USERS.md), including [the skill bundle
 <details>
 <summary><strong>Will it interview me about everything?</strong></summary>
 
-No. It asks only about meaningful uncertainty and about alternatives you named but did not choose. A clear request or an explicitly delegated choice proceeds directly. For a vague creation idea, it first checks whether you want to start planning at all.
+No. It asks when a missing fact or choice could materially change the work. Clear requests, explicitly delegated choices, and supported advice can proceed directly. When you are undecided, it helps compare the alternatives. [More about the clarification gate.](docs/POWER-USERS.md#the-clarification-gate)
 
 </details>
 
@@ -158,7 +152,7 @@ No. After installation, describe your goal in normal language. Answer in your ow
 <details>
 <summary><strong>Does it need an API key or another service?</strong></summary>
 
-No. Deeperas is instructions and plugin manifests only: no server, no MCP server, no hooks, no telemetry. Your AI host still runs the model, conversation, files, and tools under its own settings and permissions.
+Deeperas needs no separate API key or account. Your AI host supplies the model and tools under its own settings. There is no Deeperas backend, MCP server, hooks, or telemetry. Only the optional local memory helper needs Node.js, Git verification, and permitted file/process access. [Privacy and requirements.](docs/POWER-USERS.md#boundaries-and-privacy)
 
 </details>
 
@@ -172,7 +166,7 @@ Supported team/workspace marketplaces can sync from GitHub automatically. Person
 <details>
 <summary><strong>Does it guarantee correct answers?</strong></summary>
 
-No. Verification depends on the tools and evidence your host makes available. Model behavior varies, and the skill cannot override platform rules.
+No. Verification depends on the tools and evidence your host makes available. Model behavior varies, and the skill cannot override platform rules. The package checks validate the distribution and helper, not universal model adherence.
 
 </details>
 
@@ -180,7 +174,7 @@ No. Verification depends on the tools and evidence your host makes available. Mo
 
 [Report a problem](https://github.com/IIVIIask/deeperas/issues/new?template=bug_report.yml) using the **Bug report** form: include your application and versions, a small example, and the expected versus actual result. Remove private information before posting.
 
-Changes to the instructions should come with an example that makes the intended behavior easy to judge. For the local checks, see [development](docs/POWER-USERS.md#development).
+Changes to the instructions should come with an example that makes the intended behavior easy to judge. Published usage cases should come from actual work, with sources and edits disclosed. Keep generated demonstrations and test replays clearly identified. For the local checks, see [development](docs/POWER-USERS.md#development).
 
 ## License
 

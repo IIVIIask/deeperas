@@ -1,0 +1,8 @@
+{
+  "restored_core_sha256": "6f2ebcbc8332608667b54ec4faa0b787b4c8c84cfb4fd89df5bbc61b69a9f291",
+  "r61_normalized_sha256": "93db882779b48ab1cde825f805ab5308a82b10c00792c08eec79ad3c5b60828d",
+  "removed_reference": "references/full-workflow.txt",
+  "baseline": "R62",
+  "source_rules_unchanged_since": "R61",
+  "discovery_metadata_unchanged": true
+}

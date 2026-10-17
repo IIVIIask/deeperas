@@ -1,6 +1,7 @@
+import { createHash } from 'node:crypto';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
@@ -43,7 +44,7 @@ test('both marketplaces resolve to matching manifests, host-neutral versions, an
   assert.equal(codex.plugins[0].policy.installation, 'AVAILABLE');
 });
 
-test('the core links to all five bundled, nonempty reference files', () => {
+test('the single core reaches all six topic references and optional helper', () => {
   const skill = 'plugins/deeperas/skills/deeperas';
   const required = [
     'references/artifact-enforcement-recovery.txt',
@@ -51,11 +52,25 @@ test('the core links to all five bundled, nonempty reference files', () => {
     'references/domain-checks.txt',
     'references/idea-to-plan.txt',
     'references/project-decisions-codex.txt',
+    'references/project-memory.txt',
   ];
   const links = [...read(`${skill}/SKILL.md`).matchAll(/\]\((references\/[^)]+)\)/g)]
     .map((match) => match[1]).sort();
   assert.deepEqual(links, required);
   for (const file of required) assert.ok(read(`${skill}/${file}`).trim().length > 0);
+  assert.ok(existsSync(join(root, skill, 'scripts/project-memory.mjs')));
+});
+
+test('active instructions, metadata and guides exclude retired single-letter controls', () => {
+  const skill = 'plugins/deeperas/skills/deeperas';
+  const files = ['README.md', 'INSTALL.md', 'docs/POWER-USERS.md',
+    'plugins/deeperas/plugin.json', 'plugins/deeperas/.codex-plugin/plugin.json',
+    'plugins/deeperas/.cursor-plugin/plugin.json', `${skill}/SKILL.md`,
+    ...readdirSync(join(root, skill, 'references')).map((file) => `${skill}/references/${file}`)];
+  for (const file of files) {
+    assert.doesNotMatch(read(file), /(?:^|[^\p{L}\p{N}_])[XZΧΖ](?=$|[^\p{L}\p{N}_])/u,
+      `Retired control remains in ${file}`);
+  }
 });
 
 test('both hosts receive the square icon used by the README header', () => {
@@ -89,4 +104,19 @@ test('public documentation avoids unnecessary em dashes', () => {
         `Unnecessary em dash in ${file}:${index + 1}; use ordinary punctuation or explain an exact-text requirement`);
     });
   }
+});
+
+test('R63 single core restores complete R61 rules and removes only the dispatcher reference', () => {
+  const skill = 'plugins/deeperas/skills/deeperas';
+  const historic = json('tests/fixtures/deeperas-r62-fast-dispatch-approved.json');
+  const approved = json('tests/fixtures/deeperas-r63-single-core-approved.json');
+  const core = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
+  const header = core.match(/^---\n[\s\S]*?\n---\n\n/)[0];
+  assert.equal(header, historic.baseline_header);
+  const asR61 = core.replace('Deeperas Precision - Plugin R63', 'Deeperas Precision - Plugin R61');
+  assert.equal(createHash('sha256').update(core).digest('hex'), approved.restored_core_sha256);
+  assert.equal(createHash('sha256').update(asR61).digest('hex'), historic.restored_r61_sha256);
+  assert.equal(createHash('sha256').update(asR61.slice(header.length)).digest('hex'), historic.full_workflow_sha256);
+  assert.ok(!existsSync(join(root, skill, approved.removed_reference)));
+  assert.equal(readdirSync(join(root, skill, 'references')).length, 6);
 });

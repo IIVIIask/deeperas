@@ -1,0 +1,4 @@
+{
+  "before": "- Lists/sports, product questions/comparisons/configurations or existence/absence judgments, causal claims or food safety/quality/storage: [Domain checks](references/domain-checks.txt).",
+  "after": "- Lists/sports requiring universe, time or completeness checks; exact product identity/configuration/match checks; existence/absence judgments; causal claims; food safety/quality/storage judgments: [Domain checks](references/domain-checks.txt). A domain mention in general advice, conceptual planning or ordinary drafting does not by itself trigger this reference. Read it before a question, option or claim that depends on its specialized checks."
+}

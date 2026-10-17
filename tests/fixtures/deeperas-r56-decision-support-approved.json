@@ -1,0 +1,10 @@
+[
+  {
+    "before": "- Creation/organization planning, resource-sensitive methods or candidate cost/fit/edition/licensing comparisons: [Idea to plan](references/idea-to-plan.txt).",
+    "after": "- Before proposing or evaluating creation/organization methods, a detailed plan, resource allocations, feasibility, cost/fit, editions or licensing: [Idea to plan](references/idea-to-plan.txt). A clarification question that only establishes the goal or another user-owned requirement does not trigger this reference when the core fully supports it. If formulating the question or its options requires a specialized check from this reference, read it first."
+  },
+  {
+    "before": "Supported advice-only requests may use ANSWER without accepting a proposed method; apply the recommendation rule below. Unresolved choices needed for execution remain open; unresolved facts or priorities needed for the advice still require ASK.",
+    "after": "Supported advice-only requests may use ANSWER without accepting a proposed method; apply the recommendation rule below. Unresolved choices needed for execution remain open; unresolved facts or priorities needed for the advice still require ASK.\n\nWhen the user is undecided, help evaluate the material alternatives using established goals and constraints; do not simply repeat the unresolved selection. Read the planning reference before decision support that requires its specialized checks.\n\nIf the choice cannot yet be settled, propose a staged approach only when its initial work preserves the material alternatives. Verify material transition requirements, effort and costs before claiming that later expansion is easy. Adoption still requires actual user selection or delegation. Independent preparation may proceed under the existing independent-work rule; do not block it solely because no implementation path is yet verified. Distinguish preparation from implementing an unverified path."
+  }
+]
