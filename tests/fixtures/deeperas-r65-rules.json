@@ -72,13 +72,13 @@
   "unchanged_supporting_files": {
     "references/artifact-enforcement-recovery.txt": "987e5e7f4efddf5359868a69512d42bd0c2c0f139fb24bf10c24104be7d09b46",
     "references/constraint-conflicts.txt": "14354f674af26699b1d40ad7b6a0907bbea8a9f4af6ae01fd66a485bf3fc75bd",
-    "references/domain-checks.txt": "8533861f53aa7141d17f1c08a67537334f308bc172df2d0edb4e21335a68ee5f",
+    "references/domain-checks.txt": "ce3b885f89e0f108ffbdff8216b432434722bec6c09396e9df91402f96795649",
     "references/idea-to-plan.txt": "c705534bb37c9bf40c72ccdbba6ef5a83c4f4fc62df381018fbf6ff42a57a56e",
     "references/project-decisions-codex.txt": "cd41cc123fa2c0d698e673ebb3ce54f17df86b50bdc8a3a3075a38c51fdd9a46",
     "references/project-memory.txt": "8c0fb009638933e7c361c1b957102ecfa0147ff5bbda12f9e9837f39a49df349",
     "scripts/project-memory.mjs": "e33ad22e2f92b12ef7c6b90d3b611e9d83727f2009c35badac444b8b4a6176a9"
   },
-  "model_suite_sha256": "dbcebf10b82e7c2f0ccd5426fd0cee9af455d1e70aa70a7ff7098780e07d0e90",
+  "model_suite_sha256": "dd0f92f29101ab14610efd811f0a0c02f4987f77c486ca483f753275b711f462",
   "distinction": "Package integrity is checked in node:test. Behavioral outcomes require the paired model runs and trace review.",
   "response_patch_baseline_sha256": "ec2957e8021ba6c6a300ea0f01a6d8fc5d86bcceb4d80966f488573fed3bbe91"
 }

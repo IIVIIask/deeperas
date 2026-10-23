@@ -202,6 +202,8 @@ The checks cover:
 
 The full instruction-change history is in the [changelog](../CHANGELOG.md). Historical fixtures are comparison evidence, not additional active instructions. Static opt-in assertions do not make the helper enforce user consent internally; the host must enforce authorization before calling it.
 
+Frozen text hashes normalize CRLF to LF before comparison so Windows and Linux checkouts verify the same content. This does not normalize other text changes or binary assets.
+
 On Windows, sandbox restrictions may require permission for temporary Git repositories and atomic file replacement. A denied privacy or storage check must disable memory, never weaken its persistence rules.
 
 These tests validate the distribution and helper. They do not establish universal model adherence, current Cursor behavior, automatic managed-workspace sync, or a speed or quality advantage. Report host behavior with the application/version, exact prompt, and expected versus actual result. Keep generated tests and replayed inputs clearly identified; public real-use cases need traceable work and disclosed edits.

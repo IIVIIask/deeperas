@@ -10,6 +10,7 @@ The previous public release was `0.2.71+20261015r63`. This release publishes the
 - Use a single plain SemVer package version, `0.2.75`, across Codex, Cursor, GitHub and downloads. Retain R65 as the separate instruction revision. Future minor-series promotions require agreed comparative evidence; package checks alone do not establish a quality improvement.
 - Update the README, installation instructions, power-user guide and plugin descriptions to match the published behavior. Clarify personal scheduled updates versus native managed-workspace sync.
 - Validate the complete bundle with 34 package and isolated memory tests. Current Cursor model behavior and managed-team automatic sync were not re-tested for this release.
+- Normalize frozen text hashes to LF so the same checks work on Windows and Linux without changing the instruction or fixture content.
 
 ### Unpublished development history included in 0.2.75
 

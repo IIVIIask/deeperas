@@ -7,7 +7,7 @@ import { createHash } from 'node:crypto';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
-const digest = relative => createHash('sha256').update(fs.readFileSync(path.join(root, relative))).digest('hex');
+const digest = relative => createHash('sha256').update(read(relative).replace(/\r\n/g, '\n')).digest('hex');
 const fixture = JSON.parse(read('tests/fixtures/deeperas-r65-rules.json'));
 const skill = 'plugins/deeperas/skills/deeperas';
 
@@ -24,7 +24,7 @@ test('rule records have unique stable IDs, conditions and no dangling rule refer
   }
 });
 
-test('rule conversion preserves discovery and every specialized procedure/helper byte', () => {
+test('rule conversion preserves discovery and specialized text across checkout line endings', () => {
   const baseline = read('tests/fixtures/deeperas-r64-core.txt').replace(/\r\n/g, '\n');
   const current = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
   const header = /^---\n[\s\S]*?\n---\n\n/;
