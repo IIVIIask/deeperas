@@ -1,13 +1,23 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R66; unpublished)
+## 0.2.77 (October 23, 2026; skill R67; unpublished)
+
+R67 builds on the unpublished R66 clarification changes listed after it.
+
+- Check more of the user's situation before asking: what prompted the request, what was already tried and how it went, who else is affected (including children or pets), where and how the result will be used or kept, how things stand now, and what the user will do with the result. Prefer questions that rule options out; ask about location only when it changes the content, and keep later rounds for dependent or substantive gaps.
+- Deliver the shortest complete result, built from the user's own names, numbers and constraints. Meet requested lengths, count before stating a count, and do not refer to files, tool output or checks the user has not seen.
+- Use neutral wording for unconfirmed specifics such as gender, current status, tense or dates, and do not claim a tool limitation that did not occur. Only rules R017, R024, R034, R038 and R055 and the revision marker changed from R66.
+- On a third set of 20 scenarios written by an agent that had seen neither R67 nor the earlier findings, R67 won 13, lost 3 and tied 4 against the same model without Deeperas (sign test p = 0.021; mean judge score 8.4 against 6.85, 95% interval for the difference +0.7 to +2.4). On the 14 underspecified requests it won 12 and lost 2. See [Claude testing](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
+- Freeze the R66 core as a fixture and check that only the approved R67 rules and revision marker changed.
+
+R66 (unpublished development revision):
 
 - Ask every independent material question together in one short numbered list, most consequential first. Questions that depend on earlier answers wait for the next turn. This replaces one question per turn.
 - Before asking for a personalised result, check the goal, the people involved and their needs, hard limits, the user's own figures and resources, what they already have or know, required specifics and format. Ask about the concrete situation before abstract framing such as jurisdiction or risk appetite.
 - Answer a request that already states its deliverable and governing facts in the first reply. Treat an unknown as immaterial when one result works for every plausible answer, and state the covered cases instead of asking.
 - Do not ask an item again after "don't know"; "no preference" delegates that choice. A delivered result does not end with a new request for information.
 - Keep options short and inside their numbered item, and accept numbered or partial answers. Only rules R024, R028, R032, R034, R035, R036 and R038, the discovery text and the revision marker changed. The other 58 rules, all six references and the optional memory helper are unchanged.
-- In a paired Claude Code evaluation against the same model without Deeperas, R66 won 15 of 20 pairs, lost 1 and tied 4. R65 won 20, lost 29 and tied 11 over 60 pairs of the same scenarios. Those scenarios also informed the change. On 20 held-out scenarios written independently afterwards, unchanged R66 won 10, lost 5 and tied 5. For the 14 underspecified held-out requests, it won 10, lost 3 and tied 1, and its mean judge score was 1.7 points higher (95% interval +0.2 to +3.2). R66 final answers were longer than the baseline's, which cost it two complete requests by one point. See [Claude testing](docs/CLAUDE-TESTING.md#paired-evaluation-r65-and-r66).
+- In a paired Claude Code evaluation against the same model without Deeperas, R66 won 15 of 20 pairs, lost 1 and tied 4. R65 won 20, lost 29 and tied 11 over 60 pairs of the same scenarios. Those scenarios also informed the change. On 20 held-out scenarios written independently afterwards, unchanged R66 won 10, lost 5 and tied 5. For the 14 underspecified held-out requests, it won 10, lost 3 and tied 1, and its mean judge score was 1.7 points higher (95% interval +0.2 to +3.2). R66 final answers were longer than the baseline's, which cost it two complete requests by one point. See [Claude testing](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
 - Freeze the R65 core as a fixture and check that only the approved rules, discovery text and revision marker changed. The frozen device-choice and continuation behavioral suites still describe one question per turn and need a revised rubric for R66.
 
 ## 0.2.76 (October 23, 2026; skill R65)

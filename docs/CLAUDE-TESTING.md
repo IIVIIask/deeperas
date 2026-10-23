@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-and-r66) below also covers the unpublished `0.2.77` / R66.
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below also covers the unpublished `0.2.77` / R66.
 
 ## Environment
 
@@ -59,9 +59,9 @@ The confirmed excerpt from repetition 2 is: "This needs a small backend with sig
 
 This reassessment covers the storage/login issue, including the Answer now controls. Other claims, such as phone installation requirements, reminder support or complete implementation feasibility, were not independently verified here. Existing customizations remained enabled, so the cause is not isolated to Deeperas.
 
-## Paired evaluation: R65 and R66
+## Paired evaluation: R65, R66 and R67
 
-Run on October 23, 2026 with Claude Code 2.1.308 in print mode, Opus 5.5 at xhigh effort. Every conversation started fresh in an empty folder, with all other plugins, hooks and MCP servers disabled in both conditions. ON began the first message with `/deeperas:deeperas`; OFF disabled the plugin. R66 was loaded with `--plugin-dir` while the installed R65 plugin was disabled. The saved sessions confirmed the expected revision in every ON run and no Deeperas text in any OFF run.
+Run on October 23, 2026 with Claude Code 2.1.308 in print mode, Opus 5.5 at xhigh effort. Every conversation started fresh in an empty folder, with all other plugins, hooks and MCP servers disabled in both conditions. ON began the first message with `/deeperas:deeperas`; OFF disabled the plugin. R66 and R67 were loaded with `--plugin-dir` while the installed R65 plugin was disabled. The saved sessions confirmed the expected revision in every ON run and no Deeperas text in any OFF run.
 
 There were twenty English scenarios: 14 underspecified requests with hidden user facts and 6 complete requests. A blind simulated user (Opus 5.5) saw only its fact card and answered only explicit questions. A blind judge (Opus 5.5) compared each ON/OFF pair in random order, with the activation prefix removed, against written acceptance criteria.
 
@@ -70,6 +70,7 @@ There were twenty English scenarios: 14 underspecified requests with hidden user
 | R65 | 60 (3 runs) | 20 | 29 | 11 | 6.7 / 6.9 | 81% / 81% | 2.0 / 1.0 |
 | R66 | 20 (1 run) | 15 | 1 | 4 | 8.8 / 6.8 | 99% / 80% | 0.8 / 0.8 |
 | R66, held-out | 20 (1 run) | 10 | 5 | 5 | 8.2 / 7.1 | 93% / 78% | 0.8 / 1.0 |
+| R67, second held-out | 20 (1 run) | 13 | 3 | 4 | 8.4 / 6.9 | 92% / 81% | 0.9 / 1.1 |
 
 For R65 the difference was not significant: the sign test gave p = 0.25, and the scenario-level 95% interval for the score difference ran from -1.1 to +0.6. For R66 the sign test gave p = 0.001 and the interval ran from +1.2 to +2.9. Across the R65 runs, ON invented no user facts while OFF invented 14. In the R66 run the judge recorded one minor ON fabrication (the baby's sex) and none for OFF.
 
@@ -77,15 +78,17 @@ For R65 the difference was not significant: the sign test gave p = 0.25, and the
 
 R66 final answers were longer than the baseline's (616 against 415 words on the held-out underspecified requests), and the judge penalized length on complete requests. The losses also show remaining inventory gaps: one plan never asked where a bike would be stored at home.
 
+**R67 and a second held-out set.** R67 was written after reviewing the R66 conversations on both earlier sets. It widens the situation check (what prompted the request and what was tried, others affected including pets, where the result is used or kept, how things stand now), keeps later question rounds for dependent or substantive gaps, asks for the shortest complete answer built from the user's own details, and uses neutral wording for unconfirmed specifics. Another agent, which had seen neither R67 nor these findings, then wrote 20 more scenarios (N01 to N20) on new topics. R67 ran once on them against a fresh OFF baseline. It won 13, lost 3 and tied 4 (sign test p = 0.021; mean judge score 8.4 against 6.85, 95% interval for the difference +0.7 to +2.4). On the 14 underspecified requests it won 12 and lost 2, with a mean score of 8.0 against 5.8 and 89% of criteria met against 72%. On the 6 complete requests it won 1, lost 1 and tied 4. OFF invented 4 user facts and R67 none. R67 answers were still longer than the baseline's (433 against 325 words on underspecified requests), but shorter than R66's on its held-out set (616 against 415). The R66 and R67 held-out sets differ, so their comparison is indirect.
+
 R65 asked one question per turn, often stopped after the first answer, and sometimes spent its questions on abstract framing instead of the user's figures, constraints or prior experience. R66 asks independent questions together, checks the user's situation before asking, and answers complete requests directly. In the R66 run, the only loss was the sales-chart scenario, where both answers met every criterion and the judge preferred the shorter OFF answer.
 
 Limits:
 
 - **In-sample and held-out.** R66 was written after reviewing the original R65 pairs and their hidden facts; the held-out set is the fairer estimate.
-- **One run per R66 set.** The R65 runs varied substantially (8 to 8, 5 to 12 and 7 to 9 in ON and OFF wins).
-- **Simulated-user slips.** In the original R66 run the judge flagged four pairs where the simulated user added an unasked fact: three favoring ON and one favoring OFF. Excluding them gives 12 ON wins, 0 OFF wins and 4 ties. In the held-out run, slips favored OFF in two pairs and ON in two; excluding the three flagged pairs gives 8 ON wins, 4 OFF wins and 5 ties.
+- **One run per R66 and R67 set.** The R65 runs varied substantially (8 to 8, 5 to 12 and 7 to 9 in ON and OFF wins).
+- **Simulated-user slips.** In the original R66 run the judge flagged four pairs where the simulated user added an unasked fact: three favoring ON and one favoring OFF. Excluding them gives 12 ON wins, 0 OFF wins and 4 ties. In the held-out run, slips favored OFF in two pairs and ON in two; excluding the three flagged pairs gives 8 ON wins, 4 OFF wins and 5 ties. Longer question lists gave the simulated user more chances to slip: in the R67 run the judge flagged eight pairs, mostly minor. Excluding the three where a slip could have decided the pair for ON gives 10 ON wins, 3 OFF wins and 4 ties; excluding all eight gives 5, 3 and 4.
 - **Evaluator choices.** The evaluator wrote the scenarios, and the judge is a model. Claude Code supplied the account email in both conditions, and commands requiring approval were denied in both.
-- **Frozen suites.** The device-choice and continuation behavioral suites expect one question per ASK turn. R66 intentionally changes that format, so those expectations need a revised rubric. They were not rerun for R66.
+- **Frozen suites.** The device-choice and continuation behavioral suites expect one question per ASK turn. R66 intentionally changed that format, so those expectations need a revised rubric. They were not rerun for R66 or R67.
 
 The scenario cards, simulator and judge prompts, transcripts and judgments are kept in the local verification workspace, not in this repository.
 

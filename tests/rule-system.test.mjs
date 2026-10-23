@@ -10,7 +10,9 @@ const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const digest = relative => createHash('sha256').update(read(relative).replace(/\r\n/g, '\n')).digest('hex');
 const fixture = JSON.parse(read('tests/fixtures/deeperas-r65-rules.json'));
 const r66 = JSON.parse(read('tests/fixtures/deeperas-r66-clarification-approved.json'));
+const r67 = JSON.parse(read('tests/fixtures/deeperas-r67-quality-approved.json'));
 const r65Core = 'tests/fixtures/deeperas-r65-core.txt';
+const r66Core = 'tests/fixtures/deeperas-r66-core.txt';
 const skill = 'plugins/deeperas/skills/deeperas';
 const header = /^---\n[\s\S]*?\n---\n\n/;
 
@@ -32,7 +34,7 @@ test('rule conversion preserves discovery and specialized text across checkout l
   const r65 = read(r65Core).replace(/\r\n/g, '\n');
   const current = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
   assert.equal(r65.match(header)[0], baseline.match(header)[0]);
-  assert.equal(current.match(header)[0], r66.header, 'Unreviewed discovery metadata change');
+  assert.equal(current.match(header)[0], r67.header, 'Unreviewed discovery metadata change');
   assert.equal(digest('tests/fixtures/deeperas-r64-core.txt'), fixture.baseline_sha256);
   for (const [relative, expected] of Object.entries(fixture.unchanged_supporting_files)) {
     assert.equal(digest(`${skill}/${relative}`), expected, `Unreviewed supporting-file change: ${relative}`);
@@ -69,19 +71,30 @@ test('R65 response fix preserves every other approved R65 rule', () => {
   assert.equal(omitResponseRule(current), omitResponseRule(original));
 });
 
-test('R66 changes only the clarification rules, discovery text and revision marker', () => {
+// Only the approved rules may differ; the text outside the rules may change only in the header and revision marker.
+function assertApprovedRuleChanges(beforeFile, afterFile, changed, from, to) {
   const normalize = text => text.replace(/\r\n/g, '\n');
-  const current = normalize(read(`${skill}/SKILL.md`));
-  assert.equal(digest(`${skill}/SKILL.md`), r66.updated_sha256);
-  const rules = text => Object.fromEntries([...text.matchAll(/^### (R\d{3}) \| [^\n]+\n[\s\S]*?(?=^### R\d{3} \| |^## |$(?![\s\S]))/gm)]
-    .map(m => [m[1], m[0]]));
-  const before = rules(normalize(read(r65Core))), after = rules(current);
+  const record = /^### (R\d{3}) \| [^\n]+\n[\s\S]*?(?=^### R\d{3} \| |^## |$(?![\s\S]))/gm;
+  const rules = text => Object.fromEntries([...text.matchAll(record)].map(m => [m[1], m[0]]));
+  const beforeText = normalize(read(beforeFile)), afterText = normalize(read(afterFile));
+  const before = rules(beforeText), after = rules(afterText);
   assert.deepEqual(Object.keys(after), Object.keys(before));
   for (const id of Object.keys(before)) {
-    if (r66.changed_rules.includes(id)) assert.notEqual(after[id], before[id], `${id} was approved as changed`);
+    if (changed.includes(id)) assert.notEqual(after[id], before[id], `${id} was approved as changed`);
     else assert.equal(after[id], before[id], `Unreviewed rule change: ${id}`);
   }
-  const frame = text => text.replace(header, '').replace(/^### R\d{3} \| [^\n]+\n[\s\S]*?(?=^### R\d{3} \| |^## |$(?![\s\S]))/gm, '')
-    .replace('Deeperas Precision - Plugin R65', 'Deeperas Precision - Plugin R66');
-  assert.equal(frame(current), frame(normalize(read(r65Core))), 'Unreviewed change outside the approved rules');
+  const frame = text => text.replace(header, '').replace(record, '')
+    .replace(`Deeperas Precision - Plugin ${from}`, `Deeperas Precision - Plugin ${to}`);
+  assert.equal(frame(afterText), frame(beforeText), 'Unreviewed change outside the approved rules');
+}
+
+test('R66 changes only the clarification rules, discovery text and revision marker', () => {
+  assert.equal(digest(r66Core), r66.updated_sha256);
+  assertApprovedRuleChanges(r65Core, r66Core, r66.changed_rules, 'R65', 'R66');
+});
+
+test('R67 changes only its approved rules and revision marker', () => {
+  assert.equal(digest(r66Core), r67.r66_core_sha256);
+  assert.equal(digest(`${skill}/SKILL.md`), r67.updated_sha256);
+  assertApprovedRuleChanges(r66Core, `${skill}/SKILL.md`, r67.changed_rules, 'R66', 'R67');
 });

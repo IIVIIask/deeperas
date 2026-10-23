@@ -17,7 +17,7 @@ Deeperas helps Codex turn vague requests into clear tasks. It guides the agent t
 
 Describe what you want to build, change, or investigate. When important details are missing, Deeperas asks for them together in one short numbered list, with brief options when helpful. Clear requests, delegated choices, and advice with enough context can proceed directly.
 
-**Version** `0.2.77` · **Skill revision** R66 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.77` · **Skill revision** R67 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Real case](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq)
 
@@ -116,13 +116,14 @@ See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-de
 
 ### What's new in 0.2.77
 
-R66 changes how Deeperas clarifies. It still never decides important preferences silently, but it asks for what it needs in fewer turns:
+R67 changes how Deeperas clarifies and answers. It still never decides important preferences silently, but it asks for what it needs in fewer turns and answers more briefly:
 
 - **One list instead of many rounds.** Independent questions that could change the result are asked together, most important first. Follow-up questions come only when they depend on your answers.
-- **Asks about your situation.** Before asking, it checks the goal, the people involved, hard limits, your own figures and resources, and what you already have or know.
+- **Asks about your situation.** Before asking, it checks the goal, what prompted the request and what you already tried, the people (and pets) involved, hard limits, where and how the result will be used, and your own figures and resources.
 - **Answers complete requests directly.** When your request already states what you need, or one answer works for every case, it answers without a question.
+- **Shorter, specific answers.** It builds the answer from your own names and numbers, meets requested lengths and leaves out generic extras.
 
-In a paired Claude Code evaluation against the same model without Deeperas, R66 won 15 of 20 conversations, lost 1 and tied 4, where R65 had won 20 of 60 on the same scenarios. On 20 new held-out scenarios it won 10, lost 5 and tied 5. The gain is clearest when the request leaves out details that matter; final answers are still longer than they need to be. [Test record and limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-and-r66).
+In paired Claude Code evaluations against the same model without Deeperas, R65 won 20 of 60 conversations. On held-out scenarios that the revisions were not written against, R66 won 10 of 20 (5 losses, 5 ties) and R67 won 13 of 20 (3 losses, 4 ties). The gain is clearest when the request leaves out details that matter. [Test record and limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
 
 ### What's new in 0.2.76
 
