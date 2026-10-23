@@ -17,7 +17,7 @@ Deeperas helps Codex turn vague requests into clear tasks. It guides the agent t
 
 Describe what you want to build, change, or investigate. When important details are missing, Deeperas asks one focused question at a time, with brief options when helpful. After each reply, it checks what still needs to be settled before answering or acting. Clear requests, delegated choices, and advice with enough context can proceed directly.
 
-**Version** `0.2.77` · **Skill revision** R72 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.77` · **Skill revision** R73 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Real case](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq)
 
@@ -116,15 +116,15 @@ See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-de
 
 ### What's new in 0.2.77
 
-The unpublished R72 development revision keeps one question at a time and judges missing information by its consequences, while retaining the situation checks and answer guidance introduced in R66 and R67:
+The unpublished R73 development revision keeps one question at a time and judges missing information by its consequences, while retaining the situation checks and answer guidance introduced in R66 and R67:
 
 - **One focused question at a time.** Start with the most consequential unresolved prerequisite. After each reply, check what remains unresolved before answering or acting. Keep later decisions for when the work depends on them. After "don't know", explain the options or look up available facts, then ask a simpler question only if it can resolve an important gap.
 - **Consequences determine what matters.** A small edit can still affect correctness, constraints or risk. Deeperas checks those consequences before treating missing information as a minor detail.
 - **Asks about your situation.** Before asking, it checks the goal, what prompted the request and what you already tried, the people (and pets) involved, hard limits, where and how the result will be used, and your own figures and resources.
-- **Answers complete requests directly.** When your request already states what you need, or one answer works for every case, it answers without a question.
+- **Answers complete requests directly.** When your request already states what you need, or one answer works for every case, it answers without a question. After delivering part of the work, it asks only a necessary question for the remaining requested work, without adding optional follow-ups to a completed task.
 - **Specific answers with usable references.** It builds the answer from your own names and numbers, meets requested lengths and leaves out generic extras. When citing inspected files or tool results, it explains the relevant finding and provides a usable reference.
 
-In paired Claude Code evaluations against the same model without Deeperas, R65 won 20 of 60 conversations. On held-out scenarios that the revisions were not written against, R66 won 10 of 20 (5 losses, 5 ties) and R67 won 13 of 20 (3 losses, 4 ties). The gain is clearest when the request leaves out details that matter. These are historical R66/R67 results; they do not evaluate the current R72 workflow. [Test record and limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
+In paired Claude Code evaluations against the same model without Deeperas, R65 won 20 of 60 conversations. On held-out scenarios that the revisions were not written against, R66 won 10 of 20 (5 losses, 5 ties) and R67 won 13 of 20 (3 losses, 4 ties). The gain is clearest when the request leaves out details that matter. These are historical R66/R67 results; they do not evaluate the current R73 workflow. [Test record and limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
 
 ### What's new in 0.2.76
 

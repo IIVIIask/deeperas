@@ -1,8 +1,15 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R72; unpublished)
+## 0.2.77 (October 23, 2026; skill R73; unpublished)
 
-R72 applies the owner-approved early-answer display correction:
+R73 applies the owner-approved correction for necessary follow-up questions:
+
+- After delivering a result, allow one necessary question for unfinished requested work or a continuation the user requested. Do not append optional refinements or generic offers to a completed task.
+- Respect scoped stopping and requests that end questions. When no further question is appropriate, state any material unresolved limit briefly.
+- Replace only the final guidance in R034 and advance the revision marker. The rest of R034, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
+- Preserve the R72 core as a historical fixture and check the approved R72-to-R73 change scope. Earlier model evaluations do not evaluate R73; see [R73 verification status](docs/CLAUDE-TESTING.md#r73-necessary-follow-up-questions). Final behavioral validation and review of comparative evidence remain pending.
+
+R72 (earlier unpublished development revision, early answers only on request):
 
 - Do not offer "Answer now" or equivalent early-answer options or unsolicited reminders. Continue to honor explicit user requests for an early answer in natural language.
 - Add only that guidance to R038 and advance the revision marker. R031 early-answer handling, the restriction on questions after a delivered result, the rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged.

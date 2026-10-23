@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R72 development revision is tracked [separately](#r72-early-answers-only-on-request).
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R73 development revision is tracked [separately](#r73-necessary-follow-up-questions).
 
 ## Environment
 
@@ -141,5 +141,15 @@ Only the approved addition to R038 and the revision marker differ from the [froz
 All 41 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
 
 No new R72 model evaluation has been run. Historical R66/R67 statistics do not establish R72 behavior or improvement.
+
+## R73 necessary follow-up questions
+
+R73 applies the approved correction for necessary follow-up questions: after delivering a result, allow one necessary question for unfinished requested work or a continuation the user requested. It must not append optional refinements or generic offers to a completed task. Scoped stopping and requests that end questions remain binding; when no further question is appropriate, state any material unresolved limit briefly.
+
+Only the approved final wording in R034 and the revision marker differ from the [frozen R72 core](../tests/fixtures/deeperas-r72-core.txt). The rest of R034, the other 64 rules, discovery text, all six references and the optional helper are unchanged. Package `0.2.77` remains unpublished. Final behavioral validation and review of comparative evidence remain pending.
+
+All 42 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
+
+No new R73 model evaluation has been run. Historical R66/R67 statistics do not establish R73 behavior or improvement.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)
