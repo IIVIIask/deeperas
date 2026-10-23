@@ -16,6 +16,7 @@ Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026.
 | Package and isolated helper tests | All 34 Node tests passed on Windows. | Passed |
 | Claude manifest and marketplace | Both validated. CLI 2.1.233 warns about the optional `icon` field, which older versions ignore. | Passed with warning |
 | Plugin discovery | CLI and desktop found version 0.2.76 with one `deeperas` skill. | Passed |
+| Icon packaging and display | The blue PNG is included and referenced. The Windows Code plugin manager displayed its generic plugin symbol instead of the custom icon. | Packaged; custom display not confirmed |
 | Explicit invocation | The Windows Code session recognized `/deeperas:deeperas`. | Passed |
 | Incomplete request | The owner's subscription-app request, translated into English, produced one device-choice question and paused before implementation. No answer was selected or submitted for the owner. | Passed for clarification and pause |
 | Answer now | After stopping the pending test question, the follow-up ended the interview, described supported requirements and unresolved choices, and did not build the app. | Passed for ending questions |
