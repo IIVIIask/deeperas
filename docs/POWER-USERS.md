@@ -1,6 +1,6 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its package version is `0.2.76`, skill revision R65.
+Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its package version is `0.2.77`, skill revision R66.
 
 ## Activation and the first response
 
@@ -12,11 +12,11 @@ Claude for Windows imports the same skill through its plugin menu. Claude Code u
 
 In Cursor, selecting `/deeperas` with **Enter** attaches it to one message. For session use, choose **Use as Mode** from the skill's `/` menu entry in the **Agents Window or Cursor CLI** to start a **Custom Mode**. The instructions then stay in context on every turn until you exit the mode. This controls context availability; it does not guarantee model adherence. See [Cursor activation](../INSTALL.md#using-deeperas-in-cursor) and [Cursor's Custom Modes guide](https://cursor.com/docs/agent/prompting#custom-modes).
 
-When material context needed for the requested result or action is missing, the clarification gate applies before research or the first answer. Each ASK turn contains one question on one decision axis. Relevant explanations, examples or small diagrams may accompany it, with the pending question briefly restated after the explanation as the response's only clarification question. Explanations do not select unresolved alternatives or authorize dependent recommendations or steps. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
+When material context needed for the requested result or action is missing, the clarification gate applies before research or the first answer. An ASK turn lists every independent material question together as a short numbered list, most consequential first. Questions that depend on earlier answers wait for the next turn. Before asking, the assistant checks what a personal result needs: the goal, the people involved and their needs, hard limits, the user's own figures and resources, what they already have or know, required specifics, and format. Relevant explanations, examples or small diagrams may accompany the list, with the pending questions briefly restated after the explanation. A "don't know" is not asked again in another form, a delivered result does not end with a new request for information, and a request that already states its deliverable and governing facts is answered without a question. Explanations do not select unresolved alternatives or authorize dependent recommendations or steps. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
 
 ## Rules in one complete core
 
-R65 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
+R66 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
 
 Hard constraints are checked before preference ranking. Unknown compliance stays unverified. Comparisons use the user's actual priorities, without invented percentages or equal weights. An ordinary preference such as “cost matters more” does not mean every small saving wins regardless of effort; the assistant asks about a decisive unresolved trade-off. Numeric scores require explicit weights and comparable utility scales. Unknown performance is not zero, and preference scores cannot override a hard requirement.
 
@@ -164,13 +164,13 @@ The root manifest supplies the OpenAI presentation through `extensions.com.opena
 
 ### Release version naming
 
-Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.76`. The GitHub tag is `v0.2.76` and the plugin archive is `deeperas-0.2.76.zip`. Keep the root manifest, all three host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
+Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.77`. The GitHub tag is `v0.2.77` and the plugin archive is `deeperas-0.2.77.zip`. Keep the root manifest, all three host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
 
-The skill revision is separate: this release is presented as **0.2.76 · R65**, and its core retains the `Deeperas Precision - Plugin R65` marker. Revisions continue as R66, R67 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
+The skill revision is separate: this release is presented as **0.2.77 · R66**, and its core retains the `Deeperas Precision - Plugin R66` marker. Revisions continue as R67, R68 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
 
 | Change | Version policy |
 | --- | --- |
-| Correction or revision within the current series | Increase the patch, for example `0.2.76` to `0.2.77`. |
+| Correction or revision within the current series | Increase the patch, for example `0.2.77` to `0.2.78`. |
 | Substantial evolution with demonstrated improvement in the agreed evaluation | Increase the minor series, for example `0.2.x` to `0.3.0`. |
 | A stable release meeting explicitly agreed readiness criteria | Consider `1.0.0`. Do not infer readiness from the number alone. |
 

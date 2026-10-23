@@ -9,7 +9,10 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const read = relative => fs.readFileSync(path.join(root, relative), 'utf8');
 const digest = relative => createHash('sha256').update(read(relative).replace(/\r\n/g, '\n')).digest('hex');
 const fixture = JSON.parse(read('tests/fixtures/deeperas-r65-rules.json'));
+const r66 = JSON.parse(read('tests/fixtures/deeperas-r66-clarification-approved.json'));
+const r65Core = 'tests/fixtures/deeperas-r65-core.txt';
 const skill = 'plugins/deeperas/skills/deeperas';
+const header = /^---\n[\s\S]*?\n---\n\n/;
 
 test('rule records have unique stable IDs, conditions and no dangling rule references', () => {
   const core = read(`${skill}/SKILL.md`);
@@ -26,9 +29,10 @@ test('rule records have unique stable IDs, conditions and no dangling rule refer
 
 test('rule conversion preserves discovery and specialized text across checkout line endings', () => {
   const baseline = read('tests/fixtures/deeperas-r64-core.txt').replace(/\r\n/g, '\n');
+  const r65 = read(r65Core).replace(/\r\n/g, '\n');
   const current = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
-  const header = /^---\n[\s\S]*?\n---\n\n/;
-  assert.equal(current.match(header)[0], baseline.match(header)[0]);
+  assert.equal(r65.match(header)[0], baseline.match(header)[0]);
+  assert.equal(current.match(header)[0], r66.header, 'Unreviewed discovery metadata change');
   assert.equal(digest('tests/fixtures/deeperas-r64-core.txt'), fixture.baseline_sha256);
   for (const [relative, expected] of Object.entries(fixture.unchanged_supporting_files)) {
     assert.equal(digest(`${skill}/${relative}`), expected, `Unreviewed supporting-file change: ${relative}`);
@@ -52,14 +56,32 @@ test('frozen behavioral suite keeps all continuation cases and isolates supplied
   }
 });
 
-test('response fix preserves every other approved R65 rule', () => {
+test('R65 response fix preserves every other approved R65 rule', () => {
   const file = 'tests/fixtures/deeperas-r65-before-response-fix.txt';
   assert.equal(digest(file), fixture.response_patch_baseline_sha256);
+  assert.equal(digest(r65Core), r66.r65_core_sha256);
   const original = read(file);
-  const current = read(`${skill}/SKILL.md`);
+  const current = read(r65Core);
   const omitResponseRule = text => text
     .replace(/^### R031 \| Answer now\n[\s\S]*?(?=^### R032 \|)/m, '')
     .replace(/^### R038 \| Visible response\n[\s\S]*?(?=\n## Planning, execution)/m, '');
   assert.notEqual(current, original);
   assert.equal(omitResponseRule(current), omitResponseRule(original));
+});
+
+test('R66 changes only the clarification rules, discovery text and revision marker', () => {
+  const normalize = text => text.replace(/\r\n/g, '\n');
+  const current = normalize(read(`${skill}/SKILL.md`));
+  assert.equal(digest(`${skill}/SKILL.md`), r66.updated_sha256);
+  const rules = text => Object.fromEntries([...text.matchAll(/^### (R\d{3}) \| [^\n]+\n[\s\S]*?(?=^### R\d{3} \| |^## |$(?![\s\S]))/gm)]
+    .map(m => [m[1], m[0]]));
+  const before = rules(normalize(read(r65Core))), after = rules(current);
+  assert.deepEqual(Object.keys(after), Object.keys(before));
+  for (const id of Object.keys(before)) {
+    if (r66.changed_rules.includes(id)) assert.notEqual(after[id], before[id], `${id} was approved as changed`);
+    else assert.equal(after[id], before[id], `Unreviewed rule change: ${id}`);
+  }
+  const frame = text => text.replace(header, '').replace(/^### R\d{3} \| [^\n]+\n[\s\S]*?(?=^### R\d{3} \| |^## |$(?![\s\S]))/gm, '')
+    .replace('Deeperas Precision - Plugin R65', 'Deeperas Precision - Plugin R66');
+  assert.equal(frame(current), frame(normalize(read(r65Core))), 'Unreviewed change outside the approved rules');
 });

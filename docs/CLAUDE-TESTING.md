@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026.
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-and-r66) below also covers the unpublished `0.2.77` / R66.
 
 ## Environment
 
@@ -58,5 +58,35 @@ The confirmed excerpt from repetition 2 is: "This needs a small backend with sig
 **Instruction decision:** retain R65. The [existing core](../plugins/deeperas/skills/deeperas/SKILL.md) already requires verification of material factual claims and permits meaningful trade-offs; the [planning reference](../plugins/deeperas/skills/deeperas/references/idea-to-plan.txt) distinguishes requirements from methods. These observations do not establish a missing rule or show that an additional sentence improves behavior. The earlier broad addition to the option-explanation rule is withdrawn. No instruction change or new release is proposed on this evidence alone.
 
 This reassessment covers the storage/login issue, including the Answer now controls. Other claims, such as phone installation requirements, reminder support or complete implementation feasibility, were not independently verified here. Existing customizations remained enabled, so the cause is not isolated to Deeperas.
+
+## Paired evaluation: R65 and R66
+
+Run on October 23, 2026 with Claude Code 2.1.308 in print mode, Opus 5.5 at xhigh effort. Every conversation started fresh in an empty folder, with all other plugins, hooks and MCP servers disabled in both conditions. ON began the first message with `/deeperas:deeperas`; OFF disabled the plugin. R66 was loaded with `--plugin-dir` while the installed R65 plugin was disabled. The saved sessions confirmed the expected revision in every ON run and no Deeperas text in any OFF run.
+
+There were twenty English scenarios: 14 underspecified requests with hidden user facts and 6 complete requests. A blind simulated user (Opus 5.5) saw only its fact card and answered only explicit questions. A blind judge (Opus 5.5) compared each ON/OFF pair in random order, with the activation prefix removed, against written acceptance criteria.
+
+| Series | Pairs | ON wins | OFF wins | Ties | Judge score ON / OFF | Criteria met ON / OFF | User replies ON / OFF |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| R65 | 60 (3 runs) | 20 | 29 | 11 | 6.7 / 6.9 | 81% / 81% | 2.0 / 1.0 |
+| R66 | 20 (1 run) | 15 | 1 | 4 | 8.8 / 6.8 | 99% / 80% | 0.8 / 0.8 |
+| R66, held-out | 20 (1 run) | 10 | 5 | 5 | 8.2 / 7.1 | 93% / 78% | 0.8 / 1.0 |
+
+For R65 the difference was not significant: the sign test gave p = 0.25, and the scenario-level 95% interval for the score difference ran from -1.1 to +0.6. For R66 the sign test gave p = 0.001 and the interval ran from +1.2 to +2.9. Across the R65 runs, ON invented no user facts while OFF invented 14. In the R66 run the judge recorded one minor ON fabrication (the baby's sex) and none for OFF.
+
+**Held-out check.** After R66 was fixed, a separate agent that had not seen R66 or these findings wrote 20 new scenarios (H01 to H20) in the same format: 14 underspecified and 6 complete, on different topics. Byte-identical R66 then ran once against a fresh OFF baseline with the same simulator and judge. R66 won 10, lost 5 and tied 5. On the 14 underspecified requests it won 10, lost 3 and tied 1. Its mean judge score was 7.8 against 6.1 (95% interval for the difference +0.2 to +3.2), and it met 90% of criteria against 69%. On the 6 complete requests, both met every criterion: 4 ties and 2 one-point OFF wins, where the judge preferred the more concise answer. Across all 20, the sign test on wins gave p = 0.30, so the held-out win count alone is not significant. The held-out gain is real but smaller than the in-sample one.
+
+R66 final answers were longer than the baseline's (616 against 415 words on the held-out underspecified requests), and the judge penalized length on complete requests. The losses also show remaining inventory gaps: one plan never asked where a bike would be stored at home.
+
+R65 asked one question per turn, often stopped after the first answer, and sometimes spent its questions on abstract framing instead of the user's figures, constraints or prior experience. R66 asks independent questions together, checks the user's situation before asking, and answers complete requests directly. In the R66 run, the only loss was the sales-chart scenario, where both answers met every criterion and the judge preferred the shorter OFF answer.
+
+Limits:
+
+- **In-sample and held-out.** R66 was written after reviewing the original R65 pairs and their hidden facts; the held-out set is the fairer estimate.
+- **One run per R66 set.** The R65 runs varied substantially (8 to 8, 5 to 12 and 7 to 9 in ON and OFF wins).
+- **Simulated-user slips.** In the original R66 run the judge flagged four pairs where the simulated user added an unasked fact: three favoring ON and one favoring OFF. Excluding them gives 12 ON wins, 0 OFF wins and 4 ties. In the held-out run, slips favored OFF in two pairs and ON in two; excluding the three flagged pairs gives 8 ON wins, 4 OFF wins and 5 ties.
+- **Evaluator choices.** The evaluator wrote the scenarios, and the judge is a model. Claude Code supplied the account email in both conditions, and commands requiring approval were denied in both.
+- **Frozen suites.** The device-choice and continuation behavioral suites expect one question per ASK turn. R66 intentionally changes that format, so those expectations need a revised rubric. They were not rerun for R66.
+
+The scenario cards, simulator and judge prompts, transcripts and judgments are kept in the local verification workspace, not in this repository.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)

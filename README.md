@@ -15,9 +15,9 @@
 
 Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor and Claude Code, including the Code tab in Claude for Windows.
 
-Describe what you want to build, change, or investigate. Deeperas asks one focused question when an important choice is missing, using explained options when helpful. Clear requests, delegated choices, and advice with enough context can proceed directly.
+Describe what you want to build, change, or investigate. When important details are missing, Deeperas asks for them together in one short numbered list, with brief options when helpful. Clear requests, delegated choices, and advice with enough context can proceed directly.
 
-**Version** `0.2.76` · **Skill revision** R65 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.77` · **Skill revision** R66 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Real case](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq)
 
@@ -106,13 +106,23 @@ Answer in your own words, choose an option, or delegate a decision. Clear tasks 
 
 ## How it works
 
-**1. Clarify.** Ask one focused question about the most consequential unresolved choice, and explain what each option means. Important preferences are never decided silently.
+**1. Clarify.** Ask every independent question that could change the result together, in one short numbered list, most important first. Important preferences are never decided silently.
 
 **2. Verify.** Investigate discoverable facts with the available files, tools, and sources. Ask you only about your intent, not about things the assistant can look up itself.
 
 **3. Deliver.** Answer or act once the choices the work depends on are settled. Check the result before claiming completion, and say what the evidence does not establish.
 
 See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-dependencies) and [the clarification gate](docs/POWER-USERS.md#the-clarification-gate).
+
+### What's new in 0.2.77
+
+R66 changes how Deeperas clarifies. It still never decides important preferences silently, but it asks for what it needs in fewer turns:
+
+- **One list instead of many rounds.** Independent questions that could change the result are asked together, most important first. Follow-up questions come only when they depend on your answers.
+- **Asks about your situation.** Before asking, it checks the goal, the people involved, hard limits, your own figures and resources, and what you already have or know.
+- **Answers complete requests directly.** When your request already states what you need, or one answer works for every case, it answers without a question.
+
+In a paired Claude Code evaluation against the same model without Deeperas, R66 won 15 of 20 conversations, lost 1 and tied 4, where R65 had won 20 of 60 on the same scenarios. On 20 new held-out scenarios it won 10, lost 5 and tied 5. The gain is clearest when the request leaves out details that matter; final answers are still longer than they need to be. [Test record and limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-and-r66).
 
 ### What's new in 0.2.76
 
