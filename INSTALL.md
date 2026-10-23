@@ -100,7 +100,7 @@ The GitHub installation above tracks `main`; the upgrade command fetches the new
 
 For an existing local-checkout installation, first register the GitHub source with `codex plugin marketplace add IIVIIask/deeperas --ref main`. Confirm its source with `codex plugin marketplace list --json`. A marketplace still pointing at a local folder does not fetch GitHub changes by itself; preserve any development edits when switching sources.
 
-For unattended personal updates, you can ask Codex to schedule a recurring check for this marketplace, compare package versions, run the two update commands when a newer version is available, and verify the installed version afterwards. This is a separate local automation that each user must enable. The plugin does not install a background updater or silently enable a schedule. Keep its source restricted to this repository and avoid downgrades; a new conversation is still needed after an update.
+For unattended personal updates, you can ask Codex to schedule a recurring check for this marketplace, compare package versions, run the two update commands when a newer version is available, and verify the installed version afterwards. This is a separate local automation that each user must enable. The plugin does not install a background updater or silently enable a schedule. Keep its source restricted to this repository and avoid downgrades; a new conversation is still needed after an update. Local scheduled checks require the computer to be on and the desktop app running; see [OpenAI's scheduled-task requirements](https://learn.chatgpt.com/docs/automations).
 
 #### Check the installed version
 
