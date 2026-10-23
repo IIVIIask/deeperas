@@ -21,8 +21,8 @@ test('both marketplaces resolve to matching manifests, host-neutral versions, an
   for (const manifest of manifests) {
     assert.equal(manifest.name, 'deeperas');
     assert.equal(manifest.version, manifests[0].version);
-    assert.match(manifest.version, /^\d+\.\d+\.\d+\+\d{8}r\d+$/,
-      'Version metadata must contain only the date and skill revision, without host names');
+    assert.match(manifest.version, /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/,
+      'Use one plain SemVer package version without host names, dates or instruction revisions');
   }
   for (const manifest of manifests.slice(1)) {
     assert.ok(existsSync(join(root, base, manifest.skills, 'deeperas', 'SKILL.md')));
@@ -32,10 +32,11 @@ test('both marketplaces resolve to matching manifests, host-neutral versions, an
   assert.match(read('LICENSE'), /MIT License/);
   assert.equal(read(`${base}/LICENSE`), read('LICENSE'), 'Installed plugin must retain the license notice');
   assert.match(read(`${base}/skills/deeperas/SKILL.md`), /^---\r?\nname: deeperas\r?\ndescription: /);
-  const revision = manifests[0].version.match(/r(\d+)$/)[1];
-  assert.equal(read(`${base}/skills/deeperas/SKILL.md`).match(/^Deeperas Precision - Plugin R(\d+)$/m)?.[1], revision);
+  const revision = read(`${base}/skills/deeperas/SKILL.md`).match(/^Deeperas Precision - Plugin R(\d+)$/m)?.[1];
+  assert.ok(revision, 'The instruction revision remains separate from the package version');
   for (const document of ['README.md', 'INSTALL.md', 'docs/POWER-USERS.md']) {
     assert.ok(read(document).includes(`\`${manifests[0].version}\``), `Current version missing in ${document}`);
+    assert.ok(read(document).includes(`R${revision}`), `Instruction revision missing in ${document}`);
   }
   assert.ok(manifests[1].interface.shortDescription.length <= 30);
   assert.deepEqual(manifests[0].extensions['com.openai'].interface, manifests[1].interface,
@@ -110,7 +111,10 @@ test('R63 single core restores complete R61 rules and removes only the dispatche
   const skill = 'plugins/deeperas/skills/deeperas';
   const historic = json('tests/fixtures/deeperas-r62-fast-dispatch-approved.json');
   const approved = json('tests/fixtures/deeperas-r63-single-core-approved.json');
-  const core = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
+  const continuation = json('tests/fixtures/deeperas-r64-continuation-approved.json');
+  const core = read('tests/fixtures/deeperas-r64-core.txt').replace(/\r\n/g, '\n')
+    .replace('Deeperas Precision - Plugin R64', 'Deeperas Precision - Plugin R63')
+    .replace(`${continuation.anchor} ${continuation.addition}`, continuation.anchor);
   const header = core.match(/^---\n[\s\S]*?\n---\n\n/)[0];
   assert.equal(header, historic.baseline_header);
   const asR61 = core.replace('Deeperas Precision - Plugin R63', 'Deeperas Precision - Plugin R61');
@@ -119,4 +123,16 @@ test('R63 single core restores complete R61 rules and removes only the dispatche
   assert.equal(createHash('sha256').update(asR61.slice(header.length)).digest('hex'), historic.full_workflow_sha256);
   assert.ok(!existsSync(join(root, skill, approved.removed_reference)));
   assert.equal(readdirSync(join(root, skill, 'references')).length, 6);
+});
+
+test('R64 changes only the continuation recheck and preserves the complete R63 baseline', () => {
+  const approved = json('tests/fixtures/deeperas-r64-continuation-approved.json');
+  const core = read('tests/fixtures/deeperas-r64-core.txt').replace(/\r\n/g, '\n');
+  assert.equal(core.split(`${approved.anchor} ${approved.addition}`).length, 2);
+  assert.equal(createHash('sha256').update(core).digest('hex'), approved.updated_sha256);
+  const baseline = core.replace(`${approved.anchor} ${approved.addition}`, approved.anchor)
+    .replace('Deeperas Precision - Plugin R64', 'Deeperas Precision - Plugin R63');
+  assert.equal(createHash('sha256').update(baseline).digest('hex'), approved.baseline_sha256);
+  assert.equal(approved.baseline_sha256,
+    json('tests/fixtures/deeperas-r63-single-core-approved.json').restored_core_sha256);
 });

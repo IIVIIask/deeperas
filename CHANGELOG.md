@@ -1,5 +1,46 @@
 # Changelog
 
+## 0.2.75 (October 23, 2026; skill R65)
+
+The previous public release was `0.2.71+20261015r63`. This release publishes the R64 and R65 instruction changes summarized below. It retains the R65 core and all six specialized references and the optional memory helper.
+
+- Keep unresolved material prerequisites across follow-ups without restarting settled or independent work.
+- Organize the core into 65 condition/action rules. Separate hard constraints, user priorities and evidence; avoid invented preference weights or rankings.
+- Keep answers focused on the current task. Remove unnecessary recaps and unsolicited internal-rule narration while retaining relevant reasoning, sources and limits.
+- Use a single plain SemVer package version, `0.2.75`, across Codex, Cursor, GitHub and downloads. Retain R65 as the separate instruction revision. Future minor-series promotions require agreed comparative evidence; package checks alone do not establish a quality improvement.
+- Update the README, installation instructions, power-user guide and plugin descriptions to match the published behavior. Clarify personal scheduled updates versus native managed-workspace sync.
+- Validate the complete bundle with 34 package and isolated memory tests. Current Cursor model behavior and managed-team automatic sync were not re-tested for this release.
+
+### Unpublished development history included in 0.2.75
+
+The following development identifiers were not separate public releases. They are retained to identify the source changes and historical fixtures.
+
+## 0.2.74+20261022r65 (October 22, 2026; unpublished development version)
+
+- Keep each response focused on the current requested result. Do not append a completed independent branch merely to recap it; retain requested summaries, complete corrected output, relevant evidence and material limits.
+- Explain recommendations and clarification needs through task facts and trade-offs. Remove unsolicited internal-rule narration, quotations and skill-installation citations while preserving genuine task sources and explicitly requested skill analysis.
+- Apply the response rule to answer-now blocker explanations as well. Preserve every other rule, all six references and the optional memory helper, and expand behavioral regression coverage.
+
+## 0.2.73+20261022r65 (October 22, 2026; unpublished development version)
+
+- Convert the complete core to 65 stable condition/action rules with explicit event handling, precedence, dependency blocking and completion conditions.
+- Separate hard constraints, user preferences and evidence strength. Do not invent weights, treat unknown performance as zero or turn an ordinary preference into absolute priority.
+- Preserve the R64 continuation gate, direct answers for settled work, independent branches, answer-now limits, permissions and optional memory behavior. Keep all six specialized references and the memory helper unchanged.
+- Limit width/height construction controls to layouts, preserving structural checks for non-layout artifacts such as CSV.
+- Keep an unresolved next-step decision explicit after reporting infeasibility, while preserving direct feasibility answers, supported advice and delegated choices.
+- Reuse valid dependency checks, expand only branches needed for the request, and avoid repeating settled context or questions. Preserve complete verification and requested comparison coverage.
+- Keep detailed procedures in their mandatory references. Loading planning guidance does not add an unrequested plan or repeat a completed resource inventory.
+- Use established dominance and bounds when they settle a decision. Ask concrete trade-offs for unresolved raw-value priorities; importance weights alone do not establish comparable utilities.
+- Preserve the exact R64 source as a historical fixture. Add rule/reference integrity checks and frozen paired behavioral scenarios; model results are recorded separately from package checks.
+
+## 0.2.72+20261021r64 (October 21, 2026; unpublished development version)
+
+- Keep unresolved material prerequisites across follow-ups until evidence resolves them, or the dependent request is cancelled. An independent current scope suspends these gaps without resolving them.
+- Do not treat an answer to a different question, an unknown answer, a broad category, or a conditional caveat as proof of personal suitability.
+- Preserve direct answers for explicitly general comparisons and independent settled tasks. Keep unresolved personal fit available for later dependent advice without restarting an unnecessary interview.
+- Change only the shared continuation recheck and revision heading. Discovery metadata, topic references, helper, permissions and optional memory behavior remain unchanged.
+- Add CPU-cooler and HDD continuation cases plus clear-request controls. Model-run results are recorded separately from package checks in the development workspace.
+
 ## 0.2.71+20261015r63 (published October 17, 2026)
 
 The previous public release was `0.2.48+20261014r42`. This release publishes the approved R63 source, including the intervening changes listed below. The source revision and its date remain unchanged.

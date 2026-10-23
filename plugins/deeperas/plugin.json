@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "deeperas",
-  "version": "0.2.71+20261015r63",
-  "description": "Deeperas clarification interview. Ask one contextual question when material context is missing; use explained options when useful. Activate when Deeperas is requested anywhere, including an unselected plain name or @deeperas, use Deeperas, with the help of Deeperas, χρησιμοποιησε το @deeperas, με την βοηθεια του deeperas and ordinary spelling variations.",
+  "version": "0.2.75",
+  "description": "Clarify the choices that matter, verify available evidence, and carry confirmed requirements and open prerequisites through work in Codex and Cursor.",
   "author": { "name": "IIVIIask" },
   "homepage": "https://github.com/IIVIIask/deeperas#readme",
   "repository": "https://github.com/IIVIIask/deeperas",
@@ -13,7 +13,7 @@
       "interface": {
         "displayName": "Deeperas",
         "shortDescription": "One useful question at a time",
-        "longDescription": "Request Deeperas anywhere in your message to get a clarification interview before the answer. Selected @Deeperas and plain-text requests such as use Deeperas or με την βοηθεια του deeperas invoke the packaged deeperas skill. It asks one relevant question at a time, with explained options when useful, then answers after material choices are settled. Fully specified requests can be answered directly. The List shortcut is available only in ChatGPT; reminders are shown on request.",
+        "longDescription": "Use Deeperas in Codex or Cursor to turn vague requests into clear, verifiable work. It asks one focused question when an unresolved choice matters, investigates facts with the host's files and tools, and carries confirmed requirements and open prerequisites through follow-ups. Clear requests, delegated choices and supported advice can proceed directly. The R65 core uses 65 condition/action rules and six topic references. Optional local project memory is off by default and needs explicit authorization. Your host supplies the model, tools and permissions.",
         "developerName": "IIVIIask",
         "category": "Productivity",
         "capabilities": [],

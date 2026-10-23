@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.71+20261015r63` (skill revision R63). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed since R42](CHANGELOG.md#changes-since-the-previous-public-release-r42).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.75` (skill revision R65). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
 
 The plugin includes the complete `SKILL.md`, six topic references and `scripts/project-memory.mjs`. Manual copies should retain this whole folder. Node.js, Git verification and permitted file/process access are required only for optional local memory; the host still supplies its own model and tools.
 
@@ -75,11 +75,13 @@ To stop the workflow, say “Stop using Deeperas for this task.” Exit the mode
 
 ## Tested with
 
+- **0.2.75 / R65 package validation, October 23, 2026.** All 34 package and isolated memory tests passed on Windows. They cover the portable and host manifests, complete skill bundle, icons, historical instruction changes, rule integrity and helper behavior. These checks do not establish a quality improvement over R63 or current model adherence in Cursor.
+- **R64 validation, October 21, 2026.** All 30 package and isolated memory tests passed on Windows. Five isolated Codex scenarios covered 12 responses, including actual resumed cooler/HDD conversations and three clear-request controls. Both R63 and R64 passed this sample, so it does not establish a lower failure rate or universal adherence. Product facts in the comparison stages were supplied test data, not live purchase research.
 - **R63 distribution, October 17, 2026.** All 29 package and isolated memory tests passed on Windows. They validate the published bundle and helper behavior, not model adherence or current Cursor runtime.
 - **Earlier Codex install.** Version `0.2.48+20261014r42` installed from a local checkout on October 14, 2026. All six then-current skill files, the license notice, three PNGs, icon references, and the Website link matched the repository. This is historical R42 installation evidence, not a current R63 host test.
-- **Cursor 3.24.12.** R33 was imported from GitHub on October 11, 2026. The blue D icon appeared in light and dark themes, and “Try in Chat” loaded the skill and returned a clarification question. The current R63 source has not been re-tested in Cursor.
+- **Cursor 3.24.12.** R33 was imported from GitHub on October 11, 2026. The blue D icon appeared in light and dark themes, and “Try in Chat” loaded the skill and returned a clarification question. The current R65 source has not been re-tested in Cursor.
 
-The automated checks (`node --test tests/*.test.mjs`) verify manifests/version, all seven instruction files, the helper, license and icons, plus memory behavior in isolated temporary projects. They pin the approved changes from R42 through R63 and the restored single core. Model adherence in each host requires separate observation.
+The automated checks (`node --test tests/*.test.mjs`) verify manifests/version, all seven instruction files, the helper, license and icons, plus memory behavior in isolated temporary projects. They preserve historical changes from R42 through R64 and check R65's rule records, internal references, unchanged specialized files and frozen behavioral cases. Model adherence in each host requires separate observation.
 
 ## Updating an existing installation
 
@@ -96,13 +98,17 @@ codex plugin add deeperas@deeperas
 
 The GitHub installation above tracks `main`; the upgrade command fetches the new package. Start a new conversation so it loads the updated instructions. If you pinned a Git ref, update the pin. See [OpenAI's marketplace guide](https://developers.openai.com/plugins/build/plugins).
 
+For an existing local-checkout installation, first register the GitHub source with `codex plugin marketplace add IIVIIask/deeperas --ref main`. Confirm its source with `codex plugin marketplace list --json`. A marketplace still pointing at a local folder does not fetch GitHub changes by itself; preserve any development edits when switching sources.
+
+For unattended personal updates, you can ask Codex to schedule a recurring check for this marketplace, compare package versions, run the two update commands when a newer version is available, and verify the installed version afterwards. This is a separate local automation that each user must enable. The plugin does not install a background updater or silently enable a schedule. Keep its source restricted to this repository and avoid downgrades; a new conversation is still needed after an update.
+
 #### Check the installed version
 
 ```sh
 codex plugin list --json
 ```
 
-In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with the version at the top of this guide.
+In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.75`, the version at the top of this guide. The separate `R65` marker identifies the instruction revision; it is not part of the package version.
 
 ### Cursor plugin
 

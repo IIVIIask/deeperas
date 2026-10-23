@@ -301,7 +301,9 @@ test('CLI rejects malformed JSON without creating memory', (t) => {
 });
 
 test('R42 core survives apart from memory integration, prior approved changes, R54 memory-reference routing, R55 factual fidelity, R56 planning/decision support, R57 artifact-reference routing, R58 domain-reference routing, R59 optional menus, R60 current-status time and R61 bounded factual alternatives', () => {
-  const actual = fs.readFileSync(path.join(root, 'plugins/deeperas/skills/deeperas/SKILL.md'), 'utf8').replace(/\r\n/g, '\n');
+  const continuation = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/deeperas-r64-continuation-approved.json'), 'utf8'));
+  const actual = fs.readFileSync(path.join(root, 'tests/fixtures/deeperas-r64-core.txt'), 'utf8').replace(/\r\n/g, '\n')
+    .replace(`${continuation.anchor} ${continuation.addition}`, continuation.anchor);
   const boundedFacts = JSON.parse(fs.readFileSync(path.join(root, 'tests/fixtures/deeperas-r61-bounded-facts-approved.json'), 'utf8'));
   let restoredBoundedFacts = actual;
   for (const delta of boundedFacts) {

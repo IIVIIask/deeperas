@@ -1,6 +1,6 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. The current release uses one complete core, six topic references and the optional helper. Its version is `0.2.71+20261015r63`, skill revision R63.
+Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its package version is `0.2.75`, skill revision R65.
 
 ## Activation and the first response
 
@@ -12,9 +12,17 @@ In Cursor, selecting `/deeperas` with **Enter** attaches it to one message. For 
 
 When material context needed for the requested result or action is missing, the clarification gate applies before research or the first answer. Each ASK turn contains one question on one decision axis. Relevant explanations, examples or small diagrams may accompany it, with the pending question briefly restated after the explanation as the response's only clarification question. Explanations do not select unresolved alternatives or authorize dependent recommendations or steps. Personal “best method” requests need the configuration, resources, and intended use that can change the recommendation. General explanations remain general, and host-required immediate safety guidance still takes precedence.
 
-## Single core
+## Rules in one complete core
 
-R63 keeps the complete shared workflow in `SKILL.md`. Applicable topic references add specialized checks only when the task needs them. The experimental R62 dispatcher and duplicate full-workflow file are removed; the restored core preserves the R61 rules and discovery metadata.
+R65 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
+
+Hard constraints are checked before preference ranking. Unknown compliance stays unverified. Comparisons use the user's actual priorities, without invented percentages or equal weights. An ordinary preference such as “cost matters more” does not mean every small saving wins regardless of effort; the assistant asks about a decisive unresolved trade-off. Numeric scores require explicit weights and comparable utility scales. Unknown performance is not zero, and preference scores cannot override a hard requirement.
+
+Importance percentages alone do not convert raw prices, time, reliability or other measurements into comparable utilities. The next question should resolve the concrete trade-off the user needs, without demanding a complete scoring framework when one comparison is enough. Established dominance or bounds can settle a choice without gathering irrelevant preferences; shared variables and correlations must be preserved. A qualitative recommendation cannot supply a missing user priority.
+
+Changed evidence is traced to affected dependencies and output claims. Valid completed checks are reused; required post-action inspection, freshness checks and memory-operation safeguards still apply. The workflow avoids unrequested hypothetical subtrees while preserving every branch needed for the requested comparison or completeness. Reading a topic reference adds its applicable checks, not an unrequested plan or another inventory of already established resources. Answers omit purposeless repetition, while retaining the reasoning, sources and limits needed to assess the result.
+
+The R64 continuation behavior remains: unanswered material prerequisites stay open across unrelated answers, while explicitly general or independent settled requests receive direct answers. All six specialized references and the optional helper remain unchanged. Reference and memory guards apply before the operation that needs them.
 
 This is an instruction structure change, not a speed guarantee. Reuse a complete current reading while its text, relevant inputs and evidence remain available and unchanged. See the [changes since R42](../CHANGELOG.md#changes-since-the-previous-public-release-r42).
 
@@ -152,7 +160,19 @@ The root manifest supplies the OpenAI presentation through `extensions.com.opena
 
 ### Release version naming
 
-Versions follow `MAJOR.MINOR.PATCH+YYYYMMDDrREVISION`, for example `0.2.71+20261015r63`, where the revision is the skill revision. Version strings must not include host names. The root manifest, both host manifests, and the version in the documentation must stay synchronized; the package checks enforce both rules.
+Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.75`. The GitHub tag is `v0.2.75` and the plugin archive is `deeperas-0.2.75.zip`. Keep the root manifest, both host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
+
+The skill revision is separate: this release is presented as **0.2.75 · R65**, and its core retains the `Deeperas Precision - Plugin R65` marker. Revisions continue as R66, R67 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
+
+| Change | Version policy |
+| --- | --- |
+| Correction or revision within the current series | Increase the patch, for example `0.2.75` to `0.2.76`. |
+| Substantial evolution with demonstrated improvement in the agreed evaluation | Increase the minor series, for example `0.2.x` to `0.3.0`. |
+| A stable release meeting explicitly agreed readiness criteria | Consider `1.0.0`. Do not infer readiness from the number alone. |
+
+The improvement requirement is a project release policy, not a guarantee supplied by SemVer. Before promoting a series, agree on the comparison cases, success criteria and comparable host/model settings. Record the observed improvement, failures and regressions, and link the evidence in the changelog. Passing package tests alone is insufficient. Without that evidence, keep the current series and increment its patch.
+
+Older published versions used date and instruction-revision build metadata. Keep those historical names unchanged. The move to `0.2.75` remains newer than the previous public `0.2.71+20261015r63` and the local `0.2.74+20261022r65`; no downgrade or second public version label is needed.
 
 ## Boundaries and privacy
 
@@ -177,7 +197,8 @@ The checks cover:
 - The repository writing rule and removal of retired controls from active instructions and guides.
 - Memory persistence, provenance, file hashes, corrections, dependency invalidation, expiry and readiness in isolated temporary projects.
 - Git privacy, corrupt or tracked stores, concurrent revisions, write failure and restart recovery.
-- Exact approved instruction changes against the [historical fixtures](../tests/fixtures), including R63's single-core restoration and removal of the redundant dispatcher reference.
+- Exact approved instruction changes against the frozen R64 [historical fixtures](../tests/fixtures), including R63's single-core restoration and R64's continuation check. The historical baseline is reconstructed before checking earlier changes.
+- The 65 rule IDs, condition/action records, internal references, unchanged discovery metadata and specialized files, and integrity of the frozen comparative behavioral suite. Structural checks do not grade model decisions.
 
 The full instruction-change history is in the [changelog](../CHANGELOG.md). Historical fixtures are comparison evidence, not additional active instructions. Static opt-in assertions do not make the helper enforce user consent internally; the host must enforce authorization before calling it.
 

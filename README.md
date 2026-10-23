@@ -16,7 +16,7 @@ Deeperas helps Codex turn vague requests into clear tasks. It guides the agent t
 
 Describe what you want to build, change, or investigate. Deeperas asks one focused question when an important choice is missing, using explained options when helpful. Clear requests, delegated choices, and advice with enough context can proceed directly.
 
-**Version** `0.2.71+20261015r63` (skill revision R63) · [What changed since R42](CHANGELOG.md#changes-since-the-previous-public-release-r42) · [Update](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.75` · **Skill revision** R65 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Real case](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq)
 
@@ -100,14 +100,14 @@ Answer in your own words, choose an option, or delegate a decision. Clear tasks 
 
 See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-dependencies) and [the clarification gate](docs/POWER-USERS.md#the-clarification-gate).
 
-### What's new since R42
+### What's new in 0.2.75
 
-- **More natural questions.** A simple missing fact can be requested directly. Explained menus are used when they help the decision.
-- **Help when you are undecided.** Evaluate alternatives against your goals, with supported advice when enough context is available.
-- **Factual fidelity.** Preserve supplied meaning and uncertainty when drafting or translating, and recheck affected conclusions after corrections.
-- **Optional project memory.** With explicit permission and supported local tools, retain project facts and decisions across chats. It is off by default.
+- **Keep the thread across follow-ups.** An unanswered requirement stays open when the conversation moves to another question. Settled, independent requests can still proceed.
+- **Separate requirements from preferences.** Hard constraints, personal priorities and evidence strength are handled separately when comparing approaches.
+- **More focused responses.** Explain decisions through the task, without unnecessary recaps or internal-rule quotations. Keep the evidence and limits needed to assess the answer.
+- **Clear work can move forward.** Explicit requests, delegated choices and supported advice do not need an extra interview or an unrequested plan.
 
-R63 uses one complete core with six topic references and an optional local memory helper. [Read the release history.](CHANGELOG.md)
+R65 organizes the complete core into 65 condition/action rules. The six topic references and optional local memory helper are retained; memory remains off by default. This describes the intended workflow, not a measured advantage over every earlier version. [Release history](CHANGELOG.md) · [Versioning policy](docs/POWER-USERS.md#release-version-naming).
 
 ## For power users
 

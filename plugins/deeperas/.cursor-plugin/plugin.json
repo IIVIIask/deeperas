@@ -1,7 +1,7 @@
 {
   "name": "deeperas",
-  "version": "0.2.71+20261015r63",
-  "description": "Clarify material choices before answering. Request Deeperas by name or selected mention.",
+  "version": "0.2.75",
+  "description": "Clarify the choices that matter, verify available evidence, and carry confirmed requirements and open prerequisites through work in Codex and Cursor.",
   "author": { "name": "IIVIIask" },
   "homepage": "https://github.com/IIVIIask/deeperas#readme",
   "repository": "https://github.com/IIVIIask/deeperas",
