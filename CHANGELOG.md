@@ -1,8 +1,15 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R68; unpublished)
+## 0.2.77 (October 23, 2026; skill R69; unpublished)
 
-R68 restores one question at a time, as requested by the owner:
+R69 applies the owner-approved second correction:
+
+- Judge missing information by its consequences for correctness, constraints, user choices, risk and acceptance. A small or easily edited part of an answer is not automatically immaterial.
+- Keep the direct-answer path when one supported result works under every plausible answer without violating constraints or selecting a reserved choice.
+- Only R024 and the revision marker change from R68. The one-question workflow, the other 64 rules, discovery text, all six references and the optional helper are unchanged. The remaining review findings are still pending.
+- Preserve the R68 core as a historical fixture and check the exact R68-to-R69 change scope. Earlier model evaluations do not evaluate R69; see [R69 verification status](docs/CLAUDE-TESTING.md#r69-materiality-by-consequences).
+
+R68 (earlier unpublished development revision, restoring one question at a time):
 
 - Ask one focused question about the most consequential unresolved prerequisite. After each reply, recheck the remaining material gaps before answering or acting, and keep later decisions for when the work depends on them.
 - Align discovery text, plugin descriptions and guides with that workflow. Freeze the tested R67 core so its historical evaluations remain tied to the instructions actually used.

@@ -10,7 +10,7 @@
   "interface": {
     "displayName": "Deeperas",
     "shortDescription": "One useful question at a time",
-    "longDescription": "Use Deeperas in Codex, Cursor or Claude Code to turn vague requests into clear, verifiable work. It asks one focused question at a time and rechecks unresolved prerequisites after each reply, investigates facts with the host's files and tools, and carries confirmed requirements and open prerequisites through follow-ups. Clear requests, delegated choices and supported advice can proceed directly. The R68 core uses 65 condition/action rules and six topic references. Optional local project memory is off by default and needs explicit authorization. Your host supplies the model, tools and permissions.",
+    "longDescription": "Use Deeperas in Codex, Cursor or Claude Code to turn vague requests into clear, verifiable work. It asks one focused question at a time and rechecks unresolved prerequisites after each reply, investigates facts with the host's files and tools, and carries confirmed requirements and open prerequisites through follow-ups. Clear requests, delegated choices and supported advice can proceed directly. The R69 core uses 65 condition/action rules and six topic references. Optional local project memory is off by default and needs explicit authorization. Your host supplies the model, tools and permissions.",
     "developerName": "IIVIIask",
     "category": "Productivity",
     "capabilities": [],

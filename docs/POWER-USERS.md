@@ -1,6 +1,6 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its development package version is `0.2.77`, skill revision R68 (unpublished).
+Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its development package version is `0.2.77`, skill revision R69 (unpublished).
 
 ## Activation and the first response
 
@@ -16,7 +16,7 @@ When material context needed for the requested result or action is missing, the 
 
 ## Rules in one complete core
 
-R68 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
+R69 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
 
 Hard constraints are checked before preference ranking. Unknown compliance stays unverified. Comparisons use the user's actual priorities, without invented percentages or equal weights. An ordinary preference such as “cost matters more” does not mean every small saving wins regardless of effort; the assistant asks about a decisive unresolved trade-off. Numeric scores require explicit weights and comparable utility scales. Unknown performance is not zero, and preference scores cannot override a hard requirement.
 
@@ -30,7 +30,7 @@ This is an instruction structure change, not a speed guarantee. Reuse a complete
 
 ## The clarification gate
 
-The assistant asks about material, unselected alternatives before dependent output or action. Only immaterial, low-risk, easily reversible details may be selected within the user's allowed alternatives; it still asks when materiality is uncertain or the user reserves the choice. Such selections are assistant choices, not user acceptance or preferences. Otherwise, it asks when plausible answers would materially change the result, such as the target, scope, constraints, method, or intended audience.
+The assistant asks about material, unselected alternatives before dependent output or action. Only immaterial, low-risk, easily reversible details may be selected within the user's allowed alternatives; it still asks when materiality is uncertain or the user reserves the choice. Such selections are assistant choices, not user acceptance or preferences. Otherwise, it asks when plausible answers would materially change the result, such as the target, scope, constraints, method, or intended audience. Materiality depends on consequences for correctness, constraints, user choices, risk and acceptance, not the size of an edit. When one supported result works under every plausible answer without violating constraints or selecting a reserved choice, it can give that result and briefly state the covered cases without asking.
 
 Clear tasks and explicitly delegated choices proceed directly. Minor cosmetic polish alone does not need a question.
 
@@ -166,7 +166,7 @@ The root manifest supplies the OpenAI presentation through `extensions.com.opena
 
 Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.77`. The GitHub tag is `v0.2.77` and the plugin archive is `deeperas-0.2.77.zip`. Keep the root manifest, all three host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
 
-The skill revision is separate: this release is presented as **0.2.77 · R67**, and its core retains the `Deeperas Precision - Plugin R67` marker. Revisions continue as R68, R69 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
+The skill revision is separate: this unpublished development package is presented as **0.2.77 · R69**, and its core retains the `Deeperas Precision - Plugin R69` marker. Revisions continue as R70, R71 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
 
 | Change | Version policy |
 | --- | --- |

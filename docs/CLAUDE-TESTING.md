@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R68 development revision is tracked [separately](#r68-one-question-restoration).
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R69 development revision is tracked [separately](#r69-materiality-by-consequences).
 
 ## Environment
 
@@ -101,5 +101,15 @@ Only rules R032, R034, R035 and R038, the discovery text and revision marker dif
 All 37 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The R68 scope check confirms that every other R67 rule, all six references and the helper remain unchanged. These automated checks do not establish model adherence.
 
 The existing one-question behavioral fixtures remain historical evidence. Restoring that format does not establish a pass for R68; a new model evaluation of the corrected revision is still pending.
+
+## R69 materiality by consequences
+
+R69 applies the second approved correction: judge a gap by its consequences for correctness, constraints, user choices, risk and acceptance, rather than the size or ease of the resulting edit. It retains direct answers when one supported result covers every plausible answer without violating constraints or selecting a reserved choice.
+
+Only R024 and the revision marker differ from the [frozen R68 core](../tests/fixtures/deeperas-r68-core.txt). The one-question workflow and the other 64 rules, discovery text, all six references and the optional helper are unchanged. Package `0.2.77` remains unpublished, with the other review findings pending.
+
+All 38 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
+
+No new R69 model evaluation has been run. Historical R66/R67 statistics do not establish R69 behavior or improvement.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)
