@@ -7,6 +7,6 @@
 
 # Release version policy
 
-- Use one plain `MAJOR.MINOR.PATCH` version in all three plugin manifests, current guides, GitHub releases and archive filenames. Keep historical versions unchanged and omit host names from package versions and filenames.
+- Use one plain `MAJOR.MINOR.PATCH` version in all four plugin manifests, current guides, GitHub releases and archive filenames. Keep historical versions unchanged and omit host names from package versions and filenames.
 - Keep the skill's `R` revision separate and increasing. A packaging-only release may retain the same instruction revision.
 - Use patch increments for corrections and revisions. Promote a minor series only after agreed comparative criteria have been met and the improvement and regressions are documented. Package checks alone do not demonstrate better model behavior. See `docs/POWER-USERS.md#release-version-naming`.

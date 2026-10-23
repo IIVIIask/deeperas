@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.75` (skill revision R65). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.76` (skill revision R65). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
 
 The plugin includes the complete `SKILL.md`, six topic references and `scripts/project-memory.mjs`. Manual copies should retain this whole folder. Node.js, Git verification and permitted file/process access are required only for optional local memory; the host still supplies its own model and tools.
 
@@ -73,8 +73,42 @@ This identifies the core instruction revision, **not the plugin package version*
 
 To stop the workflow, say “Stop using Deeperas for this task.” Exit the mode as well to stop keeping the skill attached. See [Cursor's Custom Modes guide](https://cursor.com/docs/agent/prompting#custom-modes).
 
+## Claude for Windows
+
+These steps target the **Code tab** in Claude for Windows. Requires a Claude plan with Code access and a recent Claude desktop app. The same plugin contains the shared Deeperas skill, without a separate MCP server or desktop extension.
+
+### From GitHub
+
+1. Open the **Code** tab, then **Customize → Plugins**.
+2. Choose **Add plugin → Add marketplace**, then the option to add from a repository.
+3. Enter `https://github.com/IIVIIask/deeperas` and add the marketplace.
+4. Find **Deeperas** in that marketplace and add it.
+5. Start a new Code session in your project. Type `/` and select the Deeperas skill, or enter `/deeperas:deeperas` followed by your request.
+
+Menu wording can vary by app version. See [Anthropic's plugin guide](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
+
+### From the release ZIP
+
+Download `deeperas-0.2.76.zip` from the [latest release](https://github.com/IIVIIask/deeperas/releases/latest). In **Customize → Plugins → Add plugin**, choose **Upload plugin** and select this ZIP. Use the plugin ZIP, not GitHub's whole-repository source archive. Keep one installation method to avoid duplicate skills.
+
+Anthropic also supports skill plugins in chat and Cowork; those surfaces provide different file and tool access and are separate from this Code installation. Deeperas uses what the selected host permits. Optional local memory still requires explicit project-specific authorization and the verified local capabilities described in the [power-user guide](docs/POWER-USERS.md#living-project-memory).
+
+## Claude Code
+
+Run these commands in your terminal:
+
+```sh
+claude plugin marketplace add IIVIIask/deeperas
+claude plugin install deeperas@deeperas
+```
+
+Start a new session and enter `/deeperas:deeperas`, followed by your request. Plugin skills use the plugin name as a prefix; `/deeperas` is the unprefixed command for a separately copied personal skill.
+
+To try a checkout for one session without a permanent installation, run `claude --plugin-dir ./plugins/deeperas` from the repository root. The Claude manifest is `plugins/deeperas/.claude-plugin/plugin.json`; it points to the same `skills/` directory as the other hosts. See [Claude Code's plugin guide](https://code.claude.com/docs/en/plugins/create).
+
 ## Tested with
 
+- **Claude for Windows 3.6556.1, Code tab, October 23, 2026.** Deeperas `0.2.76` / R65 was discovered with one skill. Observed Opus 5.5 (Extra) checks covered explicit activation, clarification before implementation, Answer now, direct translation and a scoped file edit with byte verification. All 34 package and isolated memory tests passed. See [the test record and limits](docs/CLAUDE-TESTING.md), including an overgeneralized explanation in the device-choice test and the older CLI's optional-icon warning.
 - **0.2.75 / R65 package validation, October 23, 2026.** All 34 package and isolated memory tests passed on Windows. They cover the portable and host manifests, complete skill bundle, icons, historical instruction changes, rule integrity and helper behavior. These checks do not establish a quality improvement over R63 or current model adherence in Cursor.
 - **R64 validation, October 21, 2026.** All 30 package and isolated memory tests passed on Windows. Five isolated Codex scenarios covered 12 responses, including actual resumed cooler/HDD conversations and three clear-request controls. Both R63 and R64 passed this sample, so it does not establish a lower failure rate or universal adherence. Product facts in the comparison stages were supplied test data, not live purchase research.
 - **R63 distribution, October 17, 2026.** All 29 package and isolated memory tests passed on Windows. They validate the published bundle and helper behavior, not model adherence or current Cursor runtime.
@@ -108,7 +142,7 @@ For unattended personal updates, you can ask Codex to schedule a recurring check
 codex plugin list --json
 ```
 
-In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.75`, the version at the top of this guide. The separate `R65` marker identifies the instruction revision; it is not part of the package version.
+In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.76`, the version at the top of this guide. The separate `R65` marker identifies the instruction revision; it is not part of the package version.
 
 ### Cursor plugin
 
@@ -122,6 +156,22 @@ For a personal import, use its marketplace refresh/update control if your versio
 2. Read the plugin version in its details and compare it with the package version at the top of this guide.
 
 This is the plugin's declared package version, not the Cursor application version or a copied skill's `Plugin R...` revision. It does not confirm that a conversation has loaded the updated instructions. The version display is documented in [Cursor's release notes](https://prod.cursor.com/docs/release-notes).
+
+### Claude
+
+For a GitHub marketplace installation in Claude for Windows, use the marketplace and plugin refresh/update controls your app provides. An uploaded ZIP is a separate copy; update it with the new release ZIP. Publishing a GitHub release does not replace an uploaded copy automatically.
+
+For a Claude Code marketplace installation, run:
+
+```sh
+claude plugin marketplace update deeperas
+claude plugin update deeperas@deeperas
+claude plugin list --json
+```
+
+Confirm that `deeperas@deeperas` is enabled and reports `0.2.76`, then start a new session. Native Claude Code marketplace auto-updates are controlled by the host and are off by default for third-party marketplaces. Deeperas does not create a background schedule. See [Claude Code's update guide](https://code.claude.com/docs/en/plugins/install#keep-plugins-updated).
+
+Plugins added to your Claude account can also sync to Claude Code when signed in with the same account on a supported version. This requires Claude Code 2.1.273 or later; a separate older CLI installation does not gain that sync from a desktop upload. See [Anthropic's sync requirements](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 
 ### Managed ChatGPT workspaces
 

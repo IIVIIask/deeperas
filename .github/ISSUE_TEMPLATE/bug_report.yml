@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a problem with Deeperas in Codex, Cursor, or another app.
+description: Report a problem with Deeperas in Codex, Cursor, Claude, or another app.
 title: "[Bug] "
 body:
   - type: markdown
@@ -14,6 +14,8 @@ body:
         - Codex app
         - Codex CLI
         - Cursor
+        - Claude for Windows (Code tab)
+        - Claude Code CLI
         - ChatGPT
         - Other
     validations:

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.76 (October 23, 2026; skill R65)
+
+- Add a Claude plugin manifest and repository marketplace for Claude for Windows and Claude Code. Reuse the complete R65 core, all six references, optional helper and blue icon without instruction changes.
+- Add desktop repository/ZIP installation, the namespaced `/deeperas:deeperas` command, version checks and update guidance. Keep Claude account sync separate from older CLI installations and avoid promising that GitHub releases update uploaded copies.
+- Extend package checks to cover all three marketplaces and all four manifests. Keep one plain package version across hosts.
+- Record actual Windows Code activation, clarification, Answer now, translation and scoped file-edit checks, including their limits. This is a compatibility release, not evidence of a better instruction revision. See [Claude testing](docs/CLAUDE-TESTING.md).
+
 ## 0.2.75 (October 23, 2026; skill R65)
 
 The previous public release was `0.2.71+20261015r63`. This release publishes the R64 and R65 instruction changes summarized below. It retains the R65 core and all six specialized references and the optional memory helper.

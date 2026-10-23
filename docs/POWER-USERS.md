@@ -1,12 +1,14 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its package version is `0.2.75`, skill revision R65.
+Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its package version is `0.2.76`, skill revision R65.
 
 ## Activation and the first response
 
 The skill recognizes a request to use Deeperas through a selected mention, a literal `@deeperas`, or natural language such as “use Deeperas” or “with the help of Deeperas,” including ordinary spelling variations in English and Greek. Quoted material, discussion of the name, and a request to disable it do not activate the workflow. The workflow is designed to continue through related follow-ups until you disable it or move to unrelated work. The host controls whether its instructions stay available.
 
-These instructions apply when the host makes the skill available and loads it. They do not install a global router or guarantee that a host selects the skill from a plain-text name. When activation is uncertain, select the skill explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor. The package is the workflow itself, not a separate service requiring a connection.
+These instructions apply when the host makes the skill available and loads it. They do not install a global router or guarantee that a host selects the skill from a plain-text name. When activation is uncertain, select the skill explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor, or `/deeperas:deeperas` in Claude Code. In Claude chat or Cowork, select it from the `/` menu. The package is the workflow itself, not a separate service requiring a connection.
+
+Claude for Windows imports the same skill through its plugin menu. Claude Code uses `.claude-plugin/plugin.json` and namespaces the skill under its plugin name. Neither route adds a second instruction core. Chat, Cowork and Code have different tool and file access, so the available verification and optional memory capabilities depend on the active host. See [Claude desktop installation](../INSTALL.md#claude-for-windows) and [Claude Code installation](../INSTALL.md#claude-code).
 
 In Cursor, selecting `/deeperas` with **Enter** attaches it to one message. For session use, choose **Use as Mode** from the skill's `/` menu entry in the **Agents Window or Cursor CLI** to start a **Custom Mode**. The instructions then stay in context on every turn until you exit the mode. This controls context availability; it does not guarantee model adherence. See [Cursor activation](../INSTALL.md#using-deeperas-in-cursor) and [Cursor's Custom Modes guide](https://cursor.com/docs/agent/prompting#custom-modes).
 
@@ -123,7 +125,7 @@ Keep all six topic files under `references/` beside the complete `SKILL.md`, usi
 
 ## Host-specific controls
 
-| Control | ChatGPT | Codex / Cursor |
+| Control | ChatGPT | Codex / Cursor / Claude |
 | --- | --- | --- |
 | Ordinary-language clarification and delegation | Defined by the skill | Defined by the skill |
 | “Answer now…” | Ends questions for the current cycle | Ends questions for the current cycle |
@@ -131,7 +133,7 @@ Keep all six topic files under `references/` beside the complete `SKILL.md`, usi
 
 Custom answers can be written directly, and ordinary-language requests can end questions or request a reusable summary in every host. There are no single-letter exit or custom-answer controls. In ChatGPT/Work, List remains available, but invitations appear only when shortcut reminders are requested and the response is suitable for one. The request applies within its confirmed task scope; the assistant does not ask whether to enable reminders.
 
-These are instruction-defined behaviors, not new platform buttons. This repository provides direct distribution; it does not claim approval or listing in the public OpenAI or Cursor directories.
+These are instruction-defined behaviors, not new platform buttons. This repository provides direct distribution; it does not claim approval or listing in the public OpenAI, Cursor or Anthropic directories.
 
 ## Package structure
 
@@ -143,10 +145,12 @@ deeperas/
 ├── docs/POWER-USERS.md               # Detailed behavior and boundaries
 ├── .agents/plugins/marketplace.json  # Codex repository marketplace
 ├── .cursor-plugin/marketplace.json   # Cursor repository marketplace
+├── .claude-plugin/marketplace.json   # Claude repository marketplace
 ├── plugins/deeperas/
 │   ├── plugin.json                  # Portable manifest and OpenAI presentation
 │   ├── .codex-plugin/plugin.json    # Same interface for older Codex versions
 │   ├── .cursor-plugin/plugin.json   # Cursor display and discovery metadata
+│   ├── .claude-plugin/plugin.json   # Claude manifest using the same skill folder
 │   ├── assets/                      # Blue icon and light/dark README logos
 │   ├── LICENSE                      # Notice retained in installed packages
 │   └── skills/deeperas/
@@ -156,17 +160,17 @@ deeperas/
 └── tests/                           # Distribution and memory behavior checks
 ```
 
-The root manifest supplies the OpenAI presentation through `extensions.com.openai.interface`; `.codex-plugin/plugin.json` carries the same interface for older Codex versions. Cursor has its own manifest and receives the same skill and icon artwork.
+The root manifest supplies the OpenAI presentation through `extensions.com.openai.interface`; `.codex-plugin/plugin.json` carries the same interface for older Codex versions. Cursor and Claude have their own manifests and receive the same skill and icon artwork. Claude Code does not render listing icons in its terminal; newer Anthropic listing surfaces can use the Claude manifest's `icon` field.
 
 ### Release version naming
 
-Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.75`. The GitHub tag is `v0.2.75` and the plugin archive is `deeperas-0.2.75.zip`. Keep the root manifest, both host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
+Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.76`. The GitHub tag is `v0.2.76` and the plugin archive is `deeperas-0.2.76.zip`. Keep the root manifest, all three host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
 
-The skill revision is separate: this release is presented as **0.2.75 · R65**, and its core retains the `Deeperas Precision - Plugin R65` marker. Revisions continue as R66, R67 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
+The skill revision is separate: this release is presented as **0.2.76 · R65**, and its core retains the `Deeperas Precision - Plugin R65` marker. Revisions continue as R66, R67 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
 
 | Change | Version policy |
 | --- | --- |
-| Correction or revision within the current series | Increase the patch, for example `0.2.75` to `0.2.76`. |
+| Correction or revision within the current series | Increase the patch, for example `0.2.76` to `0.2.77`. |
 | Substantial evolution with demonstrated improvement in the agreed evaluation | Increase the minor series, for example `0.2.x` to `0.3.0`. |
 | A stable release meeting explicitly agreed readiness criteria | Consider `1.0.0`. Do not infer readiness from the number alone. |
 

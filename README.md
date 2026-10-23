@@ -8,15 +8,16 @@
 
 [![Codex](https://img.shields.io/badge/Codex-2563eb?style=flat-square)](INSTALL.md#codex)
 [![Cursor](https://img.shields.io/badge/Cursor-2563eb?style=flat-square)](INSTALL.md#cursor)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-2563eb?style=flat-square)](INSTALL.md#claude-for-windows)
 [![Latest release](https://img.shields.io/github/v/release/IIVIIask/deeperas?style=flat-square&color=2563eb)](https://github.com/IIVIIask/deeperas/releases/latest)
 [![MIT license](https://img.shields.io/badge/license-MIT-2563eb?style=flat-square)](LICENSE)
 [![Package checks](https://github.com/IIVIIask/deeperas/actions/workflows/package-checks.yml/badge.svg?branch=main&event=push)](https://github.com/IIVIIask/deeperas/actions/workflows/package-checks.yml)
 
-Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor.
+Deeperas helps Codex turn vague requests into clear tasks. It guides the agent to clarify decisions that matter, inspect available project context, and follow your agreed direction before changing files or starting implementation. The same skill also works in Cursor and Claude Code, including the Code tab in Claude for Windows.
 
 Describe what you want to build, change, or investigate. Deeperas asks one focused question when an important choice is missing, using explained options when helpful. Clear requests, delegated choices, and advice with enough context can proceed directly.
 
-**Version** `0.2.75` · **Skill revision** R65 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
+**Version** `0.2.76` · **Skill revision** R65 · [What changed](CHANGELOG.md) · [Update](INSTALL.md#updating-an-existing-installation)
 
 [Install](#installation) · [Real case](#example) · [How it works](#how-it-works) · [Power users](#for-power-users) · [FAQ](#faq)
 
@@ -24,7 +25,7 @@ Describe what you want to build, change, or investigate. Deeperas asks one focus
 
 ## Installation
 
-Both hosts receive the same skill. Use a recent host version with plugin support. See [what was tested](INSTALL.md#tested-with).
+All hosts receive the same skill. Use a recent host version with plugin support. See [what was tested](INSTALL.md#tested-with).
 
 ### Codex
 
@@ -54,9 +55,22 @@ Start a new Agent conversation and select `/deeperas`. For ongoing use, choose *
 
 Prefer to copy the skill into a project? See the [installation guide](INSTALL.md), which also covers updating.
 
+### Claude Code
+
+**Claude for Windows, Code tab:** Open **Customize → Plugins → Add plugin → Add marketplace**, add `https://github.com/IIVIIask/deeperas`, then add **Deeperas**. See the [desktop installation guide](INSTALL.md#claude-for-windows) for details.
+
+**Claude Code:** Run these commands in your terminal:
+
+```sh
+claude plugin marketplace add IIVIIask/deeperas
+claude plugin install deeperas@deeperas
+```
+
+Start a new Code session and use `/deeperas:deeperas`.
+
 ### Calling Deeperas
 
-Ask for Deeperas by name, or select it explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, or `/deeperas` in Cursor.
+Ask for Deeperas by name, or select it explicitly: `$deeperas` in Codex CLI, `@Deeperas` in the Codex app, `/deeperas` in Cursor, or `/deeperas:deeperas` in Claude Code and the Windows Code tab.
 
 Your app controls when the skill is loaded. See [Cursor message and session use](INSTALL.md#using-deeperas-in-cursor) and [activation troubleshooting](INSTALL.md#troubleshooting).
 
@@ -78,7 +92,7 @@ This is a real task from October 15, 2026, summarized from the owner's conversat
 
 ## When to use it
 
-In Codex and Cursor, use Deeperas when an unresolved choice could change the work:
+In Codex, Cursor and Claude Code, use Deeperas when an unresolved choice could change the work:
 
 - **Plan a feature**: Clarify the goal, intended users, and scope before planning implementation.
 
@@ -100,7 +114,11 @@ Answer in your own words, choose an option, or delegate a decision. Clear tasks 
 
 See [project decisions and dependencies](docs/POWER-USERS.md#project-work-and-dependencies) and [the clarification gate](docs/POWER-USERS.md#the-clarification-gate).
 
-### What's new in 0.2.75
+### What's new in 0.2.76
+
+Install the same R65 skill in **Claude for Windows and Claude Code**, alongside Codex and Cursor. This release adds Claude packaging and installation instructions; the core instructions, references and memory helper are unchanged.
+
+The R65 workflow includes:
 
 - **Keep the thread across follow-ups.** An unanswered requirement stays open when the conversation moves to another question. Settled, independent requests can still proceed.
 - **Separate requirements from preferences.** Hard constraints, personal priorities and evidence strength are handled separately when comparing approaches.

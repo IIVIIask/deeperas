@@ -9,14 +9,19 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const read = (path) => readFileSync(join(root, path), 'utf8');
 const json = (path) => JSON.parse(read(path));
 
-test('both marketplaces resolve to matching manifests, host-neutral versions, and MIT notice', () => {
+test('all three marketplaces resolve to matching manifests, host-neutral versions, and MIT notice', () => {
   const codex = json('.agents/plugins/marketplace.json');
   const cursor = json('.cursor-plugin/marketplace.json');
+  const claude = json('.claude-plugin/marketplace.json');
   assert.equal(codex.name, 'deeperas');
   assert.equal(cursor.plugins.length, 1);
+  assert.equal(claude.name, codex.name);
+  assert.equal(claude.plugins.length, 1);
+  assert.equal(claude.plugins[0].name, cursor.plugins[0].name);
+  assert.equal(claude.plugins[0].source.replace(/^\.\//, ''), cursor.plugins[0].source);
   assert.equal(codex.plugins[0].source.path.replace(/^\.\//, ''), cursor.plugins[0].source);
   const base = cursor.plugins[0].source;
-  const manifests = ['plugin.json', '.codex-plugin/plugin.json', '.cursor-plugin/plugin.json']
+  const manifests = ['plugin.json', '.codex-plugin/plugin.json', '.cursor-plugin/plugin.json', '.claude-plugin/plugin.json']
     .map((file) => json(`${base}/${file}`));
   for (const manifest of manifests) {
     assert.equal(manifest.name, 'deeperas');
@@ -66,7 +71,7 @@ test('active instructions, metadata and guides exclude retired single-letter con
   const skill = 'plugins/deeperas/skills/deeperas';
   const files = ['README.md', 'INSTALL.md', 'docs/POWER-USERS.md',
     'plugins/deeperas/plugin.json', 'plugins/deeperas/.codex-plugin/plugin.json',
-    'plugins/deeperas/.cursor-plugin/plugin.json', `${skill}/SKILL.md`,
+    'plugins/deeperas/.cursor-plugin/plugin.json', 'plugins/deeperas/.claude-plugin/plugin.json', `${skill}/SKILL.md`,
     ...readdirSync(join(root, skill, 'references')).map((file) => `${skill}/references/${file}`)];
   for (const file of files) {
     assert.doesNotMatch(read(file), /(?:^|[^\p{L}\p{N}_])[XZΧΖ](?=$|[^\p{L}\p{N}_])/u,
@@ -74,13 +79,15 @@ test('active instructions, metadata and guides exclude retired single-letter con
   }
 });
 
-test('both hosts receive the square icon used by the README header', () => {
+test('all host packages retain the square icon used by the README header', () => {
   const base = 'plugins/deeperas';
   const codex = json(`${base}/.codex-plugin/plugin.json`).interface;
   const cursor = json(`${base}/.cursor-plugin/plugin.json`);
+  const claude = json(`${base}/.claude-plugin/plugin.json`);
   assert.equal(codex.logo, './assets/icon.png');
   assert.equal(codex.composerIcon, codex.logo);
   assert.equal(cursor.logo, 'assets/icon.png');
+  assert.equal(claude.icon, codex.logo);
   assert.ok(readFileSync(join(root, base, codex.logo)).equals(readFileSync(join(root, base, cursor.logo))),
     'Both hosts must receive identical square icon artwork');
   assert.ok(read('README.md').includes(`${base}/assets/icon.png`));
