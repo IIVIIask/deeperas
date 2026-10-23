@@ -15,12 +15,14 @@ const r68 = JSON.parse(read('tests/fixtures/deeperas-r68-one-question-approved.j
 const r69 = JSON.parse(read('tests/fixtures/deeperas-r69-materiality-approved.json'));
 const r70 = JSON.parse(read('tests/fixtures/deeperas-r70-evidence-approved.json'));
 const r71 = JSON.parse(read('tests/fixtures/deeperas-r71-dont-know-approved.json'));
+const r72 = JSON.parse(read('tests/fixtures/deeperas-r72-early-answer-approved.json'));
 const r65Core = 'tests/fixtures/deeperas-r65-core.txt';
 const r66Core = 'tests/fixtures/deeperas-r66-core.txt';
 const r67Core = 'tests/fixtures/deeperas-r67-core.txt';
 const r68Core = 'tests/fixtures/deeperas-r68-core.txt';
 const r69Core = 'tests/fixtures/deeperas-r69-core.txt';
 const r70Core = 'tests/fixtures/deeperas-r70-core.txt';
+const r71Core = 'tests/fixtures/deeperas-r71-core.txt';
 const skill = 'plugins/deeperas/skills/deeperas';
 const header = /^---\n[\s\S]*?\n---\n\n/;
 
@@ -42,7 +44,7 @@ test('rule conversion preserves discovery and specialized text across checkout l
   const r65 = read(r65Core).replace(/\r\n/g, '\n');
   const current = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
   assert.equal(r65.match(header)[0], baseline.match(header)[0]);
-  assert.equal(current.match(header)[0], r71.header, 'Unreviewed discovery metadata change');
+  assert.equal(current.match(header)[0], r72.header, 'Unreviewed discovery metadata change');
   assert.equal(digest('tests/fixtures/deeperas-r64-core.txt'), fixture.baseline_sha256);
   for (const [relative, expected] of Object.entries(fixture.unchanged_supporting_files)) {
     assert.equal(digest(`${skill}/${relative}`), expected, `Unreviewed supporting-file change: ${relative}`);
@@ -128,6 +130,12 @@ test('R70 changes only the approved evidence wording and revision marker', () =>
 
 test('R71 changes only the approved dont-know guidance and revision marker', () => {
   assert.equal(digest(r70Core), r71.r70_core_sha256);
-  assert.equal(digest(`${skill}/SKILL.md`), r71.updated_sha256);
-  assertApprovedRuleChanges(r70Core, `${skill}/SKILL.md`, r71.changed_rules, 'R70', 'R71');
+  assert.equal(digest(r71Core), r71.updated_sha256);
+  assertApprovedRuleChanges(r70Core, r71Core, r71.changed_rules, 'R70', 'R71');
+});
+
+test('R72 changes only the early-answer display guidance and revision marker', () => {
+  assert.equal(digest(r71Core), r72.r71_core_sha256);
+  assert.equal(digest(`${skill}/SKILL.md`), r72.updated_sha256);
+  assertApprovedRuleChanges(r71Core, `${skill}/SKILL.md`, r72.changed_rules, 'R71', 'R72');
 });

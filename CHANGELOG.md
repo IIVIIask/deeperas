@@ -1,8 +1,14 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R71; unpublished)
+## 0.2.77 (October 23, 2026; skill R72; unpublished)
 
-R71 applies the owner-approved correction for "don't know":
+R72 applies the owner-approved early-answer display correction:
+
+- Do not offer "Answer now" or equivalent early-answer options or unsolicited reminders. Continue to honor explicit user requests for an early answer in natural language.
+- Add only that guidance to R038 and advance the revision marker. R031 early-answer handling, the restriction on questions after a delivered result, the rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
+- Preserve the R71 core as a historical fixture and check the approved R71-to-R72 change scope. Earlier model evaluations do not evaluate R72; see [R72 verification status](docs/CLAUDE-TESTING.md#r72-early-answers-only-on-request). The previous proposed correction remains pending.
+
+R71 (earlier unpublished development revision, help after "don't know"):
 
 - Explain relevant options or verify discoverable facts after "don't know", then ask one simpler question only when it can resolve a remaining material prerequisite. Do not repeat the same question without additional help.
 - Replace only that guidance in R034 and advance the revision marker. Preserve "no preference" delegation, the restriction on questions after a delivered result, the rest of R034, the other 64 rules, discovery text, all six references and the optional helper.

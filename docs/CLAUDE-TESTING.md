@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R71 development revision is tracked [separately](#r71-help-after-dont-know).
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R72 development revision is tracked [separately](#r72-early-answers-only-on-request).
 
 ## Environment
 
@@ -131,5 +131,15 @@ Only the approved wording in R034 and the revision marker differ from the [froze
 All 40 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
 
 No new R71 model evaluation has been run. Historical R66/R67 statistics do not establish R71 behavior or improvement.
+
+## R72 early answers only on request
+
+R72 applies the approved display correction: do not offer "Answer now" or equivalent early-answer options or unsolicited reminders. Explicit user requests for an early answer in natural language remain supported under the unchanged R031 rule.
+
+Only the approved addition to R038 and the revision marker differ from the [frozen R71 core](../tests/fixtures/deeperas-r71-core.txt). The restriction on questions after a delivered result, the rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged. Package `0.2.77` remains unpublished. The previous proposed correction remains pending.
+
+All 41 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
+
+No new R72 model evaluation has been run. Historical R66/R67 statistics do not establish R72 behavior or improvement.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)
