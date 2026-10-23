@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R69 development revision is tracked [separately](#r69-materiality-by-consequences).
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R70 development revision is tracked [separately](#r70-explaining-inspected-evidence).
 
 ## Environment
 
@@ -111,5 +111,15 @@ Only R024 and the revision marker differ from the [frozen R68 core](../tests/fix
 All 38 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
 
 No new R69 model evaluation has been run. Historical R66/R67 statistics do not establish R69 behavior or improvement.
+
+## R70 explaining inspected evidence
+
+R70 applies the third approved correction: explain the relevant finding and provide a usable reference when referring to inspected files, tool results or checks, without assuming the user has already seen them.
+
+Only the approved wording in R038 and the revision marker differ from the [frozen R69 core](../tests/fixtures/deeperas-r69-core.txt). The rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged. Package `0.2.77` remains unpublished, with the other review findings pending.
+
+All 39 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
+
+No new R70 model evaluation has been run. Historical R66/R67 statistics do not establish R70 behavior or improvement.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)

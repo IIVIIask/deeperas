@@ -1,8 +1,14 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R69; unpublished)
+## 0.2.77 (October 23, 2026; skill R70; unpublished)
 
-R69 applies the owner-approved second correction:
+R70 applies the owner-approved third correction:
+
+- Explain relevant findings from inspected files, tool results or checks and provide a usable reference, without assuming the user has already seen them.
+- Replace only the broad unseen-file/result prohibition in R038 and advance the revision marker. The rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
+- Preserve the R69 core as a historical fixture and check the approved R69-to-R70 change scope. Earlier model evaluations do not evaluate R70; see [R70 verification status](docs/CLAUDE-TESTING.md#r70-explaining-inspected-evidence). The remaining review findings are still pending.
+
+R69 (earlier unpublished development revision, materiality by consequences):
 
 - Judge missing information by its consequences for correctness, constraints, user choices, risk and acceptance. A small or easily edited part of an answer is not automatically immaterial.
 - Keep the direct-answer path when one supported result works under every plausible answer without violating constraints or selecting a reserved choice.

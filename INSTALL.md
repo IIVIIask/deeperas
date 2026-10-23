@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current development version is `0.2.77` (skill revision R69, unpublished). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current development version is `0.2.77` (skill revision R70, unpublished). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
 
 The plugin includes the complete `SKILL.md`, six topic references and `scripts/project-memory.mjs`. Manual copies should retain this whole folder. Node.js, Git verification and permitted file/process access are required only for optional local memory; the host still supplies its own model and tools.
 
@@ -108,7 +108,7 @@ To try a checkout for one session without a permanent installation, run `claude 
 
 ## Tested with
 
-R69 keeps one question at a time and judges missing information by its consequences. The R66/R67 model evaluations below do not establish its behavior; see the [R69 verification status](docs/CLAUDE-TESTING.md#r69-materiality-by-consequences).
+R70 keeps one question at a time and judges missing information by its consequences. The R66/R67 model evaluations below do not establish its behavior; see the [R70 verification status](docs/CLAUDE-TESTING.md#r70-explaining-inspected-evidence).
 
 - **Claude Code 2.1.308, October 23, 2026.** In paired Opus 5.5 conversations against the same model without Deeperas, R65 won 20 of 60 (29 losses, 11 ties). On independently written held-out scenarios, R66 won 10 of 20 (5 losses, 5 ties) and the earlier development revision `0.2.77` / R67, loaded with `--plugin-dir`, won 13 of 20 (3 losses, 4 ties). All 36 package and isolated memory tests passed. See [the paired evaluation and its limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
 - **Claude for Windows 3.6556.1, Code tab, October 23, 2026.** Deeperas `0.2.76` / R65 was discovered with one skill. Observed Opus 5.5 (Extra) checks covered explicit activation, clarification before implementation, Answer now, direct translation and a scoped file edit with byte verification. All 34 package and isolated memory tests passed. See [the test record and limits](docs/CLAUDE-TESTING.md), including an overgeneralized explanation in the device-choice test and the older CLI's optional-icon warning.
@@ -145,7 +145,7 @@ For unattended personal updates, you can ask Codex to schedule a recurring check
 codex plugin list --json
 ```
 
-In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.77`, the version at the top of this guide. The separate `R69` marker identifies the instruction revision; it is not part of the package version.
+In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.77`, the version at the top of this guide. The separate `R70` marker identifies the instruction revision; it is not part of the package version.
 
 ### Cursor plugin
 

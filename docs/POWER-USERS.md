@@ -1,6 +1,6 @@
 # Deeperas for power users
 
-Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its development package version is `0.2.77`, skill revision R69 (unpublished).
+Deeperas is an instruction-based workflow with an optional local project-memory helper. The host interprets the skill and supplies the model, tools, and permissions. The skill ships a [complete core](../plugins/deeperas/skills/deeperas/SKILL.md), [six topic references](#the-skill-bundle) and the helper. Its development package version is `0.2.77`, skill revision R70 (unpublished).
 
 ## Activation and the first response
 
@@ -16,13 +16,13 @@ When material context needed for the requested result or action is missing, the 
 
 ## Rules in one complete core
 
-R69 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
+R70 keeps the complete shared workflow in `SKILL.md` as 65 rules with stable IDs, activation conditions and actions. A shared contract defines events, precedence, the ASK/ANSWER gate and dependency handling. Only applicable rules run; the rule list is not an interview checklist. The host model interprets these instructions. There is no separate deterministic rules engine or mandatory JSON parser.
 
 Hard constraints are checked before preference ranking. Unknown compliance stays unverified. Comparisons use the user's actual priorities, without invented percentages or equal weights. An ordinary preference such as “cost matters more” does not mean every small saving wins regardless of effort; the assistant asks about a decisive unresolved trade-off. Numeric scores require explicit weights and comparable utility scales. Unknown performance is not zero, and preference scores cannot override a hard requirement.
 
 Importance percentages alone do not convert raw prices, time, reliability or other measurements into comparable utilities. The next question should resolve the concrete trade-off the user needs, without demanding a complete scoring framework when one comparison is enough. Established dominance or bounds can settle a choice without gathering irrelevant preferences; shared variables and correlations must be preserved. A qualitative recommendation cannot supply a missing user priority.
 
-Changed evidence is traced to affected dependencies and output claims. Valid completed checks are reused; required post-action inspection, freshness checks and memory-operation safeguards still apply. The workflow avoids unrequested hypothetical subtrees while preserving every branch needed for the requested comparison or completeness. Reading a topic reference adds its applicable checks, not an unrequested plan or another inventory of already established resources. Answers omit purposeless repetition, while retaining the reasoning, sources and limits needed to assess the result.
+Changed evidence is traced to affected dependencies and output claims. Valid completed checks are reused; required post-action inspection, freshness checks and memory-operation safeguards still apply. The workflow avoids unrequested hypothetical subtrees while preserving every branch needed for the requested comparison or completeness. Reading a topic reference adds its applicable checks, not an unrequested plan or another inventory of already established resources. Answers omit purposeless repetition, while retaining the reasoning, sources and limits needed to assess the result. When referring to inspected files, tool results or checks, the assistant explains the relevant finding and provides a usable reference without assuming you have already seen it.
 
 The R64 continuation behavior remains: unanswered material prerequisites stay open across unrelated answers, while explicitly general or independent settled requests receive direct answers. All six specialized references and the optional helper remain unchanged. Reference and memory guards apply before the operation that needs them.
 
@@ -166,7 +166,7 @@ The root manifest supplies the OpenAI presentation through `extensions.com.opena
 
 Use one plain semantic version everywhere: `MAJOR.MINOR.PATCH`, currently `0.2.77`. The GitHub tag is `v0.2.77` and the plugin archive is `deeperas-0.2.77.zip`. Keep the root manifest, all three host manifests, documentation and published package synchronized. Version strings and filenames must not include host names.
 
-The skill revision is separate: this unpublished development package is presented as **0.2.77 · R69**, and its core retains the `Deeperas Precision - Plugin R69` marker. Revisions continue as R70, R71 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
+The skill revision is separate: this unpublished development package is presented as **0.2.77 · R70**, and its core retains the `Deeperas Precision - Plugin R70` marker. Revisions continue as R71, R72 and so on; they do not reset when the package series changes. A packaging-only change can keep the same instruction revision.
 
 | Change | Version policy |
 | --- | --- |
