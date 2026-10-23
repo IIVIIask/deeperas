@@ -39,11 +39,12 @@ test('frozen behavioral suite keeps all continuation cases and isolates supplied
   const file = 'tests/fixtures/deeperas-r65-rules-cases.json';
   assert.equal(digest(file), fixture.model_suite_sha256);
   const cases = JSON.parse(read(file)).cases;
-  assert.equal(new Set(cases.map(c => c.id)).size, cases.length);
+  const allCases = [...cases, ...JSON.parse(read('tests/fixtures/deeperas-device-choice-cases.json')).cases];
+  assert.equal(new Set(allCases.map(c => c.id)).size, allCases.length);
   for (const original of JSON.parse(read('tests/fixtures/deeperas-r64-continuation-cases.json')).cases) {
     assert.deepEqual(cases.find(c => c.id === original.id), original);
   }
-  for (const item of cases) {
+  for (const item of allCases) {
     assert.ok(item.turns.length && item.turns.length === item.expected.length);
     for (const filename of Object.keys(item.files ?? {})) {
       assert.ok(!path.isAbsolute(filename) && !filename.split(/[\\/]/).includes('..'), `Unsafe fixture path: ${filename}`);
