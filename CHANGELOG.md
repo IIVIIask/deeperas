@@ -1,8 +1,14 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R70; unpublished)
+## 0.2.77 (October 23, 2026; skill R71; unpublished)
 
-R70 applies the owner-approved third correction:
+R71 applies the owner-approved correction for "don't know":
+
+- Explain relevant options or verify discoverable facts after "don't know", then ask one simpler question only when it can resolve a remaining material prerequisite. Do not repeat the same question without additional help.
+- Replace only that guidance in R034 and advance the revision marker. Preserve "no preference" delegation, the restriction on questions after a delivered result, the rest of R034, the other 64 rules, discovery text, all six references and the optional helper.
+- Preserve the R70 core as a historical fixture and check the approved R70-to-R71 change scope. Earlier model evaluations do not evaluate R71; see [R71 verification status](docs/CLAUDE-TESTING.md#r71-help-after-dont-know). The remaining review findings are still pending.
+
+R70 (earlier unpublished development revision, explaining inspected evidence):
 
 - Explain relevant findings from inspected files, tool results or checks and provide a usable reference, without assuming the user has already seen them.
 - Replace only the broad unseen-file/result prohibition in R038 and advance the revision marker. The rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
