@@ -1,0 +1,15 @@
+{
+  "baseline": "R67",
+  "revision": "R68",
+  "r67_core_sha256": "9a964871c4a5167e294463c77d1ec3a59f6356c57b774f59175c1c1dde7f283b",
+  "updated_sha256": "7ded5f5f38ee4f961de99175e73ea53688f686beac6b70810dbbc2f9c28a74e5",
+  "header": "---\nname: deeperas\ndescription: >-\n  Use when the user requests Deeperas anywhere in their message, with or without a selected mention, including @deeperas, \"use Deeperas\", \"with the help of Deeperas\", \"χρησιμοποιησε το @deeperas\", \"με την βοηθεια του deeperas\", and ordinary misspellings such as \"Χρησιμοποιείσε το deeperas\" or \"Χρησιμοποιείσαι το @Deeperas\". Resolve material unselected alternatives and other material choices before dependent output or action; supported advice-only requests need no prior method acceptance. Also use for clarification-first requests, factual queries with material gaps, project planning, recommendations, don't-know replies, and ordinary continuations. When material prerequisites are missing, ask one focused question about the most consequential unresolved prerequisite; recheck remaining gaps after each reply; explain options as needed and restate the pending question after an explanation; answer settled, complete, explicitly delegated, and supported advice-only requests directly.\n---\n\n",
+  "changed_rules": [
+    "R032",
+    "R034",
+    "R035",
+    "R038"
+  ],
+  "scope": "Restore one focused question per turn and recheck unresolved material prerequisites after each reply. Preserve all other R67 rules and the pending review findings.",
+  "distinction": "Package integrity checks establish the approved change scope, not model adherence or an improvement over R67. Earlier R66/R67 model results do not evaluate R68."
+}

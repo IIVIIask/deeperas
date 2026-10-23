@@ -11,8 +11,10 @@ const digest = relative => createHash('sha256').update(read(relative).replace(/\
 const fixture = JSON.parse(read('tests/fixtures/deeperas-r65-rules.json'));
 const r66 = JSON.parse(read('tests/fixtures/deeperas-r66-clarification-approved.json'));
 const r67 = JSON.parse(read('tests/fixtures/deeperas-r67-quality-approved.json'));
+const r68 = JSON.parse(read('tests/fixtures/deeperas-r68-one-question-approved.json'));
 const r65Core = 'tests/fixtures/deeperas-r65-core.txt';
 const r66Core = 'tests/fixtures/deeperas-r66-core.txt';
+const r67Core = 'tests/fixtures/deeperas-r67-core.txt';
 const skill = 'plugins/deeperas/skills/deeperas';
 const header = /^---\n[\s\S]*?\n---\n\n/;
 
@@ -34,7 +36,7 @@ test('rule conversion preserves discovery and specialized text across checkout l
   const r65 = read(r65Core).replace(/\r\n/g, '\n');
   const current = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
   assert.equal(r65.match(header)[0], baseline.match(header)[0]);
-  assert.equal(current.match(header)[0], r67.header, 'Unreviewed discovery metadata change');
+  assert.equal(current.match(header)[0], r68.header, 'Unreviewed discovery metadata change');
   assert.equal(digest('tests/fixtures/deeperas-r64-core.txt'), fixture.baseline_sha256);
   for (const [relative, expected] of Object.entries(fixture.unchanged_supporting_files)) {
     assert.equal(digest(`${skill}/${relative}`), expected, `Unreviewed supporting-file change: ${relative}`);
@@ -95,6 +97,12 @@ test('R66 changes only the clarification rules, discovery text and revision mark
 
 test('R67 changes only its approved rules and revision marker', () => {
   assert.equal(digest(r66Core), r67.r66_core_sha256);
-  assert.equal(digest(`${skill}/SKILL.md`), r67.updated_sha256);
-  assertApprovedRuleChanges(r66Core, `${skill}/SKILL.md`, r67.changed_rules, 'R66', 'R67');
+  assert.equal(digest(r67Core), r67.updated_sha256);
+  assertApprovedRuleChanges(r66Core, r67Core, r67.changed_rules, 'R66', 'R67');
+});
+
+test('R68 restores one-question clarification without changing the other R67 rules', () => {
+  assert.equal(digest(r67Core), r68.r67_core_sha256);
+  assert.equal(digest(`${skill}/SKILL.md`), r68.updated_sha256);
+  assertApprovedRuleChanges(r67Core, `${skill}/SKILL.md`, r68.changed_rules, 'R67', 'R68');
 });

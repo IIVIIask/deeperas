@@ -1,8 +1,15 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R67; unpublished)
+## 0.2.77 (October 23, 2026; skill R68; unpublished)
 
-R67 builds on the unpublished R66 clarification changes listed after it.
+R68 restores one question at a time, as requested by the owner:
+
+- Ask one focused question about the most consequential unresolved prerequisite. After each reply, recheck the remaining material gaps before answering or acting, and keep later decisions for when the work depends on them.
+- Align discovery text, plugin descriptions and guides with that workflow. Freeze the tested R67 core so its historical evaluations remain tied to the instructions actually used.
+- Only rules R032, R034, R035 and R038, the discovery text and revision marker change from R67. All other rules, all six references and the optional helper are unchanged. The other review findings remain pending.
+- R66/R67 comparative results below do not evaluate R68. See [R68 verification status](docs/CLAUDE-TESTING.md#r68-one-question-restoration).
+
+R67 (earlier unpublished development revision, built on R66):
 
 - Check more of the user's situation before asking: what prompted the request, what was already tried and how it went, who else is affected (including children or pets), where and how the result will be used or kept, how things stand now, and what the user will do with the result. Prefer questions that rule options out; ask about location only when it changes the content, and keep later rounds for dependent or substantive gaps.
 - Deliver the shortest complete result, built from the user's own names, numbers and constraints. Meet requested lengths, count before stating a count, and do not refer to files, tool output or checks the user has not seen.

@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below also covers the unpublished `0.2.77` / R66.
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R68 development revision is tracked [separately](#r68-one-question-restoration).
 
 ## Environment
 
@@ -91,5 +91,15 @@ Limits:
 - **Frozen suites.** The device-choice and continuation behavioral suites expect one question per ASK turn. R66 intentionally changed that format, so those expectations need a revised rubric. They were not rerun for R66 or R67.
 
 The scenario cards, simulator and judge prompts, transcripts and judgments are kept in the local verification workspace, not in this repository.
+
+## R68 one-question restoration
+
+R68 restores one focused question per turn and rechecks unresolved material prerequisites after each reply. This is the owner-approved first correction to the development branch; the other review findings remain pending. Package version `0.2.77` is still unpublished.
+
+Only rules R032, R034, R035 and R038, the discovery text and revision marker differ from R67. The [frozen R67 core](../tests/fixtures/deeperas-r67-core.txt) preserves the exact instructions used in the earlier evaluations. The R66/R67 statistics above must not be presented as R68 results.
+
+All 37 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The R68 scope check confirms that every other R67 rule, all six references and the helper remain unchanged. These automated checks do not establish model adherence.
+
+The existing one-question behavioral fixtures remain historical evidence. Restoring that format does not establish a pass for R68; a new model evaluation of the corrected revision is still pending.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)
