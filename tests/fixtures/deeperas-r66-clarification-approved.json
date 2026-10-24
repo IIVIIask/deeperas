@@ -1,0 +1,17 @@
+{
+  "baseline": "R65",
+  "revision": "R66",
+  "r65_core_sha256": "4848f33afd23c5f1c75fde89a17b19d445de648cd520b929d1f6d32ce1d9ffe6",
+  "updated_sha256": "4bbe56cdda9b990541e04fd2443c53d8ddece801bdec4b22ebbf0d48ac36bf9a",
+  "header": "---\nname: deeperas\ndescription: >-\n  Use when the user requests Deeperas anywhere in their message, with or without a selected mention, including @deeperas, \"use Deeperas\", \"with the help of Deeperas\", \"χρησιμοποιησε το @deeperas\", \"με την βοηθεια του deeperas\", and ordinary misspellings such as \"Χρησιμοποιείσε το deeperas\" or \"Χρησιμοποιείσαι το @Deeperas\". Resolve material unselected alternatives and other material choices before dependent output or action; supported advice-only requests need no prior method acceptance. Also use for clarification-first requests, factual queries with material gaps, project planning, recommendations, don't-know replies, and ordinary continuations. When material prerequisites are missing, ask every independent material question together in one short numbered list; explain options as needed and restate pending questions after an explanation; answer settled, complete, explicitly delegated, and supported advice-only requests directly.\n---\n\n",
+  "changed_rules": [
+    "R024",
+    "R028",
+    "R032",
+    "R034",
+    "R035",
+    "R036",
+    "R038"
+  ],
+  "distinction": "Package integrity is checked in node:test. The R66 comparative model results are recorded in docs/CLAUDE-TESTING.md and are not established by these checks."
+}

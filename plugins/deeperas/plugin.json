@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "deeperas",
-  "version": "0.2.76",
+  "version": "0.2.77",
   "description": "Clarify the choices that matter, verify available evidence, and carry confirmed requirements and open prerequisites through work in Codex, Cursor and Claude Code.",
   "author": { "name": "IIVIIask" },
   "homepage": "https://github.com/IIVIIask/deeperas#readme",
@@ -13,7 +13,7 @@
       "interface": {
         "displayName": "Deeperas",
         "shortDescription": "One useful question at a time",
-        "longDescription": "Use Deeperas in Codex, Cursor or Claude Code to turn vague requests into clear, verifiable work. It asks one focused question when an unresolved choice matters, investigates facts with the host's files and tools, and carries confirmed requirements and open prerequisites through follow-ups. Clear requests, delegated choices and supported advice can proceed directly. The R65 core uses 65 condition/action rules and six topic references. Optional local project memory is off by default and needs explicit authorization. Your host supplies the model, tools and permissions.",
+        "longDescription": "Use Deeperas in Codex, Cursor or Claude Code to turn vague requests into clear, verifiable work. It asks one focused question at a time and rechecks unresolved prerequisites after each reply, investigates facts with the host's files and tools, and carries confirmed requirements and open prerequisites through follow-ups. Clear requests, delegated choices and supported advice can proceed directly. The R74 core uses 65 condition/action rules and six topic references. Optional local project memory is off by default and needs explicit authorization. Your host supplies the model, tools and permissions.",
         "developerName": "IIVIIask",
         "category": "Productivity",
         "capabilities": [],

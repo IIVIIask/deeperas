@@ -1,6 +1,6 @@
 # Install Deeperas
 
-Deeperas works in a recent AI host with plugin or Agent Skills support. The current version is `0.2.76` (skill revision R65). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
+Deeperas works in a recent AI host with plugin or Agent Skills support. The current development version is `0.2.77` (skill revision R74, unpublished). Normal use needs no separate Deeperas account, API key, server or memory setup. See [what changed](CHANGELOG.md) and the [versioning policy](docs/POWER-USERS.md#release-version-naming).
 
 The plugin includes the complete `SKILL.md`, six topic references and `scripts/project-memory.mjs`. Manual copies should retain this whole folder. Node.js, Git verification and permitted file/process access are required only for optional local memory; the host still supplies its own model and tools.
 
@@ -89,7 +89,7 @@ Menu wording can vary by app version. See [Anthropic's plugin guide](https://sup
 
 ### From the release ZIP
 
-Download `deeperas-0.2.76.zip` from the [latest release](https://github.com/IIVIIask/deeperas/releases/latest). In **Customize → Plugins → Add plugin**, choose **Upload plugin** and select this ZIP. Use the plugin ZIP, not GitHub's whole-repository source archive. Keep one installation method to avoid duplicate skills.
+Download `deeperas-0.2.77.zip` from the [latest release](https://github.com/IIVIIask/deeperas/releases/latest). In **Customize → Plugins → Add plugin**, choose **Upload plugin** and select this ZIP. Use the plugin ZIP, not GitHub's whole-repository source archive. Keep one installation method to avoid duplicate skills.
 
 Anthropic also supports skill plugins in chat and Cowork; those surfaces provide different file and tool access and are separate from this Code installation. Deeperas uses what the selected host permits. Optional local memory still requires explicit project-specific authorization and the verified local capabilities described in the [power-user guide](docs/POWER-USERS.md#living-project-memory).
 
@@ -108,6 +108,9 @@ To try a checkout for one session without a permanent installation, run `claude 
 
 ## Tested with
 
+R74 keeps one question at a time and judges missing information by its consequences. The R66/R67 model evaluations below do not establish its behavior; see the [R74 verification status](docs/CLAUDE-TESTING.md#r74-explanations-when-needed).
+
+- **Claude Code 2.1.308, October 23, 2026.** In paired Opus 5.5 conversations against the same model without Deeperas, R65 won 20 of 60 (29 losses, 11 ties). On independently written held-out scenarios, R66 won 10 of 20 (5 losses, 5 ties) and the earlier development revision `0.2.77` / R67, loaded with `--plugin-dir`, won 13 of 20 (3 losses, 4 ties). All 36 package and isolated memory tests passed. See [the paired evaluation and its limits](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
 - **Claude for Windows 3.6556.1, Code tab, October 23, 2026.** Deeperas `0.2.76` / R65 was discovered with one skill. Observed Opus 5.5 (Extra) checks covered explicit activation, clarification before implementation, Answer now, direct translation and a scoped file edit with byte verification. All 34 package and isolated memory tests passed. See [the test record and limits](docs/CLAUDE-TESTING.md), including an overgeneralized explanation in the device-choice test and the older CLI's optional-icon warning.
 - **0.2.75 / R65 package validation, October 23, 2026.** All 34 package and isolated memory tests passed on Windows. They cover the portable and host manifests, complete skill bundle, icons, historical instruction changes, rule integrity and helper behavior. These checks do not establish a quality improvement over R63 or current model adherence in Cursor.
 - **R64 validation, October 21, 2026.** All 30 package and isolated memory tests passed on Windows. Five isolated Codex scenarios covered 12 responses, including actual resumed cooler/HDD conversations and three clear-request controls. Both R63 and R64 passed this sample, so it does not establish a lower failure rate or universal adherence. Product facts in the comparison stages were supplied test data, not live purchase research.
@@ -142,7 +145,7 @@ For unattended personal updates, you can ask Codex to schedule a recurring check
 codex plugin list --json
 ```
 
-In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.76`, the version at the top of this guide. The separate `R65` marker identifies the instruction revision; it is not part of the package version.
+In `installed`, find the entry whose `name` is `deeperas`. Its `version` is the package version reported for this CLI environment. Compare it with `0.2.77`, the version at the top of this guide. The separate `R74` marker identifies the instruction revision; it is not part of the package version.
 
 ### Cursor plugin
 
@@ -169,7 +172,7 @@ claude plugin update deeperas@deeperas
 claude plugin list --json
 ```
 
-Confirm that `deeperas@deeperas` is enabled and reports `0.2.76`, then start a new session. Native Claude Code marketplace auto-updates are controlled by the host and are off by default for third-party marketplaces. Deeperas does not create a background schedule. See [Claude Code's update guide](https://code.claude.com/docs/en/plugins/install#keep-plugins-updated).
+Confirm that `deeperas@deeperas` is enabled and reports `0.2.77`, then start a new session. Native Claude Code marketplace auto-updates are controlled by the host and are off by default for third-party marketplaces. Deeperas does not create a background schedule. See [Claude Code's update guide](https://code.claude.com/docs/en/plugins/install#keep-plugins-updated).
 
 Plugins added to your Claude account can also sync to Claude Code when signed in with the same account on a supported version. This requires Claude Code 2.1.273 or later; a separate older CLI installation does not gain that sync from a desktop upload. See [Anthropic's sync requirements](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
 

@@ -1,0 +1,509 @@
+{
+  "date": "2026-10-24",
+  "scope": "Focused fresh R73/R74 Codex comparison of the exact approved R034 wording. Not a general benchmark. No merge or installed-plugin update.",
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "cli_version": "codex-cli 0.164.0-alpha.11.1",
+  "protocol": "Freeze prompts and criteria before first run. Fresh paired sessions for both versions, randomized order within each pair. Repeat S04 once. Preserve all failures, no implicit retries. One reviewer scores revision-masked final responses before opening key; prior R73 evidence already known. Pass/partial/fail based on criteria, not word count. Separately assess unnecessary explanation: background unrelated to a user gap or explicit request. Host-required skill notices are separate.",
+  "suite_sha256": "28208403e1814e9c1bf9074aa5f33d5634c4e48ffe94e2376d2e72bf43a78667",
+  "review_method": "Same reviewer, revision-masked scoring saved before revealing key. Prior R73 results known. Not an independent double-blind study. One question is judged by decision axis, not number of question marks. Shorter output is not automatically better.",
+  "pairs": [
+    {
+      "id": "round1/S02",
+      "criteria": [
+        "Exact order Musicbox, Streambox, Cloudbox with correct dates.",
+        "No clarification or extra follow-up."
+      ],
+      "arms": {
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Exact sorted table with correct dates and no final follow-up.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Sort these subscriptions by next renewal date, earliest first. Return a Markdown table with Name and Next renewal only. Cloudbox: 2026-12-01; Streambox: 2026-11-03; Musicbox: 2026-10-30.",
+              "assistant": "| Name | Next renewal |\n| --- | --- |\n| Musicbox | 2026-10-30 |\n| Streambox | 2026-11-03 |\n| Cloudbox | 2026-12-01 |",
+              "seconds": 16.86
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        },
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Exact sorted table with correct dates and no final follow-up.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Sort these subscriptions by next renewal date, earliest first. Return a Markdown table with Name and Next renewal only. Cloudbox: 2026-12-01; Streambox: 2026-11-03; Musicbox: 2026-10-30.",
+              "assistant": "| Name | Next renewal |\n| --- | --- |\n| Musicbox | 2026-10-30 |\n| Streambox | 2026-11-03 |\n| Cloudbox | 2026-12-01 |",
+              "seconds": 19.12
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round1/S03",
+      "criteria": [
+        "Ask the Cloudbox billing interval or give clearly conditional correct alternatives.",
+        "If monthly/yearly alternatives are used, totals are EUR132 and EUR22 respectively.",
+        "No unqualified assumed billing interval or definitive total."
+      ],
+      "arms": {
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "One short billing-period question, no assumed total or unnecessary tutorial.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Streambox costs EUR 12 per month. Cloudbox costs EUR 120. What is the total monthly equivalent cost of these subscriptions?",
+              "assistant": "What billing period does Cloudbox’s EUR 120 cover?",
+              "seconds": 21.25
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        },
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "One short billing-period question, no assumed total or unnecessary tutorial.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Streambox costs EUR 12 per month. Cloudbox costs EUR 120. What is the total monthly equivalent cost of these subscriptions?",
+              "assistant": "What billing period does Cloudbox’s EUR 120 cover?",
+              "seconds": 23.64
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round1/S04",
+      "criteria": [
+        "Explain relevant practical options or consequences without selecting on the user's behalf.",
+        "Ask one simpler concrete needs question if needed.",
+        "Do not simply repeat the local-versus-sync choice or treat uncertainty as delegation."
+      ],
+      "arms": {
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Brief practical explanation before one device-use question; no choice on behalf of user.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "I'm planning a subscription tracker and don't know whether I need local-only storage or syncing between devices. Help me choose.",
+              "assistant": "Local-only storage keeps the subscription list on one device; syncing keeps changes consistent across devices, such as adding a subscription on your phone and seeing it on your laptop.\n\nIn the use you have in mind, would someone manage their subscriptions on one device, or regularly switch between devices?",
+              "seconds": 20.62
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        },
+        "R73": {
+          "status": "partial",
+          "score": 1,
+          "reason": "Useful simpler use question, but no explanation of the alternatives or consequences.",
+          "flags": [
+            "missing_explanation"
+          ],
+          "turns": [
+            {
+              "user": "I'm planning a subscription tracker and don't know whether I need local-only storage or syncing between devices. Help me choose.",
+              "assistant": "Let’s start with how it will be used: will someone manage their subscriptions on one device, switch between devices such as a phone and laptop, or share the tracker with another person?",
+              "seconds": 28.05
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        }
+      },
+      "winner": "R74"
+    },
+    {
+      "id": "round1/S08",
+      "criteria": [
+        "Deliver correct EUR14 monthly total.",
+        "Ask one necessary concrete question for the requested storage decision.",
+        "No automatic storage choice, unnecessary question about the settled calculation or unrelated upsell."
+      ],
+      "arms": {
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Correct EUR14 and one concrete requested-continuation question. Storage explanation, where present, is relevant to the requested decision.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "First, calculate the total monthly equivalent of Streambox at EUR 12 per month and Cloudbox at EUR 24 per year. Then help me decide between local-only storage and syncing between devices for my subscription tracker. I haven't decided how I will use it yet.",
+              "assistant": "**Total monthly equivalent: EUR 14.**\n\n- Streambox: EUR 12/month.\n- Cloudbox: EUR 24/year ÷ 12 = EUR 2/month.\n\nFor the tracker, local-only storage keeps records on one device; syncing keeps updates available across devices automatically.\n\nTo make the choice concrete: would you want to add a subscription on your phone and later see it on your computer without manually transferring it?",
+              "seconds": 21.02
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        },
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Correct EUR14 and one concrete requested-continuation question. Storage explanation, where present, is relevant to the requested decision.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "First, calculate the total monthly equivalent of Streambox at EUR 12 per month and Cloudbox at EUR 24 per year. Then help me decide between local-only storage and syncing between devices for my subscription tracker. I haven't decided how I will use it yet.",
+              "assistant": "**Total monthly equivalent: EUR 14** — Streambox is EUR 12/month, and Cloudbox is EUR 24 ÷ 12 = EUR 2/month.\n\nFor the storage decision, what’s one situation where you’d use the tracker—for example, reviewing spending at your computer or adding a subscription on your phone while away?",
+              "seconds": 27.39
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round1/S09",
+      "criteria": [
+        "Correct translation: Your subscription renews tomorrow.",
+        "No generic offer, clarification or optional next step."
+      ],
+      "arms": {
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Exact translation without extra final content.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Translate this sentence into English: Η συνδρομή σας ανανεώνεται αύριο.",
+              "assistant": "Your subscription renews tomorrow.",
+              "seconds": 16.01
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        },
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Exact translation without extra final content.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Translate this sentence into English: Η συνδρομή σας ανανεώνεται αύριο.",
+              "assistant": "Your subscription renews tomorrow.",
+              "seconds": 18.11
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round1/U01",
+      "criteria": [
+        "Briefly explain the practical difference in plain language before the question.",
+        "Ask one concrete needs question, not the same unexplained technical choice.",
+        "Do not choose for the user or add unrelated implementation advice."
+      ],
+      "arms": {
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Plain-language practical definitions, relevant example/tradeoffs and one device-use question. No selected storage choice. Backup/service/offline remarks are related consequences, not an unrelated tutorial.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "I'm planning a subscription tracker. I don't understand what local-only storage and syncing between devices mean. Help me choose.",
+              "assistant": "**Local-only storage** means the subscription list stays on the device where you enter it. Add Netflix on your phone, and it won’t automatically appear on your laptop. It can work without internet, but recovering lost data requires a backup or export.\n\n**Syncing between devices** means changes carry across: add Netflix on your phone, and your laptop gets the update too. This usually uses an account and online storage. Transferring updates needs a connection; whether the tracker also works offline depends on its design.\n\n**Sync isn’t the same as backup:** deleting an entry can sync that deletion to every device.\n\nFor your planned tracker, will people use their subscription list on just one device, or need the same list on several devices, such as a phone and laptop?",
+              "seconds": 26.72
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        },
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "Plain-language practical definitions, relevant example/tradeoffs and one device-use question. No selected storage choice. Backup/service/offline remarks are related consequences, not an unrelated tutorial.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "I'm planning a subscription tracker. I don't understand what local-only storage and syncing between devices mean. Help me choose.",
+              "assistant": "**Local-only storage** means the tracker saves your subscription list on one device. Adding Netflix on your phone won’t automatically add it on your laptop. If that device is lost or its data is cleared, recovery depends on having a backup.\n\n**Syncing between devices** means changes carry across: add Netflix on your phone, and it appears on your laptop too. This usually involves an account and an online service holding a copy of your data. Syncing itself isn’t a backup—deletions can sync too.\n\nWill the tracker’s users need the same subscription list on multiple devices, or would keeping it on one device meet their needs?",
+              "seconds": 19.59
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round1/U02",
+      "criteria": [
+        "Initial response asks at most one consequential decision axis without choosing for the user.",
+        "After stated lack of understanding, briefly explain the relevant practical difference and ask one simpler needs question.",
+        "No repeated unexplained technical choice, no implementation and no unrelated explanation."
+      ],
+      "arms": {
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "First turn asks one device-use axis. Second turn explains both terms and asks one practical device-use question; no implementation or repeated unexplained technical choice.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Help me choose between local-only storage and syncing between devices for a subscription tracker.",
+              "assistant": "Will the subscription tracker mainly be used on one device, or do you need to view and update the same subscriptions across several devices?",
+              "seconds": 25.17
+            },
+            {
+              "user": "I don't understand what local-only storage and syncing mean.",
+              "assistant": "**Local-only storage** means the tracker saves your subscription list on one device. If you add Netflix on your phone, it won’t automatically appear on your laptop. If that device is lost or reset, recovering the list depends on having a backup.\n\n**Syncing between devices** means the tracker keeps the same list updated across devices, usually through an online account. Add Netflix on your phone, and it also appears on your laptop once they sync. That adds convenience, but how your data is stored and protected depends on the service.\n\nWould you mainly use the tracker on one device, or want the same list on several devices?",
+              "seconds": 7.56
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        },
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "First turn asks one device-use axis. Second turn explains both terms and asks one practical device-use question; no implementation or repeated unexplained technical choice.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "Help me choose between local-only storage and syncing between devices for a subscription tracker.",
+              "assistant": "How do you expect to use the subscription tracker: on one device, or regularly viewing and updating the same subscriptions across multiple devices?",
+              "seconds": 40.44
+            },
+            {
+              "user": "I don't understand what local-only storage and syncing mean.",
+              "assistant": "**Local-only storage** means the tracker saves your subscription list on one device. For example, a subscription you add on your phone won’t automatically appear on your laptop. If you lose that device, recovering the list depends on having a backup.\n\n**Syncing between devices** means the tracker keeps copies of your list up to date across devices, usually through an online account. Add a subscription on your phone, and it also appears on your laptop. This adds convenience, but involves storing or transferring your data through a service. Syncing isn’t automatically a backup: deletions can sync too.\n\nWould you expect to check and update your subscriptions on just one device, or on more than one?",
+              "seconds": 9.16
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round1/U03",
+      "criteria": [
+        "Ask one concrete needs question.",
+        "Do not explain local-only versus sync again or append general background.",
+        "No storage choice on behalf of user."
+      ],
+      "arms": {
+        "R73": {
+          "status": "pass",
+          "score": 2,
+          "reason": "One concrete typical-week question, no repeated explanation or selected choice.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "I understand the difference between local-only storage and syncing. I just haven't decided whether I'll use one device or several. Ask me one practical question to help decide; don't explain the storage options again.",
+              "assistant": "Thinking about a typical week, when would you need to view or update your data while away from your main device?",
+              "seconds": 17.52
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        },
+        "R74": {
+          "status": "pass",
+          "score": 2,
+          "reason": "One concrete typical-week question, no repeated explanation or selected choice.",
+          "flags": [],
+          "turns": [
+            {
+              "user": "I understand the difference between local-only storage and syncing. I just haven't decided whether I'll use one device or several. Ask me one practical question to help decide; don't explain the storage options again.",
+              "assistant": "Thinking about a typical week, when would you need to access or update your data while your main device isn’t with you?",
+              "seconds": 16.12
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        }
+      },
+      "winner": "tie"
+    },
+    {
+      "id": "round2/S04",
+      "criteria": [
+        "Explain relevant practical options or consequences without selecting on the user's behalf.",
+        "Ask one simpler concrete needs question if needed.",
+        "Do not simply repeat the local-versus-sync choice or treat uncertainty as delegation."
+      ],
+      "arms": {
+        "R73": {
+          "status": "partial",
+          "score": 1,
+          "reason": "Useful simpler use question, but no explanation of the alternatives or consequences.",
+          "flags": [
+            "missing_explanation"
+          ],
+          "turns": [
+            {
+              "user": "I'm planning a subscription tracker and don't know whether I need local-only storage or syncing between devices. Help me choose.",
+              "assistant": "In everyday use, would you expect to check and update subscriptions on one device, switch between your phone and computer, or share the tracker with someone else?",
+              "seconds": 47.09
+            }
+          ],
+          "core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1"
+        },
+        "R74": {
+          "status": "partial",
+          "score": 1,
+          "reason": "Explains the alternatives, but asks who would use the tracker AND which devices they need in the same response. This bundles two independently answerable decision axes despite being one grammatical question.",
+          "flags": [
+            "bundled_audience_and_devices"
+          ],
+          "turns": [
+            {
+              "user": "I'm planning a subscription tracker and don't know whether I need local-only storage or syncing between devices. Help me choose.",
+              "assistant": "Local-only keeps the subscription list on one device; syncing keeps the same list updated across devices, but adds development and maintenance work.\n\nIn a typical week, who would use the tracker, and on which devices would they need to view or update subscriptions?",
+              "seconds": 23.91
+            }
+          ],
+          "core_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6"
+        }
+      },
+      "winner": "tie"
+    }
+  ],
+  "metrics": {
+    "R73": {
+      "conversations": 9,
+      "turns": 10,
+      "pass": 7,
+      "partial": 2,
+      "fail": 0,
+      "median_seconds": 24.405,
+      "mean_words": 42.2,
+      "no_unnecessary_explanation_controls_passed": 4,
+      "skill_files_unchanged": true,
+      "complete_core_read_in_all_first_turns": true
+    },
+    "R74": {
+      "conversations": 9,
+      "turns": 10,
+      "pass": 8,
+      "partial": 1,
+      "fail": 0,
+      "median_seconds": 20.105,
+      "mean_words": 45.4,
+      "no_unnecessary_explanation_controls_passed": 4,
+      "skill_files_unchanged": true,
+      "complete_core_read_in_all_first_turns": true
+    }
+  },
+  "outcomes": {
+    "R73": 0,
+    "R74": 1,
+    "tie": 8
+  },
+  "limits": [
+    "Eight unique targeted scenarios and one repeat, not general superiority.",
+    "One reviewer; labels masked but reviewer knew older R73 findings.",
+    "R74 exposed one bundled audience/device question; no extra instruction change applied.",
+    "Host skill-use progress notices are separate from final-answer scoring.",
+    "CLI changed since the earlier R65/R73 study; both arms here used the same current CLI.",
+    "No R74 desktop UI, Cursor or Claude behavior retest. No merge, release or installed-plugin update."
+  ],
+  "schedule": [
+    {
+      "case": "S02",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "S02",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "S03",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "S03",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "S04",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "S04",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "S08",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "S08",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "S09",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "S09",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "U01",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "U01",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "U02",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "U02",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "U03",
+      "arm": "R73",
+      "batch": "round1"
+    },
+    {
+      "case": "U03",
+      "arm": "R74",
+      "batch": "round1"
+    },
+    {
+      "case": "S04",
+      "arm": "R73",
+      "batch": "round2"
+    },
+    {
+      "case": "S04",
+      "arm": "R74",
+      "batch": "round2"
+    }
+  ],
+  "transcript_note": "Exact final-response punctuation is retained, including em dashes. Only synthetic user prompts and model final answers are included; local raw traces remain private."
+}

@@ -1,5 +1,73 @@
 # Changelog
 
+## 0.2.77 (October 24, 2026; skill R74; unpublished)
+
+R74 applies the owner-approved clarification for useful explanations:
+
+- Replace the one-sentence context limit in R034 with the minimum explanation needed to answer. If the user does not understand the alternatives, briefly explain their practical difference before one simpler question, whether the uncertainty appears initially or in a later reply.
+- Preserve one question at a time and exclude drafts, generic advice and option essays. Do not add explanations when they are unnecessary.
+- Only this wording and the revision marker change in the skill. The rest of R034, the other 64 rules, discovery text, references and helper are unchanged. Preserve R73 as a fixture and enforce the exact approved replacement.
+- Focused Codex comparison and limits are tracked in [R74 verification](docs/CLAUDE-TESTING.md#r74-explanations-when-needed). Package 0.2.77 remains unpublished.
+
+R73 (earlier unpublished development revision, necessary follow-up questions):
+
+R73 applies the owner-approved correction for necessary follow-up questions:
+
+- After delivering a result, allow one necessary question for unfinished requested work or a continuation the user requested. Do not append optional refinements or generic offers to a completed task.
+- Respect scoped stopping and requests that end questions. When no further question is appropriate, state any material unresolved limit briefly.
+- Replace only the final guidance in R034 and advance the revision marker. The rest of R034, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
+- Preserve the R72 core as a historical fixture and check the approved R72-to-R73 change scope. Earlier model evaluations do not evaluate R73; see [R73 verification status](docs/CLAUDE-TESTING.md#r73-necessary-follow-up-questions). Final behavioral validation and review of comparative evidence remain pending.
+
+R72 (earlier unpublished development revision, early answers only on request):
+
+- Do not offer "Answer now" or equivalent early-answer options or unsolicited reminders. Continue to honor explicit user requests for an early answer in natural language.
+- Add only that guidance to R038 and advance the revision marker. R031 early-answer handling, the restriction on questions after a delivered result, the rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
+- Preserve the R71 core as a historical fixture and check the approved R71-to-R72 change scope. Earlier model evaluations do not evaluate R72; see [R72 verification status](docs/CLAUDE-TESTING.md#r72-early-answers-only-on-request). The previous proposed correction remains pending.
+
+R71 (earlier unpublished development revision, help after "don't know"):
+
+- Explain relevant options or verify discoverable facts after "don't know", then ask one simpler question only when it can resolve a remaining material prerequisite. Do not repeat the same question without additional help.
+- Replace only that guidance in R034 and advance the revision marker. Preserve "no preference" delegation, the restriction on questions after a delivered result, the rest of R034, the other 64 rules, discovery text, all six references and the optional helper.
+- Preserve the R70 core as a historical fixture and check the approved R70-to-R71 change scope. Earlier model evaluations do not evaluate R71; see [R71 verification status](docs/CLAUDE-TESTING.md#r71-help-after-dont-know). The remaining review findings are still pending.
+
+R70 (earlier unpublished development revision, explaining inspected evidence):
+
+- Explain relevant findings from inspected files, tool results or checks and provide a usable reference, without assuming the user has already seen them.
+- Replace only the broad unseen-file/result prohibition in R038 and advance the revision marker. The rest of R038, the other 64 rules, discovery text, all six references and the optional helper are unchanged.
+- Preserve the R69 core as a historical fixture and check the approved R69-to-R70 change scope. Earlier model evaluations do not evaluate R70; see [R70 verification status](docs/CLAUDE-TESTING.md#r70-explaining-inspected-evidence). The remaining review findings are still pending.
+
+R69 (earlier unpublished development revision, materiality by consequences):
+
+- Judge missing information by its consequences for correctness, constraints, user choices, risk and acceptance. A small or easily edited part of an answer is not automatically immaterial.
+- Keep the direct-answer path when one supported result works under every plausible answer without violating constraints or selecting a reserved choice.
+- Only R024 and the revision marker change from R68. The one-question workflow, the other 64 rules, discovery text, all six references and the optional helper are unchanged. The remaining review findings are still pending.
+- Preserve the R68 core as a historical fixture and check the exact R68-to-R69 change scope. Earlier model evaluations do not evaluate R69; see [R69 verification status](docs/CLAUDE-TESTING.md#r69-materiality-by-consequences).
+
+R68 (earlier unpublished development revision, restoring one question at a time):
+
+- Ask one focused question about the most consequential unresolved prerequisite. After each reply, recheck the remaining material gaps before answering or acting, and keep later decisions for when the work depends on them.
+- Align discovery text, plugin descriptions and guides with that workflow. Freeze the tested R67 core so its historical evaluations remain tied to the instructions actually used.
+- Only rules R032, R034, R035 and R038, the discovery text and revision marker change from R67. All other rules, all six references and the optional helper are unchanged. The other review findings remain pending.
+- R66/R67 comparative results below do not evaluate R68. See [R68 verification status](docs/CLAUDE-TESTING.md#r68-one-question-restoration).
+
+R67 (earlier unpublished development revision, built on R66):
+
+- Check more of the user's situation before asking: what prompted the request, what was already tried and how it went, who else is affected (including children or pets), where and how the result will be used or kept, how things stand now, and what the user will do with the result. Prefer questions that rule options out; ask about location only when it changes the content, and keep later rounds for dependent or substantive gaps.
+- Deliver the shortest complete result, built from the user's own names, numbers and constraints. Meet requested lengths, count before stating a count, and do not refer to files, tool output or checks the user has not seen.
+- Use neutral wording for unconfirmed specifics such as gender, current status, tense or dates, and do not claim a tool limitation that did not occur. Only rules R017, R024, R034, R038 and R055 and the revision marker changed from R66.
+- On a third set of 20 scenarios written by an agent that had seen neither R67 nor the earlier findings, R67 won 13, lost 3 and tied 4 against the same model without Deeperas (sign test p = 0.021; mean judge score 8.4 against 6.85, 95% interval for the difference +0.7 to +2.4). On the 14 underspecified requests it won 12 and lost 2. See [Claude testing](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
+- Freeze the R66 core as a fixture and check that only the approved R67 rules and revision marker changed.
+
+R66 (unpublished development revision):
+
+- Ask every independent material question together in one short numbered list, most consequential first. Questions that depend on earlier answers wait for the next turn. This replaces one question per turn.
+- Before asking for a personalised result, check the goal, the people involved and their needs, hard limits, the user's own figures and resources, what they already have or know, required specifics and format. Ask about the concrete situation before abstract framing such as jurisdiction or risk appetite.
+- Answer a request that already states its deliverable and governing facts in the first reply. Treat an unknown as immaterial when one result works for every plausible answer, and state the covered cases instead of asking.
+- Do not ask an item again after "don't know"; "no preference" delegates that choice. A delivered result does not end with a new request for information.
+- Keep options short and inside their numbered item, and accept numbered or partial answers. Only rules R024, R028, R032, R034, R035, R036 and R038, the discovery text and the revision marker changed. The other 58 rules, all six references and the optional memory helper are unchanged.
+- In a paired Claude Code evaluation against the same model without Deeperas, R66 won 15 of 20 pairs, lost 1 and tied 4. R65 won 20, lost 29 and tied 11 over 60 pairs of the same scenarios. Those scenarios also informed the change. On 20 held-out scenarios written independently afterwards, unchanged R66 won 10, lost 5 and tied 5. For the 14 underspecified held-out requests, it won 10, lost 3 and tied 1, and its mean judge score was 1.7 points higher (95% interval +0.2 to +3.2). R66 final answers were longer than the baseline's, which cost it two complete requests by one point. See [Claude testing](docs/CLAUDE-TESTING.md#paired-evaluation-r65-r66-and-r67).
+- Freeze the R65 core as a fixture and check that only the approved rules, discovery text and revision marker changed. The frozen device-choice and continuation behavioral suites still describe one question per turn and need a revised rubric for R66.
+
 ## 0.2.76 (October 23, 2026; skill R65)
 
 - Add a Claude plugin manifest and repository marketplace for Claude for Windows and Claude Code. Reuse the complete R65 core, all six references, optional helper and blue icon without instruction changes.
