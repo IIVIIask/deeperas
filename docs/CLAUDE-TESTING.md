@@ -1,6 +1,6 @@
 # Claude compatibility checks
 
-Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R73 development revision is tracked [separately](#r73-necessary-follow-up-questions).
+Deeperas `0.2.76`, skill revision R65. Checked on October 23, 2026. The [paired evaluation](#paired-evaluation-r65-r66-and-r67) below covers the earlier unpublished `0.2.77` / R66 and R67 revisions. The current R74 development revision is tracked [separately](#r74-explanations-when-needed).
 
 ## Environment
 
@@ -150,6 +150,18 @@ Only the approved final wording in R034 and the revision marker differ from the 
 
 All 42 package, rule-integrity and isolated memory tests passed on Windows on October 23, 2026. The Claude Code plugin validator also passed. These checks establish package consistency and the approved change scope, not model adherence.
 
-No new R73 model evaluation has been run. Historical R66/R67 statistics do not establish R73 behavior or improvement.
+Codex testing on October 24, 2026 covered 10 unique scenarios. A fresh paired comparison with published R65 yielded 11 tied scenario pairs and two favoring R65, both repeats of the same explanation-of-options case. No pair favored R73. These targeted results do not demonstrate general superiority. Desktop R73 smoke tests covered calculation, a necessary question, a requested preliminary answer and working code citations; they used a local skill and GPT-6 Astra High, separately from the gpt-6.1-sol medium CLI comparison. Cursor and Claude were not retested for R73.
+
+## R74 explanations when needed
+
+R74 changes only the approved context-length wording in R034 and the revision marker. It allows the minimum explanation needed when the user does not understand the alternatives, in an initial request or a later reply. One question at a time and the other R73 instructions remain unchanged.
+
+Focused Codex comparison on October 24, 2026 used 18 fresh conversations (20 assistant turns), eight unique scenarios and one repeat, with Codex CLI 0.164.0-alpha.11.1, gpt-6.1-sol and medium reasoning for both arms. Prompts and criteria were frozen before execution; one reviewer scored revision-masked text before revealing the labels. This was not independent double-blind review.
+
+R74 explained the local-only/sync difference in both repetitions of the original uncertainty scenario; R73 omitted it in both. Overall: one pair favored R74, eight tied and none favored R73. R73 had seven passes and two partials; R74 had eight passes and one partial. The R74 partial combined who would use the tracker and which devices they need, so the one-question requirement is not fully reliable. No further instruction change was applied.
+
+Both revisions passed four controls where extra explanation was unnecessary: a known-options question, missing billing interval, sorted table and translation. Host-required skill-use progress notices were assessed separately from final answers. All 43 package, rule-integrity and isolated-memory checks passed. See the [prompts, exact final answers, criteria and results](../tests/fixtures/deeperas-r74-codex-evaluation.json).
+
+These results support a narrow improvement in explaining options when needed, not general superiority or a minor-version promotion. R74 desktop UI, Claude and Cursor behavior were not retested. Package `0.2.77` remains unpublished and unmerged.
 
 [Installation](../INSTALL.md#claude-for-windows) · [Back to the README](../README.md)

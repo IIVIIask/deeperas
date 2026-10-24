@@ -1,6 +1,15 @@
 # Changelog
 
-## 0.2.77 (October 23, 2026; skill R73; unpublished)
+## 0.2.77 (October 24, 2026; skill R74; unpublished)
+
+R74 applies the owner-approved clarification for useful explanations:
+
+- Replace the one-sentence context limit in R034 with the minimum explanation needed to answer. If the user does not understand the alternatives, briefly explain their practical difference before one simpler question, whether the uncertainty appears initially or in a later reply.
+- Preserve one question at a time and exclude drafts, generic advice and option essays. Do not add explanations when they are unnecessary.
+- Only this wording and the revision marker change in the skill. The rest of R034, the other 64 rules, discovery text, references and helper are unchanged. Preserve R73 as a fixture and enforce the exact approved replacement.
+- Focused Codex comparison and limits are tracked in [R74 verification](docs/CLAUDE-TESTING.md#r74-explanations-when-needed). Package 0.2.77 remains unpublished.
+
+R73 (earlier unpublished development revision, necessary follow-up questions):
 
 R73 applies the owner-approved correction for necessary follow-up questions:
 

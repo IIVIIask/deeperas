@@ -1,0 +1,12 @@
+{
+  "baseline": "R73",
+  "revision": "R74",
+  "r73_core_sha256": "8b9ada645b1af99c753cbf97a49957c2bef67c69910ee3086cb60539f6a8c0d1",
+  "updated_sha256": "da5fa02090c67965409981eb469e857e587b455095552312f52c4b9200e240c6",
+  "changed_rules": [
+    "R034"
+  ],
+  "before": "Keep the turn brief: at most one sentence of context, then the question; no draft, generic advice or option essays.",
+  "after": "Keep the turn brief, with only the explanation needed for the user to answer. When the user does not understand the alternatives, briefly explain their relevant practical difference before asking one simpler question, whether that uncertainty appears in the initial request or a later reply. No draft, generic advice or option essays.",
+  "scope": "Only the approved context-length sentence replacement in R034 and revision marker. All other instructions, discovery metadata, references and helper unchanged."
+}

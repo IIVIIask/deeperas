@@ -17,6 +17,8 @@ const r70 = JSON.parse(read('tests/fixtures/deeperas-r70-evidence-approved.json'
 const r71 = JSON.parse(read('tests/fixtures/deeperas-r71-dont-know-approved.json'));
 const r72 = JSON.parse(read('tests/fixtures/deeperas-r72-early-answer-approved.json'));
 const r73 = JSON.parse(read('tests/fixtures/deeperas-r73-follow-up-approved.json'));
+const r74 = JSON.parse(read('tests/fixtures/deeperas-r74-explanation-approved.json'));
+const r73Core = 'tests/fixtures/deeperas-r73-core.txt';
 const r65Core = 'tests/fixtures/deeperas-r65-core.txt';
 const r66Core = 'tests/fixtures/deeperas-r66-core.txt';
 const r67Core = 'tests/fixtures/deeperas-r67-core.txt';
@@ -144,6 +146,17 @@ test('R72 changes only the early-answer display guidance and revision marker', (
 
 test('R73 changes only the necessary follow-up guidance and revision marker', () => {
   assert.equal(digest(r72Core), r73.r72_core_sha256);
-  assert.equal(digest(`${skill}/SKILL.md`), r73.updated_sha256);
-  assertApprovedRuleChanges(r72Core, `${skill}/SKILL.md`, r73.changed_rules, 'R72', 'R73');
+  assert.equal(digest(r73Core), r73.updated_sha256);
+  assertApprovedRuleChanges(r72Core, r73Core, r73.changed_rules, 'R72', 'R73');
+});
+
+test('R74 changes exactly the approved explanation wording and revision marker', () => {
+  const before = read(r73Core).replace(/\r\n/g, '\n');
+  const current = read(`${skill}/SKILL.md`).replace(/\r\n/g, '\n');
+  assert.equal(digest(r73Core), r74.r73_core_sha256);
+  assert.equal(digest(`${skill}/SKILL.md`), r74.updated_sha256);
+  assert.equal(before.split(r74.before).length, 2);
+  assert.equal(current, before.replace(r74.before, r74.after)
+    .replace('Deeperas Precision - Plugin R73', 'Deeperas Precision - Plugin R74'));
+  assertApprovedRuleChanges(r73Core, `${skill}/SKILL.md`, r74.changed_rules, 'R73', 'R74');
 });
